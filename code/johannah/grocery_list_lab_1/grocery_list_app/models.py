@@ -1,13 +1,18 @@
+import datetime
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
-class Item(models.Model):
-  name = models.CharField(max_length=32)
-  description = models.TextField()
+class GroceryItem(models.Model):
+  text_description = models.CharField(max_length=200)
+  created_date = models.DateTimeField('date created')
+  # created_date = models.DateTimeField()
+  completed_date = models.DateTimeField('date completed', null=True, blank=True)
+  completed = models.BooleanField(default=False)
 
   def __str__(self):
-      return self.name
+    return self.text_description
 
 
 
