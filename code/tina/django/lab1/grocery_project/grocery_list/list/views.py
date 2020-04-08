@@ -1,12 +1,19 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.utils import timezone
+
 from .models import GroceryItem
 
-def Itemlist(request):
-    item = GroceryItem.objects.all()
-    return render(request, 'lists/input.html', item)
+def index(request):
+    context = {'':GroceryItem.objects.filter(done=False).order_by('pub_date')}
+    return render(request, "list/input.html", context)
 
-def fulllist(request):
-    food = get_object_or_404(GroceryItem)
-    return render(request, 'lists/item.html', food)
+def Itemlist(request,GroceryItem_id):
+    item = get_object_or_404(GroceryItem,pk=items_id)
+    return render(request, 'list/input.html', {'item': item})
+
+
+def add(request):
+    GroceryItem.objects.create(items=request.POST['itemsg'],pub_date=timezone.now())
+    return HttpResponseRedirect(reverse('list:index'))
