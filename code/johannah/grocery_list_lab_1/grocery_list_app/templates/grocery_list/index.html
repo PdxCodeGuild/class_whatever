@@ -19,11 +19,11 @@
       {% for item in incompleted_items %}
         <p>
         {{ item.text_description }}
-        <form action="% url 'grocery_list_app:complete' item.id %}" method="post">
+        <form action="{% url 'grocery_list_app:complete' item.id %}" method="post">
           {% csrf_token %}
           <input type="submit" value="complete">
         </form>
-        <form action="% url 'grocery_list_app:delete' item.id %}" method="post">
+        <form action="{% url 'grocery_list_app:delete' item.id %}" method="post">
           {% csrf_token %}
           <input type="submit" value="delete">
         </form>
@@ -34,11 +34,11 @@
       {% for item in completed_items %}
         <p>
         {{ item.text_description }}
-        <form action="% url 'grocery_list_app:complete' item.id %}" method="post">
+        <form action="{% url 'grocery_list_app:complete' item.id %}" method="post">
           {% csrf_token %}
           <input type="submit" value="complete">
         </form>
-        <form action="% url 'grocery_list_app:delete' item.id %}" method="post">
+        <form action="{% url 'grocery_list_app:delete' item.id %}" method="post">
           {% csrf_token %}
           <input type="submit" value="delete">
         </form>
