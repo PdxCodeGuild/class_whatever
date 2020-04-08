@@ -1,5 +1,5 @@
 """
-WSGI config for grocery_list_sub_project project.
+WSGI config for GroceryTodo project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'grocery_list_sub_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GroceryTodo.settings')
 
 application = get_wsgi_application()
