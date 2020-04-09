@@ -1,0 +1,18 @@
+body {
+  font: 400 15px;
+  font-family: 'Bowlby One SC', cursive;
+  line-height: 2;
+  color: #fe5f55;
+}
+.jumbotron {
+  color: #4f6367;
+  padding: 100px 25px;
+  font-family: 'Bowlby One SC', cursive;
+}
+.container-fluid {
+  padding: 20px 15px;
+}
+.bg {
+  background-color: #eef5db;
+}
+
