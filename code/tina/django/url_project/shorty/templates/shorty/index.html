@@ -1,0 +1,13 @@
+<h1>Hello</h1>
+
+<form action="{% url 'shorty:add' %}" method='post' %> 
+    {% csrf_token %}
+        <label for="url">URL:</label>
+        <input type="url" id="url" name="url">
+        <input type="submit" value="Tiny Url">
+</form>
+
+
+{% for item in furl %}
+    {{item.full_url}}
+{% endfor %} 
