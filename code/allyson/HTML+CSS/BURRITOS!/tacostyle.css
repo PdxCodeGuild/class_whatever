@@ -19,7 +19,7 @@ header {
 }
 a {
   color: darkcyan;
-  font: size 25%;
+  font-size: 75%;
   text-decoration: none;
 }
 a:hover {

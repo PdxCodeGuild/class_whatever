@@ -1,8 +1,10 @@
 from django.http import HttpResponse
-from django.shortcuts import render, reverse
-from .models import Items_List
+from django.shortcuts import render, get_object_or_404
 from django.template import loader
 from django.utils import timezone
+from django.urls import reverse
+
+from .models import Items_List
 
 
 def shopping_list_app(request):
@@ -19,14 +21,14 @@ def add_item(request):
     add_item_new = request.POST["item_id"]
     new_item = Items_List(text=add_item_new, completed=False, add_date=timezone.now())
     new_item.save()
-    return HttpResponse(reverse(""))
+    return HttpResponse(reverse("shopping_list_app:index"))
 
 
 def remove_item(request):
     rem_item_id = request.POST["delete_item_id"]
     rem_item = Items_List.objects.get(id=rem_item_id)
     rem_item.delete()
-    return HttpResponse(reverse(""))
+    return HttpResponse(reverse("shopping_list_app:index"))
 
 
 def undo(request):
@@ -35,7 +37,7 @@ def undo(request):
     undo_item.completed = False
     undo_item.com_date = None
     undo_item.save()
-    return HttpResponse(reverse(""))
+    return HttpResponse(reverse("shopping_list_app:index"))
 
 
 def full_list(request):
@@ -44,4 +46,4 @@ def full_list(request):
     list.completed = True
     list.com_date = timezone.now()
     list.save()
-    return HttpResponse(reverse(""))
+    return HttpResponse(reverse("shopping_list_app:index"))

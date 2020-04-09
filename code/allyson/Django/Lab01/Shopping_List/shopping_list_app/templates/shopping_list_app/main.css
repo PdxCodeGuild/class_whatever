@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  box-sizing: border-box;
+  background-color: #c3cad0;
+}
+body {
+  margin: 10px;
+  font-family: 'Indie Flower', cursive;
+}
+input {
+  margin: 0;
+  border: black;
+  border-radius: 0;
+  padding: 1px;
+  float: justify;
+  font-size: 12px;
+}
+button {
+  padding: 1px;
+  width: 25%;
+  background: #e7717d;
+  color: #afd275;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+button:hover {
+  background-color: #bbb;
+}
+
+legend {
+  background-color: #afd275;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  padding: 1px;
+  padding-top: 1px;
+  text-align: center;
+  font-weight: 500;
+}
+fieldset {
+  background-color: #c2b9b0;
+  padding: 5px;
+}

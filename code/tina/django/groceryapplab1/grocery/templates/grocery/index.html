@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Grocery list</title>
+  </head>
+  <body>
+    <p>Grocery list</p>
+    <form action="{% url 'grocery:add' %}" method='post' %> 
+    {% csrf_token %}
+        <label for="description">description:</label>
+        <input type="text" id="description" name="description">
+        <input type="submit" value="Add Grocery Item">
+    </form>
+    <h2> incomplete items </h2>
+    {% for item in incomplete_items %}
+        <p> 
+        {{ item.description }} 
+        <from action="{% url 'grocery:complete' item.id %}" method='post'>
+            {% csrf_token %}
+            <input type="sumbit" value="undo">
+        </form>
+
+        </p>
+    {% endfor %}
+
+
+    <h2>Complete Items</h2>
+    {% for item in complete_items %}
+        <p> 
+        {{ item.description }} 
+        <from action="{% url 'grocery:complete' item.id %}" method='post'>
+            {% csrf_token %}
+            <input type="sumbit" value="complete">
+        </form>
+
+        </p>
+    {% endfor %}
+
+  </body>
+</html>
+
