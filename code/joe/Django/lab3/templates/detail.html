@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if replying_to %}
+        <div class="chirp">
+            <div class="chirp-head">
+                <h4>{{ replying_to.author }}</h4>
+                <p>{{ replying_to.created }}</p>
+            </div>
+            <hr/>
+            <p>{{ replying_to.content }}</p>
+            <div class="chirp-foot">
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="chirp-detail">
+        <h4>{{ post.author }}</h4>
+        <p>{{ post.content }}</p>
+        <p>{{ post.created }}</p>
+        <hr/>
+        <p>{{ post.post_set.all.count }} Replies</p>
+        <hr/>
+        <div class="chirp-foot">
+
+        </div>
+        </div>
+    </div>
+
+    {% for reply in replies %}
+        <div class="chirp">
+            <div class="chirp-head">
+                <h4>{{ reply.author }}</h4>
+                <p>{{ reply.created }}</p>
+            </div>
+            <hr/>
+            <p>{{ reply.content }}</p>
+            <div class="chirp-foot">
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

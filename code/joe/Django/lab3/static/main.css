@@ -1,0 +1,40 @@
+.chirp {
+    border: 1px solid lightgray;
+    margin: auto;
+    margin-bottom: 4px;
+    padding: 4px;
+    width: 640px;
+}
+
+.chirp-detail {
+    border: 1px solid lightgray;
+    margin: auto;
+    margin-bottom: 4px;
+    padding: 4px;
+    width: 768px;
+}
+
+.chirp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chirp-head h4 {
+    margin: 8px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+header h1 {
+    justify-self: start; /* FIX */
+}

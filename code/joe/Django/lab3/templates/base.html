@@ -1,18 +1,27 @@
-
+{% load static %}
 <!DOCTYPE html>
 
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Chirper</title>
-
+        <link rel="stylesheet" href="{% static 'main.css' %}" />
     </head>
 
     <body>
-    <!--Navbar-->
+        <header>
+            <h1><a href="{% url 'posts:index' %}">Chirper</a></h1>
+            <a href="{% url 'posts:create' %}">New Chirp</a>
+        </header>
 
-    {% block content %}
-    {% endblock content %}
+        {% if error %}
+            <h2 class="error">{{ error }}</h2>
+        {% endif %}
 
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
     </body>
 
 </html>

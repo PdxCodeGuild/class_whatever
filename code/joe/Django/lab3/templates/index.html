@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for post in all_posts %}
+        <div class="chirp">
+            <div class="chirp-head">
+                <h4>{{ post.author }}</h4>
+                <p><a href="{% url 'posts:detail' post.pk %}">{{ post.created }}</a></p>
+            </div>
+            <hr/>
+            <p>{{ post.content }}</p>
+            <div class="chirp-foot">
+            </div>
+        </div>
+    {% empty %}
+        <h3>There's nothing here</h3>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>New Post</h1>
+    <form action="{% url 'posts:actual_create' %}" method="post">
+        {% csrf_token %}
+
+        {% if replying_to %}
+            <div class="chirp">
+                <div class="chirp-head">
+                    <h4>{{ reply_chirp.author }}</h4>
+                    <p>{{ reply_chirp.created }}</p>
+                </div>
+                <hr/>
+                <p>{{ reply_chirp.content }}</p>
+                <div class="chirp-foot">
+                </div>
+            </div>
+            <input type="hidden" id="replying_to" name="replying_to" value="{{ replying_to }}">
+            <br/>
+        {% endif %}
+
+        <input type="text" id="content" name="content" required/>
+        <input type="submit" value="Chirp"/>
+    </form>
+{% endblock content %}

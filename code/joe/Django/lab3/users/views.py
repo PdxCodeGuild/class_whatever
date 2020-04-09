@@ -4,7 +4,6 @@ from django.views import generic
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 
-
 class SignupView(generic.CreateView):
     form_class = UserCreationForm
     template_name = ''
