@@ -25,10 +25,26 @@ def add(request):
     # 
     return HttpResponseRedirect(reverse('grocery_app:index'))
 
-def delete(request, grocery_id):
-    grocery = get_object_or_404(Grocery_item, pk=grocery_id)
-    grocery.delete()
+# getting error for this function
+def completed(request,completed_id):
+    completed = get_object_or_404(Grocery_item, pk=completed_id)
+    completed.is_completed = True
+    completed.completed_date = timezone.now()
+    completed.save()
+    return HttpResponseRedirect(reverse('grocery_app:index'))
+    
 
+def delete(request):
+    delete_item = Grocery_item.objects.filter(is_completed=True)
+    for items in delete_item:
+        items.delete()
+    return HttpResponseRedirect(reverse('grocery_app:index'))
+
+# def delete(request, grocery_id):
+#     grocery = get_object_or_404(Grocery_item, pk=grocery_id)
+#     grocery.delete()
+
+ 
     
 
 
