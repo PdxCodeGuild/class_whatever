@@ -2,18 +2,16 @@ from django.shortcuts import render
 
 from django.shortcuts import render, reverse, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Shorten
+from .models import Shrink
 import string
 import random
 
 
-
 def generate_code():
-    lttrs = string.ascii_lowercase + string.ascii_uppercase
-    nums = string.digits
+    notes = string.ascii_lowercase + string.ascii_uppercase
+    cords = string.digits
 
-
-    options = lttrs + nums
+    options = notes + cords
     code = ""
 
     for x in range(5):
@@ -22,30 +20,23 @@ def generate_code():
 
 
 def index(request):
-    URL_ToShortens = Shorten.objects.all()
-    domain = request.META['HTTP_HOST']
+    URLShrink = Shrink.objects.all()
+    domain = request.META["HTTP_HOST"]
     context = {
-        'URL_ToShortens': URL_ToShortens,
-        'domain':domain,
+        "URLShrink": URLShrink,
+        "domain": domain,
     }
-    return render(request, 'shortapp/index.html', context)
+    return render(request, "URLShrink_App/index.html", context)
+
 
 def save_url(request):
-    url = request.POST['longUrl']
+    url = request.POST["longUrl"]
     code = generate_code()
-    new_url = Shorten(
-            URL = url,
-            code = code,
-    )
+    new_url = Shrink(URL=url, code=code,)
     new_url.save()
+    return HttpResponseRedirect(reverse("URLShrink_App:index"))
 
-    # create an instance of the model using the url and code
-    # save it
-    # redirect to the index page
-    return HttpResponseRedirect(reverse('shortapp:index'))
 
 def redirect_url(request, code):
-    # look up the record with the given code
-    links = Shorten.objects.get(code=code)
-    # redirect to the long url inside the record
+    links = Shrink.objects.get(code=code)
     return redirect(links.URL)
