@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "URLShrink_App.app.UrlshrinkAppConfig",
+    "URLShrink_App.apps.UrlshrinkAppConfig",
 ]
 
 MIDDLEWARE = [
