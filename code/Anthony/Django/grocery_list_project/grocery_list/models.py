@@ -8,23 +8,27 @@ from django.utils import timezone
 
 
 class GroceryItem(models.Model):
-    grocery_text = models.CharField(max_length = 20)
+    item = models.CharField(max_length = 200)
     # /*date list was created*/
-    created_date = models.DateTimeField(" date created")  
+    description = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)  
     completed = models.BooleanField(default=False)
-    completed_date = models.DateField("Date completed")
+    completed_date = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.grocery_text
-    
-    # def was_published_recently(self):
-        # return self.completed_date >= timezone.now() -datetime.timedelta(days=1)
-  
-    
-class AddedItem(models.Model):
-    groceryItem= models.ForeignKey(GroceryItem, on_delete=models.CASCADE)
-    added_item_text = models.CharField(max_length = 20)
-  
+    def __str__(self): 
+        return self.item 
 
-    def __str__(self):
-        return self.added_item_text
+
+
+# class Grocery_item(models.Model):
+#     grocery_item = models.CharField(max_length=200)
+#     description = models.TextField()
+#     pub_date = models.DateTimeField('date published')
+#     completed_date = models.DateTimeField('date completed', blank=True, null=True)
+#     is_completed= models.BooleanField(default=False)
+
+#     def __str__(self):
+#         return self.grocery_item # return a string representation of grocery_item
+    
+  
+  
