@@ -1,0 +1,11 @@
+<form action="{% url 'list:add' %}" method="post">
+    {% csrf_token %}
+    <input type="text" id="itemsg" name="itemsg">
+    <input type="submit" value="add">
+</form>  
+
+<ul>
+{% for item in context %}
+    <li>{{item}}</li>
+{% endfor %}
+</ul>
