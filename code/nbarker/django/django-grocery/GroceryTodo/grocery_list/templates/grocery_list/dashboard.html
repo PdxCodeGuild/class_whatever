@@ -1,9 +1,49 @@
-{% extends 'grocery_list/main.html' %}
 
-{% block content %}
-    
+<ul>
+{% for grocery_item in all_items %}
+<li>{{grocery_item.content}}, {{grocery_item.timestamp}}, {{grocery_item.completed}}, {{grocery_item.completed_date}}
+    </li>
+    {% endfor %}
+</ul>
 
-<h1>Dashboard</h1>
+<!-- <ul>
+    <li>temporary todo item A</li>
+    <li>temporary todo item B</li>
+</ul> -->
 
+<form action="/addGroceryItem" method="post">{% csrf_token %}
+    <input type="text" name="content"/>
+    <input type="submit" value="Add"/>
 
-{% endblock %}
+ <h2>Incomplete</h2>
+        {% for item in incompleted_items %}
+            <p>
+            {{ item.description }}
+            <form action="{% url 'grocery:complete' item.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Complete">
+            </form>
+            <form action="{% url 'grocery:delete' item.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+            </p>
+        {% endfor %}
+
+        <h2>Complete</h2>
+        {% for item in completed_items %}
+            <p>
+            {{ item.description }}
+            <form action="{% url 'grocery:complete' item.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Undo">
+            </form>
+            <form action="{% url 'grocery:delete' item.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+            </p>
+        {% endfor %}
+
+    </body>
+</html>

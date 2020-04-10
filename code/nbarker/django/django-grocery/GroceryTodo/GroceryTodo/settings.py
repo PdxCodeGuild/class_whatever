@@ -56,7 +56,7 @@ ROOT_URLCONF = 'GroceryTodo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates/grocery_list/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
