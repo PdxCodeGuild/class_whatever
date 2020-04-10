@@ -6,8 +6,9 @@ urlpatterns = [
 
     path('', views.index, name='index'),
     path('add/', views.add, name='add'),
-    path('short_url/', views.short_url, name='short_url'),
-    path('redirect/', views.redirect, name='redirect')
+    path('results/<str:short_id>/', views.results, name='results'),
+    path('redirect/', views.redirect, name='redirect'),
+    
     
 
 ]
