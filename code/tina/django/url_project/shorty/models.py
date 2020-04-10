@@ -2,7 +2,7 @@ from django.db import models
 
 class URL(models.Model):
     full_url = models.URLField()
-    url_hash = models.CharField(max_length=6)
+    url_hash = models.URLField(max_length=6)
     clicks = models.IntegerField(default=0)
     create_at = models.DateTimeField(auto_now_add=True)
     
