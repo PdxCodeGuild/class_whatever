@@ -11,5 +11,5 @@ class Post(models.Model):
     # rechirp = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, blank=True)
 
 
-    # class Meta:
-    #     ordering = ['-created']
+    def num_replies(self):
+        return self.post_set.all().count()
