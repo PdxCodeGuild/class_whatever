@@ -1,0 +1,10 @@
+{%extends 'chirp/base.html'%}
+{%block content%}
+    {%if posts%}
+        {%for post in posts%}
+            <h5>{{post.author}}</h5>
+            <p class='date_posted'>{{post.date_posted}}</p>
+            <p class='post_content'>{{post.content}}</p>
+        {%endfor%}
+    {%endif%}
+{%endblock content%}
