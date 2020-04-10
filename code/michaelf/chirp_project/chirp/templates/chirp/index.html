@@ -1,0 +1,14 @@
+{%extends 'chirp/base.html'%}
+{%block content%}
+    {%if posts%}
+        {%for post in posts%}
+            <img class= "rounded-circle article-img" src="{{post.author.profile.image.url}}">
+            <h5>{{post.author}}</h5>
+            <a class='date_posted' href="{%url 'chirp:detail' post.id%}">{{post.date_posted}}</a>
+            {%if post.is_modified%}
+                <p class='date_modified'> {{post.date_modified}}</p>
+            {%endif%}
+            <p class='post_content'>{{post.content}}</p>
+        {%endfor%}
+    {%endif%}
+{%endblock content%}

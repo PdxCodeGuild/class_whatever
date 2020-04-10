@@ -3,34 +3,38 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.utils import timezone
 import random, string
+import re
 
 
 from .models import URL
 
 def index(request):
-    return render(request, 'shorty/index.html')
-
-def short_code():
-    length = 6
-    char = string.ascii_uppercase + string.digits + string.ascii_letters
-    while True:
-        short_id = ''.join(random.choice(char) for x in range(length))
-    return short_id
-
+    url_hash = ''
+    context = {
+        'url_hash':url_hash
+    }
+    return render(request, 'shorty/index.html',context)
 
 def add(request):
-    URL.objects.create(create_at=timezone.now(), full_url=request.POST['url'],url_hash=short_code())
-    return HttpResponseRedirect(reverse('shorty:index'))
+    length = 6
+    url_hash = ''
+    char = string.ascii_uppercase + string.digits + string.ascii_letters
+    for x in range(length):
+        url_hash += ''.join(random.choice(char))
+    
+    URL.objects.create(create_at=timezone.now(), full_url=request.POST['url'],url_hash=url_hash)
+    return HttpResponseRedirect(reverse('shorty:results',args=(url_hash,)))
 
 
-def short_url(request):
-    url = request.POST.get('url')
-    short_id = short_code()
-    b = url(full_url=url, url_hash=short_id)
-    b.save()
 
-def redirect(request):
-    short_url = URL.object.get(hash_url='full_url')
+def redirect(request,newurl):
+    short_url = URL.objects.get(url_hash=newurl)
     short_url.clicks +=1
     short_url.save()
-    return HttpResponseRedirect(reverse('shorty:index', short_url))
+    if not re.match('(?:http|https|ftp)://',short_url.full_url):
+        return HttpResponseRedirect('http://{}'.format(short_url.full_url))
+    return HttpResponseRedirect(short_url.full_url)
+
+
+def results(request,short_id):
+    return render(request,'shorty/index.html',{'shortlink':URL.objects.get(url_hash=short_id)})

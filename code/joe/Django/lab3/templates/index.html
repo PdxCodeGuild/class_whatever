@@ -4,12 +4,13 @@
     {% for post in all_posts %}
         <div class="chirp">
             <div class="chirp-head">
-                <h4>{{ post.author }}</h4>
+                <h4><a href="{% url 'users:profile' post.author %}">{{ post.author }}</a></h4>
                 <p><a href="{% url 'posts:detail' post.pk %}">{{ post.created }}</a></p>
             </div>
             <hr/>
             <p>{{ post.content }}</p>
             <div class="chirp-foot">
+                <p>{{ post.num_replies }} Replies</p>
             </div>
         </div>
     {% empty %}

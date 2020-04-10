@@ -1,0 +1,52 @@
+<h1>Shopping List</h1>
+
+         <div class="box">
+                <h2>Add an item to the list</h2>
+                <form action="{% url 'grocery_list:create' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="item" id="item" required/>
+                    <label for="item">Add an Item</label><br/>
+                    <input type="submit" value="Add to List"/>
+                    {% if error %}
+                        <p class="error">{{ error }}</p>
+                    {% endif %}
+                </form>
+    <h2>Incomplete items</h2>
+    {% csrf_token %}
+    {% if incomplete_items %}
+        <ul>
+        {% for item in incomplete_items %}
+            <li>{{item.item_text}}</li>
+            <a href="{% url 'grocery_list:complete' item.id %}">Completed this item</a>
+        {% endfor %}
+
+        </ul>
+
+    {% else %}
+        <p>Nothing to see here!</p>
+
+    {% endif %}
+
+    <h2>Completed items</h2>
+
+    {% csrf_token %}
+    {% if completed_items %}
+        <ul>
+        {% for item in completed_items %}
+            <li>{{item.item_text}}</li>
+            <a href="{% url 'grocery_list:delete' item.id %}">Delete this item</a>
+        {% endfor %}
+
+        </ul>
+
+    {% else %}
+        <p>Nothing to see here!</p>
+
+    {% endif %}
+
+
+{% comment %} <form action= '{% url "delete" %}' method='post'>
+    {% csrf_token %}
+    <input type="submit" value="remove completed items">
+</form> {% endcomment %}
+
