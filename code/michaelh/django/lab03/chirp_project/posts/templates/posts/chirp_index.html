@@ -4,6 +4,7 @@
     {% for post in posts %}
         <div class="post">
             <div class="date">
+                <p>author: <a href="{% url 'users:user_detail' post.author.username %}">{{ post.author }}</a></p>
                 <p>created: {{ post.created_date }}</p>
             </div>
             <p>{{ post.text|linebreaksbr }}</p>
