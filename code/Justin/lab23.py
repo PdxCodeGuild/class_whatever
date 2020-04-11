@@ -1,21 +1,58 @@
+    # Alternate path
+    
+    # global list
+    # list = {}
+
+    # print "name: ",
+
+    # contact_name = raw_input()
+
+    # print "input number: ",
+
+    # contact_number = input()
+
+    # list.update({contact_name:contact_number})
+
+
 with open('contacts.csv', 'r') as file:
     # lines = file.read().split('\n')
-    data_csv = file.read()
-    csv_lines = data_csv.split('\n')
-    data_csv = []
-    for line in csv_lines:
-        data_csv.append(line.split(','))
+    data = file.read()
+    lines = data.split('\n')
+    data = []
+    for line in lines:
+        data.append(line.split(','))
 
-    keys = data_csv[0]
+# import csv
+# import String
 
-    data = [dict(zip(keys, row)) for row in data_csv[1::]]
+# content = csv.reader( StringIO.StringIO(csv_txt))
+# headings = content.next()
+# print [dict((headings[col], row[col]) for col in xrange(len(row))) 
+#        for row in content]
+
+  # print "Contact created \n\nWould you like to make more contacts or check current contacts? \nTo make new contacts type in 'New' \nTo check current contacts type in 'Contacts'"
+
+    # print "Go to: ",
+    
+    # choose = ""
+    # choose = input()
+    # valid = False
+    # while(not valid):
+    #     if choose == "'New'" or choose == "'new'" or choose == "New" or choose == "new":
+    #         new_function()
+    #     elif choose == "'Contacts'" or choose == "'contacts'" or choose == "Contacts" or choose == "contacts":
+    #         contacts_function()
+
+    keys = data[0]
+
+    data = [dict(zip(keys, row)) for row in data[1::]]
 
     contacts = []
 
     for line in range(len(csv_lines)):
-        key_value = csv_lines[0]
-        key_value = key_value.split(",")
-        row = csv_lines[line]
+        value = lines[0]
+        value = value.split(",")
+        row = lines[line]
         row = row.split(",")
         row = dict(zip(key_value, row))
         contacts.append(row)
@@ -45,10 +82,14 @@ with open('contacts.csv', 'r') as file:
         with open('contacts.csv', 'w') as contacts:
             contacts.write("\n".join(list_w))
 
+    # contacts = [
+    # {'name':'matthew', 'favorite fruit':'blackberries', 'favorite color':'orange'},
+    # {'name':'sam', 'favorite fruit':'pineapple' ...}
+
 
     def create_contact():
         user_input = [input("What is your name?"),input("Favorite fruit?"), input("Favorite color?")]
-        newcontact = dict(zip(key_value, user_input))
+        new_contact = dict(zip(key_value, user_input))
         contacts.append(newcontact)
 
     def read_contact():
@@ -78,12 +119,18 @@ with open('contacts.csv', 'r') as file:
             if contact['name'] == user_input:
              contacts.remove(contact)
 
+# csv_txt = """fname,lname,phone,fax,notes
+# Possible template
+
 while True:
     user_input = input("create, read, update, delete, quit?")
     if user_input == 'quit':
         print("done")
         export()
         break
+
+    # template
+
     elif user_input == 'create':
         create_contact()
     elif user_input == 'read':
