@@ -1,21 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .models import GroceryItem
-from django.urls import reverse
 from django.utils import timezone
+from django.urls import reverse
 
 
 #'home' will list all of the items, created times, updated times, ***Need to find a way to sep into completed and not completed***
 def home(request):
-    incomplete_items = GroceryItem.objects.filter(completed=False).order_by('timestamp')
-    completed_items = GroceryItem.objects.filter(completed=True).order_by('completed_date')
-    context = {
-        'incomplete_items': incomplete_items,
-        'completed_items': completed_items
-    }
-    return render(request, 'grocery_list/dashboard.html', context)
+    all_grocery_items = GroceryItem.objects.all()
+    return render(request, 'grocery_list/dashboard.html', {'all_items': all_grocery_items},)
 
-# def addGroceryItem(request):
-#     if request.POST['content']:
-#         GroceryItem.objects.create(content = request.POST['content'])
-#     return HttpResponseRedirect('templates/grocery_list/dashboard.html')
+#to add, we need to create an object, save it, and redirect to URL''
+def addGroceryItem(request):
+    new_grocery_item = GroceryItem(content = request.POST['content'], completed = False)
+    new_grocery_item.save()
+    return HttpResponseRedirect('/home')
+
+def deleteGroceryItem(request, GroceryItem_id):
+    item_to_delete = GroceryItem.objects.get(id=GroceryItem_id)
+    item_to_delete.delete()
+    return HttpResponseRedirect('/home')
+
+def completeGroceryItem(request, GroceryItem_id):
+    item_to_complete = GroceryItem.objects.get(id=GroceryItem_id)
+    item_to_complete.save()
+    return HttpResponseRedirect('/home')
