@@ -1,22 +1,29 @@
+{% extends 'post/base.html' %} 
 {% load static %}
 
-<html>
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">    
+<html>  
     <head>
         <title>CHRIP</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'post/post.css' %}">
+
     </head>
     <body>
-
-    {% for post in post %}
-        <div>
-            <p>published: {{ post.published_date }}</p>
-            <h2><a href="">{{ post.author }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+            {% block content %}
+                {% for post in post %}
+                    <div class="post">
+                        <div class="date">
+                            {{ post.published_date }}
+                        </div>
+                        <h2><a href="{% url 'post_detail' pk=post.pk%}">{{ post.author }}</a></h2>
+                        <p>{{ post.text|linebreaksbr}} </p>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+            </div>
         </div>
-    {% endfor %}
-
-
-    </body>  
+    </div>
+</body> 
 </html>
