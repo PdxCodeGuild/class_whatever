@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Url Shortner</title>
+        <meta name="description" content="The HTML5 Herald">
+        <meta name="Jalesa" content="SitePoint">
+
+        <link rel="stylesheet" href="css/styles.css?v=1.0">
+    </head>
+
+    <body>
+    <h1> Welcome to url shortner</h1>
+    <form action="{% url 'appshortner:user_input' %}" method="post">
+        {% csrf_token %}
+        <input type= "text" name="long" placeholder="Place your long url here.">
+        <input type="submit" value="long">
+        
+        
+
+    </form>
+        {% if home %}
+            {{home}}
+        {% endif %}
+    </body>
+
+</html>
+
+
