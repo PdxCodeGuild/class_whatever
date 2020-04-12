@@ -9,6 +9,7 @@
     <input type="submit" value="Add"/>
 </form>
 
+<h1>Items yet to be destroyed by your will!</h1>
 <ul>
 {% for grocery_item in incomplete_items %}
 <li>
@@ -28,6 +29,7 @@
 </ul>
 {% endfor %}
 <ul2>
+<h1>Completed Items!</h1>
 {% for grocery_item in completed_items %}
 <pc>Item:</pc> <p4>{{grocery_item.content}} </p4> <pc> Completed On:</pc> <p5>  {{grocery_item.completed_date}} </p5> <p6><u>Great Job!</u></p6></br>
 </ul2>
@@ -35,8 +37,13 @@
 
 
 <style>
+
+body {
+    background-color: rgba(10, 10, 10, .9);
+}
+
 pc {
-    color:grey;
+    color:yellow;
     font-size: .65em;
 }
 p {
@@ -45,26 +52,36 @@ p {
 }
 p6 {
     color: pink;
-    font-size: .6em;
+    font-size: .65em;
 }
 
 
 p1 {
-    color: blue;
+    color: lightblue;
     font-size: 1em;
+    background-color: rgba(10, 10, 10, .11);
+    border-radius: 4px;
+    padding: 2px;
 }
 
 p2 {
     color: darkorange;
-    font-size: .65em;
+    font-size: .7em;
+    padding: 3px;
 }
 p4 {
-    color: orange;
-    font-size: .9em;
+    color: purple;
+    font-size: .85em;
+    background: grey;
+    border-radius: 10px;
+    padding: 3px;
 }
 p5 {
     color: purple;
     font-size: .85em;
+    background: grey;
+    border-radius: 10px;
+    padding: 3px;
 }
 
 h1 {
