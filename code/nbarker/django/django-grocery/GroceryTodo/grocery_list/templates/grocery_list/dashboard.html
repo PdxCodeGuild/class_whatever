@@ -10,30 +10,42 @@
 </form>
 
 <ul>
-{% for grocery_item in all_items %}
+{% for grocery_item in incomplete_items %}
 <li>
 <p1> {{ grocery_item.content }} </p1>
 <p>Created on {{ grocery_item.timestamp }},</p> <p2>I have completed this task: {{grocery_item.completed}}</p2>
-<form action="/deleteGroceryItem/{{grocery_item.id}}/"
+<form action="/deleteGroceryItem/{{grocery_item.pk}}/"
         style="display: inline;"
         method="post">{% csrf_token %}
     <input type="submit" value="I give up!"/>
 </form>
-<form action="/completeGroceryItem/{{grocery_item.id}}/"
+<form action="/completeGroceryItem/{{grocery_item.pk}}/"
         style="display: inline;"
         method="post">{% csrf_token %}
     <input type="submit" value="done!"/>
 </form>
 </li>
-{% endfor %}
 </ul>
+{% endfor %}
+<ul2>
+{% for grocery_item in completed_items %}
+<pc>Item:</pc> <p4>{{grocery_item.content}} </p4> <pc> Completed On:</pc> <p5>  {{grocery_item.completed_date}} </p5> <p6><u>Great Job!</u></p6></br>
+</ul2>
+{% endfor %}
 
 
 <style>
-
+pc {
+    color:grey;
+    font-size: .65em;
+}
 p {
     color: red;
     font-size: .7em;
+}
+p6 {
+    color: pink;
+    font-size: .6em;
 }
 
 
@@ -43,8 +55,16 @@ p1 {
 }
 
 p2 {
-    color: blue;
-    font-size: .7em;
+    color: darkorange;
+    font-size: .65em;
+}
+p4 {
+    color: orange;
+    font-size: .9em;
+}
+p5 {
+    color: purple;
+    font-size: .85em;
 }
 
 h1 {
@@ -52,6 +72,10 @@ h1 {
   background: linear-gradient(Blue, grey);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+ul2 {
+   display:block;
 }
 </style>
 </html>
