@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ profile.username }}</h2>
+    {% for post in all_chirps %}
+        <div class="chirp">
+            <div class="chirp-head">
+                <h4><a href="{% url 'users:profile' post.author %}">{{ post.author }}</a></h4>
+                <p><a href="{% url 'posts:detail' post.pk %}">{{ post.created }}</a></p>
+            </div>
+            <hr/>
+            <p>{{ post.content }}</p>
+            <div class="chirp-foot">
+                <p>{{ post.num_replies }} Replies</p>
+            </div>
+        </div>
+    {% empty %}
+        <h3>This user hasn't posted anything</h3>
+    {% endfor %}
+{% endblock content %}

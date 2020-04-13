@@ -2,8 +2,11 @@
 {%block content%}
     {%if posts%}
         {%for post in posts%}
-            <h5>{{post.author}}</h5>
-            <p class='date_posted'>{{post.date_posted}}</p>
+            <h5><img class= "rounded-circle article-img" src="{{post.author.profile.image.url}}">{{post.author}}</h5>
+            <a class='date_posted' href="{%url 'chirp:detail' post.id%}">{{post.date_posted}}</a>
+            {%if post.is_modified%}
+                <p class='date_modified'> Edited {{post.date_modified}}</p>
+            {%endif%}
             <p class='post_content'>{{post.content}}</p>
         {%endfor%}
     {%endif%}

@@ -1,4 +1,47 @@
 .my-container{
-    max-width: 60%;
-    margin:75px auto;
+    max-width: 70%;
+    margin:70px auto;
+}
+
+.content-section{
+    margin-top:100px;
+}
+
+.media-body{
+    padding-top:30px;
+}
+
+.article-img {
+    display: inline;
+    height: 50px;
+    width: 50px;
+    margin-right: 16px;
+}
+
+.my-form{
+    padding-top:20px;
+
+    
+}
+
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+    }
+
+.date_modified{
+    font-size: smaller;
+    color: #a4c5c6;
+}
+.date_posted{
+    font-size: smaller;
+    color: #856c8b;
+}
+
+@media(min-width:1024px){
+    .my-container{
+        max-width:50%;
+    }
 }

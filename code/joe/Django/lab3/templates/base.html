@@ -11,7 +11,14 @@
     <body>
         <header>
             <h1><a href="{% url 'posts:index' %}">Chirper</a></h1>
-            <a href="{% url 'posts:create' %}">New Chirp</a>
+            {% if username %}
+                <a href="">{{ username }}</a>
+                <a href="{% url 'posts:create' %}">New Chirp</a>
+                <a href="{% url 'users:logout' %}">Log Out</a>
+            {% else %}
+                <a href="{% url 'users:login' %}">Log in</a>
+                <a href="{% url 'users:signup' %}">Sign Up</a>
+            {% endif %}
         </header>
 
         {% if error %}
