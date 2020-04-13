@@ -8,6 +8,9 @@
                 <p>created: {{ post.created_date }}</p>
             </div>
             <p>{{ post.text|linebreaksbr }}</p>
+            {% if post.image %}
+                <img height=Auto, width=Auto, src="{{post.image.url}}">
+            {% endif %}
         </div>
     {% endfor %}
 {% endblock %}
