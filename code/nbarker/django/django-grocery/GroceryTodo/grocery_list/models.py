@@ -6,6 +6,3 @@ class GroceryItem(models.Model):
     completed_date = models.DateTimeField(null=True, blank=True)
     completed = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.content, self.timestamp, self.completed, self.completed_date
-
