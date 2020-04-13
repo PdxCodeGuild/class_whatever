@@ -4,7 +4,7 @@ with open('contact-list.csv', 'r') as file:
     lines = file.read().split('\n')
     
 
-line_zero = lines[0].split(',')  # key for each 
+line_zero = lines[0].split(',')  # keys
 line_one = lines[1].split(',')
 line_two = lines[2].split(',')   # THESE ARE ALL STRINGS
 line_three = lines[3].split(',')
@@ -15,7 +15,7 @@ contacts.append(line_one)
 contacts.append(line_two)
 contacts.append(line_three)
 contacts.append(line_four)
-print(contacts)
+# print(contacts)
 '''
 [['Name', 'Email', 'Favorite Color'], ['Jane', 'jane@company.net', 'red'], ['Bob', 'bob@company.net', 'blue'], ['Jack', 'jack@company.net', 'silver'], ['Diana', 'diana@company.net', 'yellow']]
 '''
@@ -95,10 +95,7 @@ def update(line_zero, contact_list):
         if info['Name'] == update_contact:
             # print(info['Name'])   # Diana
             info[contact_info] = updated_info
-            print(f"info[contact_info]: {info[contact_info]}")   # gold
-            print(f"contact_info: {contact_info}")   # gold
-            print(f"info: {info}")   # 'Name': 'Diana', 'Email': 'diana@company.net', 'Favorite Color': 'yellow', 'favorite color': 'gold'}
-            print(f"updated_info: {updated_info}")   # gold
+            # print(f"info: {info}")   # 'Name': 'Diana', 'Email': 'diana@company.net', 'Favorite Color': 'yellow', 'favorite color': 'gold'}
             return info
     print(contact_list)
         # if info['Name'] == contact_info
@@ -133,10 +130,22 @@ while True:
 Version 3:
 When REPL loop finishes, write the updated contact info to the CSV file to be saved. I highly recommend saving a backup contacts.csv because you likely won't write it correctly the first time.
 '''
-# with open('contact-list.csv', 'w') as file:
+
+with open('contact-list.csv', 'w') as file:
+    save_write = []
+    save_write.append(list(contact_list[0].keys()))
+    for contact in contact_list:
+        save_write.append(list(contact.values()))
+    # for x in save_write:
+    #     save_write = ",".join(x)
+    save_write = [','.join(x) for x in save_write]
+    save_write = '\n'.join(save_write)
+    # print(f"save_write: {save_write}")
+    file.write(save_write)
 #     file.write('\n'.join(contact_list))
+# TypeError: write() argument must be str, not list
     # for x in contact_list:
-    #     file.write(contacts)
+    #     file.write(x)   # TypeError: write() argument must be str, not dict
     # file.close()
 
 # write all updates from contact_list to csv
