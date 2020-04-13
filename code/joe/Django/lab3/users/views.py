@@ -49,4 +49,4 @@ def actual_logout(request):
 
 def profile(request, profile_name):
     user = get_object_or_404(User, username=profile_name)
-    return render(request, "profile.html", {"profile": user, "all_chirps": user.post_set.order_by("-created")})
+    return render(request, "profile.html", {"profile": user, "all_chirps": user.post_set.order_by("-created"), "is_current": user == request.user, "username":  request.user.get_username()})

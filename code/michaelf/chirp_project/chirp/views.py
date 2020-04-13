@@ -3,10 +3,13 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post
+from django.contrib.auth.models import User
 
-def index(request):
+def public_profile(request, author):
+    user=User.objects.get(username=author)
+
     context={
-        'posts': Post.objects.all()
+        'posts': Post.objects.filter(author_id=user.id)
     }
     return render(request, 'chirp/index.html', context)
 

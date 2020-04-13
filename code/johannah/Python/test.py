@@ -10,34 +10,11 @@ ln = input('what is your last name? ')
 say_hello(fn, ln)
 '''
 
-#Passing by position
-'''
-def subtract(a, b):
-  return a - b
 
-subtract(5, 8)
-'''
-
-# def myfunc():
-#   pass
-# myfunc('hello')
-
-
-'''
-def greet(name,msg):
-   #This function greets to the person with the provided message
-   print("Hello",name + ', ' + msg)
-
-greet("Monica","Good morning!")
-'''
 
 # Insert at Index
 #tens.insert(1, teens)
 
-
-
-
-# loop 100,000 times all different and all using 6 diff random  numbers
 
 
 # from PIL import Image, ImageDraw
@@ -66,7 +43,7 @@ greet("Monica","Good morning!")
 
 
 # list1 = ['1', '2', '3']
-# str1 = ''.join(list1)
+# str1 = '\n'.join(list1)
 # print(str1)
 
 
@@ -89,35 +66,11 @@ greet("Monica","Good morning!")
 # print(ari_scale[3])
 
 
-contact = []
-with open("contact-list.csv", 'r') as file:
-  #split the lines in the file
-  lines = file.read().split('\n')
-  
-  con2 = []
-  key = lines[0].split(',')
 
-
-  contact.append(lines[0].split(','))
-  contact.append(lines[1].split(','))
-  contact.append(lines[2].split(','))
-  print(f"contact: {contact}")
-  '''
-  [['Name', 'Email', 'Favorite Color'], ['Jane', 'jane@company.net', 'red'], ['Bob', 'bob@company.net', 'blue']]
-  '''
-
-  for thing in contact:
-      #zip the leys with values and looping thought them
-      con = dict(zip(contact[0],thing))
-      con2.append(con)
-      print(f"con2: {con2}")
-      # con2: [{'Name': 'Name', 'Email': 'Email', 'Favorite Color': 'Favorite Color'}]
-      # con2: [{'Name': 'Name', 'Email': 'Email', 'Favorite Color': 'Favorite Color'}, {'Name': 'Jane', 'Email': 'jane@company.net', 'Favorite Color': 'red'}]
-      # con2: [{'Name': 'Name', 'Email': 'Email', 'Favorite Color': 'Favorite Color'}, {'Name': 'Jane', 'Email': 'jane@company.net', 'Favorite Color': 'red'}, {'Name': 'Bob', 'Email': 'bob@company.net', 'Favorite Color': 'blue'}]
-      print(f"con: {con}")
-      # con: {'Name': 'Name', 'Email': 'Email', 'Favorite Color': 'Favorite Color'}
-      # con: {'Name': 'Jane', 'Email': 'jane@company.net', 'Favorite Color': 'red'}
-      # con: {'Name': 'Bob', 'Email': 'bob@company.net', 'Favorite Color': 'blue'}
-  del con2[0]
-  print(f"con2: {con2}")
-  # con2: [{'Name': 'Jane', 'Email': 'jane@company.net', 'Favorite Color': 'red'}, {'Name': 'Bob', 'Email': 'bob@company.net', 'Favorite Color': 'blue'}]
+'''
+Name,Email,Favorite Color
+Jane,jane@company.net,red
+Bob,bob@company.net,blue
+Jack,jack@company.net,silver
+Diana,diana@company.net,yellow
+'''
