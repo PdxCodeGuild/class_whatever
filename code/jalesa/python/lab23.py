@@ -69,30 +69,68 @@ def find():
         if element['name'] == name:
             print(element)
             print(element['name'])
-find()
+# find()
 
 # Delete a record: ask the user for the contact's name, remove the contact with the given name from the contact list.
 
 # Each element in a list of dictionairies is each dictionairy. 
 # x["name"] == user_input01 x represents the dictionaries, ["name"] represents the key; this will give me the value im looking for. For x in contacts represents my list of dictionaries.
-user_input01 = input("who are you looking for?: ")
-update_name = input("what do you want to update the name to?: ")
-for x in contact:
-    x["name"] == user_input01
-    x["name"] = update_name
-print(x)
 
-user_input02 = input("who are you looking for?: "), input("this person would be deleted. ")
-for x in contact:
-    x["name"] == user_input02
-    del x["name"]
-print(x)
 
+def write():
+    empty= []
+    contact[0].values()
+    list(contact[0].values())
+    contact[0].keys()
+    ",".join(contact[0].keys())
+    ",".join(contact[0].values())
+    for item in range(len(contact)):
+        empty.append(",".join(contact[item].values()))
+        "\n".join(empty)
+
+    with open('contacts.csv', 'w') as file:
+        file.write('\n'.join(empty))
+
+'''       UPDATE     '''
+def update():
+    new_file = []
+    update_name = input("what do you want to update the name to?: ")
+    for x in contact:
+        x["name"] = update_name
+        write()
+        # new_file.append(x["name"])
+    print(x)
+
+'''         DELETE    '''
+def delete():
+    user_input02 =  input(" What key would you like to delete?: ")
+    answer = input("Are you sure you want to delete this key?: ")
+    for x in contact:
+        if answer == "yes":
+            x["name"] == user_input02
+            del x["name"]
+            write()
+        # return new_file.append(contact)
+        # else:
+        #     pass
+    # print(x)
+   
+while True:
+    user_input = input("Do you want to update?:u , Do you want to delete a key?:d, Who do you want to find?:f ")
+    if user_input == "u": 
+        update()
+    elif user_input =="d":
+        delete()
+    elif user_input == "f":
+        find()
+    else:
+        print("Please enter a valid statement.")
     
+
 
 
 # Version 3
 # When REPL loop finishes, write the updated contact info to the CSV file to be saved. I highly recommend saving a backup contacts.csv because you likely won't write it correctly the first time.
 
-with open('contacts.csv', 'w') as file:
+
     
