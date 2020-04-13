@@ -7,6 +7,5 @@ class Crow_Caw(models.Model):
     posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return (
-            self.item + "" + "(" + str(self.completed) + ")"
+        return self.item + "" + "(" + str(self.completed) + ")"
 

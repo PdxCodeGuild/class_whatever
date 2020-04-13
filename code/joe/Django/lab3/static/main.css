@@ -4,6 +4,7 @@
     margin-bottom: 4px;
     padding: 4px;
     width: 640px;
+    text-align: left;
 }
 
 .chirp-detail {
@@ -12,16 +13,21 @@
     margin-bottom: 4px;
     padding: 4px;
     width: 768px;
+    text-align: left;
 }
 
 .chirp-head {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
 }
 
-.chirp-head h4 {
+.chirp-head h4, .chirp-head p {
     margin: 8px;
+}
+
+hr {
+    margin: 4px 0px;
 }
 
 main {
@@ -29,12 +35,40 @@ main {
     flex-direction: column;
 }
 
+body {
+    text-align: center;
+}
+
 header {
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
+    border-bottom: 2px solid lightgray;
+    margin-bottom: 2px;
+    position: sticky;
+    top: 0;
+    background-color: white;
 }
 
-header h1 {
-    justify-self: start; /* FIX */
+a {
+    text-decoration: none;
 }
+
+.chirp-foot {
+    display: flex;
+    flex-direction: row;
+}
+
+form {
+    margin-bottom: 4px;
+    margin-right: 2px;
+}
+
+footer {
+    font-size: small;
+}
+
+/* Shrink the buttons */
+/* input[type="submit"] {
+    
+} */

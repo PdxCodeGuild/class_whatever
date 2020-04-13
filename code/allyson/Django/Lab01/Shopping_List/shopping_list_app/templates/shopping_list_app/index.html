@@ -13,17 +13,20 @@
             <div class="user-size">
                 <fieldset class="form-size"/>
                 <legend><strong> Shopping List </strong></legend>
-                <div class="form">
-                    <label for="item">Add to List: </label><input type="text" id="item"><br>
-                    <label for="amount">Quantity:</label><input type="interger" id="amount"><br>
+                <form action='{% url 'shopping_list_app:add_item' %}' method='post'>
+                    {% csrf_token %}
+                    <label for="item">Add to List: </label><input type="text" name="item_id" id="item_id"><br>
+                    <label for="amount">Quantity:</label><input type="interger" name="amount" id="amount"><br>
                     <button id="submit">Submit item</button>
                     <button id="clear">Clear items</button>
-                </div>
+                </form>
                 <fieldset class="form-size"/>
                 <legend> To Purchase </legend>
-                <div class="list">
-                    
-                </div>
+                <ul id='list'>
+                    {% for item in shop_list  %}
+                        <li>{{item.item}},{{amount.amount}}</li>
+                    {% endfor %}
+                </ul>
                 </fieldset>
             </div>
         </body>
