@@ -4,6 +4,7 @@ from .models import Storage
 from django.urls import reverse
 import random
 import string
+import re
 
 def index(request):
     # variable_name = Storage from models
@@ -29,10 +30,19 @@ def user_input(request):
 def results(request, new):
     return render(request, 'appshortner/index.html',{'home':Storage.objects.get(shorturl=new)})
 
+# new view
+# new url
+# index.html
 
+
+
+
+def connection(request):
+    long_url_link = get_object(longurl)
+    
+  
 
 
        
-# now create the short url
-# look up objects.create
+
 

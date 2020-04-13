@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.template import loader
 from django.utils import timezone
@@ -7,7 +7,7 @@ from django.urls import reverse
 from .models import Items_List
 
 
-def shopping_list_app(request):
+def index(request):
     context = {
         "shop_list": Items_List.objects.filter(completed=False).order_by("add_date"),
         "purchased": Items_List.objects.filter(completed=True).order_by("-com_date"),
@@ -17,11 +17,13 @@ def shopping_list_app(request):
 
 def add_item(request):
     print = "=" * 100
-    print(request.POST)
+    # print(request.POST)
     add_item_new = request.POST["item_id"]
-    new_item = Items_List(text=add_item_new, completed=False, add_date=timezone.now())
-    new_item.save()
-    return HttpResponse(reverse("shopping_list_app:index"))
+    amount = request.POST["amount"]
+    new_item = Items_List.objects.create(
+        item=add_item_new, amount=amount, completed=False, add_date=timezone.now()
+    )
+    return HttpResponseRedirect(reverse("shopping_list_app:index"))
 
 
 def remove_item(request):
