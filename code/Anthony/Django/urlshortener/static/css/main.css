@@ -1,0 +1,14 @@
+.container{
+    padding: 2%;
+  }
+  body{
+    text-align: center;
+    background-color: beige;
+  }
+  .card{
+    padding: 2%;
+  }
+  #link{
+    font-size: 120%;
+    font-family: 'Courier New', Courier, monospace;
+  }

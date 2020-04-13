@@ -9,42 +9,79 @@
     <input type="submit" value="Add"/>
 </form>
 
+<h1>Items yet to be destroyed by your will!</h1>
 <ul>
-{% for grocery_item in all_items %}
+{% for grocery_item in incomplete_items %}
 <li>
 <p1> {{ grocery_item.content }} </p1>
 <p>Created on {{ grocery_item.timestamp }},</p> <p2>I have completed this task: {{grocery_item.completed}}</p2>
-<form action="/deleteGroceryItem/{{grocery_item.id}}/"
+<form action="/deleteGroceryItem/{{grocery_item.pk}}/"
         style="display: inline;"
         method="post">{% csrf_token %}
     <input type="submit" value="I give up!"/>
 </form>
-<form action="/completeGroceryItem/{{grocery_item.id}}/"
+<form action="/completeGroceryItem/{{grocery_item.pk}}/"
         style="display: inline;"
         method="post">{% csrf_token %}
     <input type="submit" value="done!"/>
 </form>
 </li>
-{% endfor %}
 </ul>
+{% endfor %}
+<ul2>
+<h1>Completed Items!</h1>
+{% for grocery_item in completed_items %}
+<pc>Item:</pc> <p4>{{grocery_item.content}} </p4> <pc> Completed On:</pc> <p5>  {{grocery_item.completed_date}} </p5> <p6><u>Great Job!</u></p6></br>
+</ul2>
+{% endfor %}
 
 
 <style>
 
+body {
+    background-color: rgba(10, 10, 10, .9);
+}
+
+pc {
+    color:yellow;
+    font-size: .65em;
+}
 p {
     color: red;
     font-size: .7em;
 }
+p6 {
+    color: pink;
+    font-size: .65em;
+}
 
 
 p1 {
-    color: blue;
+    color: lightblue;
     font-size: 1em;
+    background-color: rgba(10, 10, 10, .11);
+    border-radius: 4px;
+    padding: 2px;
 }
 
 p2 {
-    color: blue;
+    color: darkorange;
     font-size: .7em;
+    padding: 3px;
+}
+p4 {
+    color: purple;
+    font-size: .85em;
+    background: grey;
+    border-radius: 10px;
+    padding: 3px;
+}
+p5 {
+    color: purple;
+    font-size: .85em;
+    background: grey;
+    border-radius: 10px;
+    padding: 3px;
 }
 
 h1 {
@@ -52,6 +89,10 @@ h1 {
   background: linear-gradient(Blue, grey);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+ul2 {
+   display:block;
 }
 </style>
 </html>
