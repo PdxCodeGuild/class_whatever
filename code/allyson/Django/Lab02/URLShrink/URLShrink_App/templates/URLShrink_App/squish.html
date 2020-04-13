@@ -1,0 +1,13 @@
+{% load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'URLShrink_App/main.css' %}">
+
+<body>
+<h1>Honey!  I Shrunk The URL!!</h1>
+<form class="index" action="{% url 'URLShrink_App:index' %}" method="post">
+    {% csrf_token %}
+    <input class="save_url" type="text" name="generate_code"/>
+    <button type="submit">SQUISH!</button>
+</form>
+</body>
