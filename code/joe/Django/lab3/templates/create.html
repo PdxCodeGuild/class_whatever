@@ -8,19 +8,19 @@
         {% if replying_to %}
             <div class="chirp">
                 <div class="chirp-head">
-                    <h4>{{ reply_chirp.author }}</h4>
-                    <p>{{ reply_chirp.created }}</p>
+                    <h4>{{ replying_to.author }}</h4>
+                    <p>{{ replying_to.created }}</p>
                 </div>
                 <hr/>
-                <p>{{ reply_chirp.content }}</p>
-                <div class="chirp-foot">
-                </div>
+                <p>{{ replying_to.content }}</p>
             </div>
-            <input type="hidden" id="replying_to" name="replying_to" value="{{ replying_to }}">
+            <input type="hidden" id="replying_to" name="replying_to" value="{{ replying_to.pk }}">
             <br/>
         {% endif %}
 
-        <input type="text" id="content" name="content" required/>
+        {% comment %} <input type="text" id="content" name="content" required/> {% endcomment %}
+        <textarea rows="4" cols="32" name="content" required></textarea>
+        <br/>
         <input type="submit" value="Chirp"/>
     </form>
 {% endblock content %}
