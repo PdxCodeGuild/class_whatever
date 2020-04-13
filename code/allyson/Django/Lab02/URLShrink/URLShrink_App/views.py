@@ -26,7 +26,7 @@ def index(request):
         "URLShrink": URLShrink,
         "domain": domain,
     }
-    return render(request, "URLShrink_App/index.html", context)
+    return render(request, "URLShrink_App/squish.html", context)
 
 
 def save_url(request):
