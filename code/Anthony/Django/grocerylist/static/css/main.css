@@ -1,0 +1,67 @@
+.exit{
+    background-color: red;
+    color: white;
+    padding: 1%;
+    font-family: ubuntu;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 1px 2px 3px gray;
+    transition: all .1s;
+    margin: .1%;
+}
+.exit:hover{
+    box-shadow: 1px 1px 3px 1px gray;
+    cursor: pointer;
+    scale: 1.04;
+}
+
+.title{
+    font-weight: bold; 
+    font-size: 290%;
+}
+
+.green{
+    color: green;
+}
+
+.warning{
+    color: rgb(214, 214, 12);
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.complete{
+    text-decoration: line-through;
+}
+
+.check{
+    background-color: green;
+    color: white;
+    padding: 1%;
+    font-family: ubuntu;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 1px 2px 3px gray;
+    transition: all .1s;
+    margin: .1%
+}
+.check:hover{
+    box-shadow: 1px 1px 3px 1px gray;
+    cursor: pointer;
+    scale: 1.04;
+}
+
+.fade{
+    opacity: 1;
+}
+body{
+    background-color: beige;
+}
