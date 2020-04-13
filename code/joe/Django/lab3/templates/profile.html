@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ profile.username }}</h2>
+    {% for post in all_chirps %}
+        <div class="chirp">
+            <div class="chirp-head">
+                <h4>{{ post.author }}</h4>
+                {% if post.replying_to %}
+                    <p><a href="{% url 'posts:detail' post.replying_to.pk %}">@{{ post.replying_to.author }}</a></p>
+                {% endif %}
+                <p><a href="{% url 'posts:detail' post.pk %}">{{ post.created }}</a></p>
+            </div>
+            <hr/>
+            <p>{{ post.content }}</p>
+            <div class="chirp-foot">
+                <form action="{% url 'posts:create' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="replying_to" value="{{ post.pk }}" />
+                    <input type="submit" value="{{ post.num_replies }} Replies" />
+                </form>
+                {% if is_current %}
+                    <form action="{% url 'posts:delete' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="to_delete" value="{{ post.pk }}" />
+                        <input type="submit" value="Delete" />
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    {% empty %}
+        <h3>This user hasn't posted anything</h3>
+    {% endfor %}
+{% endblock content %}

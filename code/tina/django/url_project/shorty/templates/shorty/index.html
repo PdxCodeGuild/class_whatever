@@ -1,13 +1,25 @@
-<h1>Hello</h1>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'shorty/style.css' %}">
 
-<form action="{% url 'shorty:add' %}" method='post'> 
-    {% csrf_token %}
-        <label for="url">URL:</label>
-        <input type="url" id="url" name="url">
-        <input type="submit" value="Tiny Url">
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>URL Tiny</title>
+  </head>
+  <body>
+    <form action="{% url 'shorty:add' %}" method='post'> 
+        {% csrf_token %}
+            <h2><label for="url">URL</label></h2><br>
+            <input type="url" id="url" name="url">
+            <input type="submit" value="Tiny Url">
+    </form>
 
 
-{% for item in shortlink %}
-    {{item}}
-{% endfor %}  
+    {% if shortlink %}
+        <p><a href="{% url 'shorty:redirect' shortlink.url_hash %}">{{shortlink}}</a></p>
+    {% endif %}
+  
+  </body>
+</html>

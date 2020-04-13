@@ -5,23 +5,36 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Chirper</title>
+        <link rel="stylesheet" href="{% static 'normalize.css' %}" />
+        <link rel="stylesheet" href="{% static 'skeleton.css' %}" />
         <link rel="stylesheet" href="{% static 'main.css' %}" />
     </head>
 
     <body>
         <header>
             <h1><a href="{% url 'posts:index' %}">Chirper</a></h1>
-            <a href="{% url 'posts:create' %}">New Chirp</a>
+            {% if username %}
+                <a class="button button-primary" href="{% url 'users:profile' username %}">{{ username }}</a>
+                <a class="button button-primary" href="{% url 'posts:create' %}">New Chirp</a>
+                <a class="button button-primary" href="{% url 'users:logout' %}">Log Out</a>
+            {% else %}
+                <a class="button button-primary" href="{% url 'users:login' %}">Log in</a>
+                <a class="button button-primary" href="{% url 'users:signup' %}">Sign Up</a>
+            {% endif %}
         </header>
 
-        {% if error %}
-            <h2 class="error">{{ error }}</h2>
-        {% endif %}
-
         <main>
+            {% if error %}
+                <h2 class="error">{{ error }}</h2>
+            {% endif %}
             {% block content %}
             {% endblock content %}
         </main>
+
+        <footer>
+            <hr/>
+            <p>PDX Code Guild, Django Lab 3, 2020</p>
+        </footer>
     </body>
 
 </html>

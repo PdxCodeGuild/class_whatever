@@ -4,12 +4,20 @@
     {% for post in all_posts %}
         <div class="chirp">
             <div class="chirp-head">
-                <h4>{{ post.author }}</h4>
+                <h4><a href="{% url 'users:profile' post.author %}">{{ post.author }}</a></h4>
+                {% if post.replying_to %}
+                    <p><a href="{% url 'posts:detail' post.replying_to.pk %}">@{{ post.replying_to.author }}</a></p>
+                {% endif %}
                 <p><a href="{% url 'posts:detail' post.pk %}">{{ post.created }}</a></p>
             </div>
             <hr/>
             <p>{{ post.content }}</p>
             <div class="chirp-foot">
+                <form action="{% url 'posts:create' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="replying_to" value="{{ post.pk }}" />
+                    <input type="submit" value="{{ post.num_replies }} Replies" />
+                </form>
             </div>
         </div>
     {% empty %}
