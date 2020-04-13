@@ -27,17 +27,22 @@ def visual():
     print(table[6] + " : " + table[7] + " : " + table[8])
 
 def mechanics(player):
-    print(player + "' turn.")
+    print(player + "'s turn.")
     spot = input("Choose a position between 1 and 9, (starting from the top left)")
 
-    while spot not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
-        spot = input("Invalid input.")
+    valid = False
+    while not valid:
+
+        while spot not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+            spot = input("Invalid input.")
+        
         spot = int(spot) - 1
     
-    
     # TypeError: list indices must be integers or slices, not str
-    if table[spot] != "...":
-        print("Restricted area.")
+        if table[spot] == "...":
+            valid = True
+        else:
+            print("Restricted area.")
 
     table[spot] = player
     visual()
@@ -85,7 +90,7 @@ def win():
         champion = diagonals
 
     else:
-        champon = None
+        champion = None
 
     return
 
@@ -134,8 +139,6 @@ def call_ems():
         return table[6]
     return
 
-    return
-
 def diagonals():
     diagonal_one = table[0] == table[4] == table[8] != "..."
     diagonal_two = table[6] == table[4] == table[2] != "..."
@@ -147,7 +150,6 @@ def diagonals():
     if diagonal_two:
         return table[6]
     return
-    return
 
 def tie():
     global playing
@@ -158,7 +160,7 @@ def tie():
 def change():
     global current
     if current == "1":
-        current == "0"
+        current = "0"
     elif current == "0":
         current = "1"
 

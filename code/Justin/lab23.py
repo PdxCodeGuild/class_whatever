@@ -14,7 +14,7 @@
     # list.update({contact_name:contact_number})
 
 
-with open('contacts.csv', 'r') as file:
+with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/contacts.csv', 'r') as file:
     # lines = file.read().split('\n')
     data = file.read()
     lines = data.split('\n')
@@ -49,12 +49,12 @@ with open('contacts.csv', 'r') as file:
 
     contacts = []
 
-    for line in range(len(csv_lines)):
+    for line in range(len(lines)):
         value = lines[0]
         value = value.split(",")
         row = lines[line]
         row = row.split(",")
-        row = dict(zip(key_value, row))
+        row = dict(zip(value, row))
         contacts.append(row)
     print(contacts) #this makes your dict
 
@@ -89,7 +89,7 @@ with open('contacts.csv', 'r') as file:
 
     def create_contact():
         user_input = [input("What is your name?"),input("Favorite fruit?"), input("Favorite color?")]
-        new_contact = dict(zip(key_value, user_input))
+        newcontact = dict(zip(value, user_input))
         contacts.append(newcontact)
 
     def read_contact():
@@ -128,6 +128,12 @@ while True:
         print("done")
         export()
         break
+
+# def last():
+#     two = input("Name ")
+#     a = two[1:10]
+#     b = two[0]
+#     return b.upper() + a
 
     # template
 
