@@ -3,6 +3,13 @@ h1 a{
     font-family: 'Lobster';
 }
 
+img{
+    max-height:200px;
+    max-width:200px;
+    height:auto;
+    width:auto;
+}
+
 .page-header {
     background-color: #C25100;
     margin-top: 0;

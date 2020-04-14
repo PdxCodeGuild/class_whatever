@@ -124,3 +124,6 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'posts:chirp_index'
 LOGOUT_REDIRECT_URL = 'posts:chirp_index'
+
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
