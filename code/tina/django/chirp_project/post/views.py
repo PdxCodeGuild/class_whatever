@@ -35,16 +35,16 @@ def form_vaild(self,form):
 
 
 
-class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     template_name = 'post_edit.html'
     fields = ['title', 'text']
 
 
-class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'post_delete.html'
-    success_url = reverse_lazy('posts:post_list')
+    success_url = reverse_lazy('post:post_list')
 
     def test_func(self):
         obj = self.get_object()

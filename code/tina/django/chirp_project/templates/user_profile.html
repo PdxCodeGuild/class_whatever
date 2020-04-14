@@ -2,12 +2,12 @@
 
 {% block content %}
 <h1>{{ object.username }}</h1>
-<h5><em>Writing stuff since {{ object.date_joined }}</em></h5>
+<h5><em>Chrip sinced join</em></h5>
 {% for post in object.post_set.all %}
     <div class="post-entry">
-        <h2><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h2>
+        <h2><a href="{% url 'post:post_detail' post.pk %}">{{ post.title }}</a></h2>
         <h4><em><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a> -- {{ post.created }}</em></h4>
-        <p>{{ post.body }}</p>
+        <p>{{ post.text }}</p>
     </div>
 {% endfor %}
 {% endblock content %}
