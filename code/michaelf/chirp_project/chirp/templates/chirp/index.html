@@ -9,5 +9,7 @@
             {%endif%}
             <p class='post_content'>{{post.content}}</p>
         {%endfor%}
+    {%else%}
+        <p>You haven't posted yet! Create your first post now: <a class="date_posted" href="{%url 'chirp:create'%}">New Post</button>
     {%endif%}
 {%endblock content%}

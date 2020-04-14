@@ -1,0 +1,10 @@
+<h1> Meow meow meow meow </h1>
+
+<h2> Give me that long, long, long URL! <h2>
+<form action="/shorten/" method="post">{% csrf_token %}
+    <input type="url" name="big_url"/>
+    <input type="submit" value="Shorten!"/>
+</form>
+
+<p>Hold your horses! we need the URL first! ^</p>
+<p><u>{{ shortened_url }}</u></p>

@@ -5,12 +5,19 @@
         <div class="chirp">
             <div class="chirp-head">
                 <h4><a href="{% url 'users:profile' replying_to.author %}">{{ replying_to.author }}</a></h4>
-                <p>{{ replying_to.created }}</p>
+                {% if replying_to.replying_to %}
+                    <p><a href="{% url 'posts:detail' replying_to.replying_to.pk %}">@{{ replying_to.replying_to.author }}</a></p>
+                {% endif %}
+                <p><a href="{% url 'posts:detail' replying_to.pk %}">{{ replying_to.created }}</a></p>
             </div>
             <hr/>
             <p>{{ replying_to.content }}</p>
             <div class="chirp-foot">
-                <p>{{ replying_to.num_replies }} Replies</p>
+                <form action="{% url 'posts:create' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="replying_to" value="{{ replying_to.pk }}" />
+                    <input type="submit" value="{{ replying_to.num_replies }} Replies" />
+                </form>
             </div>
         </div>
     {% endif %}
@@ -20,9 +27,19 @@
         <p>{{ post.content }}</p>
         <p>{{ post.created }}</p>
         <hr/>
-        <p>{{ post.num_replies }} Replies</p>
-        <hr/>
         <div class="chirp-foot">
+            <form action="{% url 'posts:create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="replying_to" value="{{ post.pk }}" />
+                <input type="submit" value="{{ post.num_replies }} Replies" />
+            </form>
+            {% if is_current %}
+                <form action="{% url 'posts:delete' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="to_delete" value="{{ post.pk }}" />
+                    <input type="submit" value="Delete" />
+                </form>
+            {% endif %}
         </div>
         </div>
     </div>
@@ -31,12 +48,16 @@
         <div class="chirp">
             <div class="chirp-head">
                 <h4><a href="{% url 'users:profile' reply.author %}">{{ reply.author }}</a></h4>
-                <p>{{ reply.created }}</p>
+                <p><a href="{% url 'posts:detail' reply.pk %}">{{ reply.created }}</a></p>
             </div>
             <hr/>
             <p>{{ reply.content }}</p>
             <div class="chirp-foot">
-                <p>{{ reply.num_replies }} Replies</p>
+                <form action="{% url 'posts:create' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="replying_to" value="{{ reply.pk }}" />
+                    <input type="submit" value="{{ reply.num_replies }} Replies" />
+                </form>
             </div>
         </div>
     {% endfor %}
