@@ -77,6 +77,9 @@ def find():
 # x["name"] == user_input01 x represents the dictionaries, ["name"] represents the key; this will give me the value im looking for. For x in contacts represents my list of dictionaries.
 
 
+# Version 3
+# When REPL loop finishes, write the updated contact info to the CSV file to be saved. I highly recommend saving a backup contacts.csv because you likely won't write it correctly the first time.
+
 def write():
     empty= []
     contact[0].values()
@@ -116,21 +119,20 @@ def delete():
     # print(x)
    
 while True:
-    user_input = input("Do you want to update?:u , Do you want to delete a key?:d, Who do you want to find?:f ")
-    if user_input == "u": 
+    user_input = input("Update:u , Delete :d, Find:f ")
+    if user_input == "f":
+        find()
+    elif user_input == "u": 
         update()
     elif user_input =="d":
         delete()
-    elif user_input == "f":
-        find()
+        break
     else:
         print("Please enter a valid statement.")
     
 
 
 
-# Version 3
-# When REPL loop finishes, write the updated contact info to the CSV file to be saved. I highly recommend saving a backup contacts.csv because you likely won't write it correctly the first time.
 
 
     
