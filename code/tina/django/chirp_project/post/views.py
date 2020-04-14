@@ -27,24 +27,33 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_new.html'
-    fields = ['title','text', 'author']
+    fields = ['title','text','author']
+    exclude = ('author') 
+    
 
-def form_vaild(self,form):
-    form.instance.author=self.request.user
-    return super().form_vaid(form)
+    def form_vaild(self, form): 
+        form.instance.author=self.request.user
+        return super().form_valid(form)
+
+
+    
 
 
 
-class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     template_name = 'post_edit.html'
     fields = ['title', 'text']
 
+    def test_func(self):
+        obj = self.get_object()
+        return self.request.user == obj.author
 
-class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'post_delete.html'
-    success_url = reverse_lazy('posts:post_list')
+    success_url = reverse_lazy('post:post_list')
 
     def test_func(self):
         obj = self.get_object()

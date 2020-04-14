@@ -10,12 +10,19 @@
     
     <body>
        <div class="page-header">
-            <a href"{% url 'post:post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <h1><a href="/">CHRIP Chrip</a></h1>
        </div>
        <div class="content container">
             <div class="row">
                 <div class="col-md-8">
+                {% if user.is_authenticated %}
+                    <p> Welcome <a href="{% url 'users:profile' request.user.username %}"> {{request.user.username}}</a></p>
+                   <p><a href="{% url 'logout' %}">Logout</a></p>
+                    <p><a href="{% url 'post:post_new' %}">+ New Chrip</a></p>
+                {% else %}
+                    <p><a href="{% url 'login' %}">Login</a></p>
+                    <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+                {% endif %}
                 {% block content %}
                 {% endblock %}
                 </div>
