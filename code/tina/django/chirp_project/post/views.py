@@ -27,11 +27,16 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_new.html'
-    fields = ['title','text', 'author']
+    fields = ['title','text','author']
+    exclude = ('author') 
+    
 
-def form_vaild(self,form):
-    form.instance.author=self.request.user
-    return super().form_vaid(form)
+    def form_vaild(self, form): 
+        form.instance.author=self.request.user
+        return super().form_valid(form)
+
+
+    
 
 
 
@@ -39,6 +44,10 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     template_name = 'post_edit.html'
     fields = ['title', 'text']
+
+    def test_func(self):
+        obj = self.get_object()
+        return self.request.user == obj.author
 
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
