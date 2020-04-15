@@ -9,7 +9,7 @@ let guess = parseInt(
 let guessdig = 0
 let totgsnum = 0
 let gtn = true
-while (gtn(game)) {
+while (gtn) {
   if (guess === num) {
     ++guessdig
     gtn = false
