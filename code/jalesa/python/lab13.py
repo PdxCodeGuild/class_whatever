@@ -37,7 +37,7 @@ print(new)
     # if the number is 26 and below % 26 will not effect the summation 
     # of (g + 13)
     # append the summation of (g + 13)%26 to my empty list.
-    
+
 rot13_index = []
 for g in new:
     new1 = (g + 13)%26

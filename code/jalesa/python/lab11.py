@@ -40,6 +40,7 @@ elif operation == ("/"):
 # > 5 + 12 = 17
 # > what is the operation you'd like to perform? done
 # > goodbye! 
+# -------------------- ANSWER -----------------------
 while True:
     user_input = input(" choose done if you would like to quit? ")
 
