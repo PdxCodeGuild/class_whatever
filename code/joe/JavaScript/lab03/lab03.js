@@ -1,8 +1,6 @@
-let card1 = document.querySelector("#card1");
-let card2 = document.querySelector("#card2");
-let card3 = document.querySelector("#card3");
-let enter = document.querySelector("#enter");
-let output = document.querySelector("#output");
+let card1 = prompt("Enter first card").toUpperCase();
+let card2 = prompt("Enter second card").toUpperCase();
+let card3 = prompt("Enter third card").toUpperCase();
 
 let card_value = function(card) {
     switch(card) {
@@ -21,48 +19,47 @@ let card_value = function(card) {
         case "K":
             return 10;
         default:
-            return 210;
+            return card_value(prompt(`${card} is not a valid card, please try again`).toUpperCase());
     }
 }
 
-enter.onclick = function() {
-    let cards = [];
-    cards.push(card1.value);
-    cards.push(card2.value);
-    cards.push(card3.value);
+let cards = [];
+cards.push(card1);
+cards.push(card2);
+cards.push(card3);
 
-    let aces = 0;
-    let total = [0];
+let aces = 0;
+let total = [0];
 
-    cards.forEach(function(card) {
-        total[0] += card_value(card);
-        if(card === "A") {
-            ++aces;
-        }
-    });
-
-    for(let a = 0; a < aces; ++a) {
-        total.push(total[a] + 10);
+cards.forEach(function(card) {
+    total[0] += card_value(card);
+    if(card === "A") {
+        ++aces;
     }
+});
 
-    let r_total = 0;
-    let advice = "";
-
-    total.forEach(function(option) {
-        if((option < 17) &&  ((r_total < 17) || (r_total > 21))) {
-            r_total = option;
-            advice = "Hit";
-        } else if(option === 21) {
-            r_total = option;
-            advice = "Blackjack!!!";
-        } else if(option > 21 && r_total === 0) {
-            r_total = option;
-            advice = "Already Busted!";
-        } else if(r_total !== 21 && option < 21) {
-            r_total = option;
-            advice = "Stay";
-        }
-    });
-
-    output.innerText = advice + ` (${r_total})`;
+for(let a = 0; a < aces; ++a) {
+    total.push(total[a] + 10);
 }
+
+let r_total = 0;
+let advice = "";
+
+total.forEach(function(option) {
+    if((option < 17) &&  ((r_total < 17) || (r_total > 21))) {
+        r_total = option;
+        advice = "Hit";
+    } else if(option === 21) {
+        r_total = option;
+        advice = "Blackjack!!!";
+    } else if(option > 21 && r_total === 0) {
+        r_total = option;
+        advice = "Already Busted!";
+    } else if(r_total !== 21 && option < 21) {
+        r_total = option;
+        advice = "Stay";
+    }
+});
+
+alert(advice + ` (${r_total})`);
+
