@@ -27,11 +27,6 @@ def post_new(request):
             author = request.user
             created_date = timezone.now()
             post = Post.objects.create(text=text, image=image, author=author, created_date=created_date) 
-            # print(post.image.url)
-            # print()
-            # post = form.save(commit=False)
-            # post.author = request.user
-            # post.published_date = timezone.now()
             post.save()
             return redirect('posts:chirp_index')
     else:

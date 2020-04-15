@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 from django.conf import settings
 from django.urls import reverse
+from django.contrib import admin
 
 
 
@@ -22,5 +23,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("post:post_detail", args=(self.id,))
+
+
+class AuthorAdmin(admin.ModelAdmin):
+    exclude = ('author',)
+        
     
-    
+ 
