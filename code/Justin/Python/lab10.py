@@ -21,7 +21,17 @@ while True:
         nums2.pop()
         print(nums2)
 
+
+# def Average(lst): 
+#     return sum(lst) / len(lst) 
+  
+# lst = [15, 9, 55,] 
+# average = Average(lst) 
+  
+# print("Average=", round(average, 2))
+
         #nums2 = int(nums2)
+        
         print(nums2)
 
         for num in range(0, len(nums2)):
