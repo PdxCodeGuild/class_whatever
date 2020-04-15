@@ -14,7 +14,7 @@ while (gtn) {
     ++guessdig
     gtn = false
     alert(`Correct!!  That took you ${guessdig} tries.  Good job!`)
-  } else if (guess !== num) {
+  } else if (guess !=== num) {
     if (guessdig < 1) {
       if (guess < num) {
         ++guessdig
