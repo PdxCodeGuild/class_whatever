@@ -1,42 +1,38 @@
-// 1. Ask the user for an operator and each operand. Don't forget that input returns a string, which you can convert to a float using float(user_input) where user_input is the string you got from input. Below is some sample input/output.
-//   > What is the operation you'd like to perform? +
-//   > What is the first number? 5
-//   > What is the second number? 12
-//   > 5 + 12 = 17
+// window.alert("Hi");
+// console.log("Hello");
 
-// 2. Allow the user to keep performing operations until they say 'done'. Use while True and break. Below is some sample input/output.
-//   > what is the operation you'd like to perform? +
-//   > what is the first number? 5
-//   > what is the second number? 12
-//   > 5 + 12 = 17
-//   > what is the operation you'd like to perform? done
-//   > goodbye!
-
-let name_input = document.querySelector('#name_input');
-let run_bt = document.querySelector('#run_bt');
-let output_div = document.querySelector('#output_div');
+// let name_input = document.querySelector('#name_input');
+// let run_bt = document.querySelector('#run_bt');
+// let output_div = document.querySelector('#output_div');
 const operation = ["+", "-", "*", "/"]
-run_bt.onclick = function() {
+while (true) {
   const op_input = prompt("What is the operation you'd like to perform (+, -, *, or /) or type done: ")
   if (op_input === "done") {
     break;
-  } else if (op_input in op_input) {
-    let num1 = float(prompt("first number: "));
-    let num2 = float(prompt("second number: "));
+  } else {
+    let num1 = parseFloat(prompt("first number: "));
+    let num2 = parseFloat(prompt("second number: "));
     if (op_input === "+") {
-      alert(`${num1} ${op_input} ${num2} = `);
-      alert(num1 + num2);
+      const add = num1 + num2
+      alert(`${num1} ${op_input} ${num2} = ${add}`);
+
     } else if (op_input === "-") {
-      alert(`${num1} ${op_input} ${num2} = `);
-      alert(num1 - num2);
+      const subtract = num1 - num2
+      alert(`${num1} ${op_input} ${num2} = ${subtract}`);
+      
     } else if (op_input === "*") {
-      alert(`${num1} ${op_input} ${num2} = `);
-      alert(num1 * num2);
+      const multiply = num1 * num2
+      alert(`${num1} ${op_input} ${num2} = ${multiply}`);
+      
     } else if (op_input === "/") {
-      alert(`${num1} ${op_input} ${num2} = `);
-      alert(num1 / num2);
+      const divide = num1 / num2
+      alert(`${num1} ${op_input} ${num2} = ${divide}`);
+      
     } else {
       alert("Invalid input");
     }
   }
 }
+// run_bt.onclick = function() {
+
+// }
