@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"></meta>
 <title>Unit Conversion</title>
-<style>
-* {
+{% comment %} <style>
+{
   box-sizing: border-box;
 }
 
@@ -89,16 +89,16 @@ img.rounded-corners {
     padding: 0;
   }
 
-}</style>
+}</style> {% endcomment %} 
 </head>
 <body>
     <div class="body">
-        <h1 class="title">Unit Conversion</h1>
+        {% comment %} <h1 class="title">Unit Conversion</h1>
         <input type="text" placeholder="Input" id="Input">
             <span>=</span>
         <input type="text" placeholder="Output" id="Output">
-        <select id="Input">
-          <option value="meter">Meter</option>
+        {% comment %} <select id="Input"> {% endcomment %}
+          {% comment %} <option value="meter">Meter</option>
           <option value="meter">Miles</option>
           <option value="meter">Feet</option>
           <option value="meter">Kilometers</option>
@@ -108,8 +108,9 @@ img.rounded-corners {
           <option value="meter">Miles</option>
           <option value="meter">Feet</option>
           <option value="meter">Kilometers</option>
-        </select>
-    </div>
+        </select> {% endcomment %}
+    {% comment %} </div>  {% endcomment %}
+    <script src="lab01.js"></script>
 </body>
 </html>
 

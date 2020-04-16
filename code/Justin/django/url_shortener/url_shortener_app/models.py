@@ -47,22 +47,20 @@
 
 from django.db import models
 
-
 class url(models.Model):
-    short_id = models.SlugField(max_length=6, primary_key=True)
-    httpurl = models.URLField(max_length=200)
-    pub_date = models.DateTimeField(auto_now=True)
-    count = models.IntegerField(default=0)
+    code = models.CharField(unique=True, max_length=6, default="", editable=False, null=True)
+    long = models.CharField(unique=True, max_length=100, default="", editable=False, null=True)
 
     def __str__(self):
-        return self.httpurl
+        return f"{self.code} : '{self.long}'"
 
-    @staticmethod
-    def decode(string):
-        i = 0
-        for c in string:
-            i = i * 64 + _char_map.index(c)
-        return i
+
+    # @staticmethod
+    # def decode(string):
+    #     i = 0
+    #     for c in string:
+    #         i = i * 64 + _char_map.index(c)
+    #     return i
 
 # dead code, use as reference
 
@@ -85,3 +83,14 @@ class url(models.Model):
 #     def __str__(self):
 #         return str(self.url)
 
+class data(models.Model):
+    ip = models.CharField(max_length=12, default="", editable=False) 
+    agent = models.CharField(max_length=200, default="", editable=False) 
+    link = models.ForeignKey(url, on_delete=models.CASCADE, default="", editable=False)
+    amount = models.IntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.ip}@({self.agent}) clicked {self.link} a total of {self.amount} time(s)"
+
+    def user_str(self):
+        return f"{self.ip}@({self.agent})"
