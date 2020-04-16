@@ -1,3 +1,12 @@
+{%extends 'url_shortener_app/get_short_code.html'%}
+{%block content%}
+<form action= '{% url "url_shortener_app:generate"%}' method='post'>
+    {% csrf_token %}
+    <input type="text" name="url" required>
+    <input class="btn btn-primary btn-sm" type="submit" value="submit url">
+</form>
+{%endblock%}
+
 {% comment %} Attempt one {% endcomment %}
 
 {% comment %} <!DOCTYPE html>
@@ -71,28 +80,4 @@
 </body>
 </html> {% endcomment %}
 
-{% extends "url_shortener_app/stats.html" %}
 
-{% block title %}URL Shortener - Make your URL shorter!{% endblock %}
-
-{% block content %}
-<div class="row">
-    <div class="col s12">
-        <input type="text" name="url" id="url" class="form-control input-sm" placeholder="http://www.google.com" />
-    </div>
-</div>
-<div class="row">
-    <div class="col s4 offset-s4">
-        {% csrf_token %}
-        <button id="submitButton" class="waves-effect waves-light btn-large blue darken-4">Shorten</button>
-    </div>
-</div>
-<div class="row">
-    <div class="col s12">
-        <div class="panel-footer"><a href="#" id="url-result">Enter the URL above and click submit!</a></div>
-        <button class="btn-floating btn waves-effect waves-light red" data-clipboard-target="#url-result">
-            <i class="material-icons">assignment</i>
-        </button>
-    </div>
-</div>
-{% endblock %}

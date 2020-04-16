@@ -1,10 +1,8 @@
 # Second attempt
-
-from django.conf.urls import patterns, include, url
-
   
-from django.conf.urls import url
-from . import views
+# from django.contrib import admin
+# from django.urls import path, include
+
 
 # Attempt three
 
@@ -24,10 +22,15 @@ from . import views
 #     path('generate/', views.generate, name='generate'),
 #     path('<str:code>/', views.redirect, name='redirect')
 
+from django.urls import path
+
+from . import views
+
+app_name = "url_shortener_app"
+
 urlpatterns = [
-   url(r'^$', views.index, name='home'),
-
-   url(r'^(?P<short_id>\w{6})$',
-       views.redirect_original, name='redirect_original'),
-
-   url(r'^makeshort/$', views.shorten_url, name='shorten_url'),
+    path("", views.index, name="index"),
+    path("shorten_url/", views.shorten_url, name="shorten_url"),
+    path("get_short_code/<str:transmit>/", views.get_short_code, name="get_short_code"),
+    path("<str:transmit>/", views.redirect, name="redirect"),
+]
