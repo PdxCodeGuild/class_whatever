@@ -1,10 +1,7 @@
-from django.conf.urls import include, url
 from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-   url(r'^admin/', admin.site.urls),
-
-   url(r'', include(
-       'url_shortener_app.urls', namespace='url_shortener_app')),
-
+    path('admin/', admin.site.urls),
+    path('', include('url_shortener_app.urls')),
 ]
