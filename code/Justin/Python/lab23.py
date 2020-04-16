@@ -14,7 +14,7 @@
     # list.update({contact_name:contact_number})
 
 
-with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/contacts.csv', 'r') as file:
+with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Python/contacts.csv', 'r') as file:
     # lines = file.read().split('\n')
     data = file.read()
     lines = data.split('\n')
