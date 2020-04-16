@@ -1,0 +1,98 @@
+{% comment %} Attempt one {% endcomment %}
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="row-fluid">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/" class="brand">TinyLink</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero-unit">
+            <div class="row-fluid">
+                <div class="row">
+                    <div class="span12">
+                        <h1>Shortern a link</h1>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="span12">
+                        <div class="control-group">
+                            <form class="form-horizontal" id="url_submit_form" method="POST" action="/">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="span5">
+                                        <div class="control-group {% if error %}error{% endif %}">
+                                            <input type="text" name="url"
+                                                   placeholder="http://google.com"
+                                                   value="{% if url %}{{ url }}{% endif %}"
+                                                   id="url_input"
+                                                   class="span5">
+                                            {% if error %}
+                                                <span class="help-inline">Please enter a valid URL</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="span2">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    {% if shorturl %}
+                        <h2>Success!</h2>
+                        <p>Shortened URL: <a href="{{ shorturl }}">{{ shorturl }}</a></p>
+                        <p>View statistics: <a href="{{ shorturl }}/stats">{{ shorturl }}/stats</a></p>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html> {% endcomment %}
+
+{% extends "url_shortener_app/stats.html" %}
+
+{% block title %}URL Shortener - Make your URL shorter!{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12">
+        <input type="text" name="url" id="url" class="form-control input-sm" placeholder="http://www.google.com" />
+    </div>
+</div>
+<div class="row">
+    <div class="col s4 offset-s4">
+        {% csrf_token %}
+        <button id="submitButton" class="waves-effect waves-light btn-large blue darken-4">Shorten</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12">
+        <div class="panel-footer"><a href="#" id="url-result">Enter the URL above and click submit!</a></div>
+        <button class="btn-floating btn waves-effect waves-light red" data-clipboard-target="#url-result">
+            <i class="material-icons">assignment</i>
+        </button>
+    </div>
+</div>
+{% endblock %}
