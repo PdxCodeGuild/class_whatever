@@ -1,5 +1,3 @@
-/**Calculator */
-
 
 function Calculator(){
     let operation = true;
