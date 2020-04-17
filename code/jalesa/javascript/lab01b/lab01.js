@@ -42,16 +42,27 @@
 //         average = sum(nums) / len(nums)
 //         alert(average)
 
+// text.textContent= "add some text to the variable text"
+
+// display on webpage ---> Enter your numbers then type done:
+let user_input = document.getElementById("user_input")
+
+// if button is pressed you get the average num
+let button = document.getElementById('button');
+button.addEventListener('click',foo);
+function foo() { alert(average); }
+
 
 let nums = []
 let i = 1;
 const total = (accumulator,currentValue) => accumulator + currentValue;
 while (i <5){
-    user_input = prompt("enter a number 1-10 or done if you would like to exit: ");
+    // user_input = prompt("enter a number 1-10 or done if you would like to exit: ");
     if (user_input != "done"){
         int_num = parseInt(user_input);
         nums.push(int_num);
-        console.log(nums)
+        // console.log(nums)
+        
    
     } else if (user_input === "done"){
         // nums = [parseInt(i) for i in nums]
@@ -60,19 +71,18 @@ while (i <5){
         console.log(nums.reduce(total)) 
         for(i in nums){
             console.log(i);
-            // -------- not taking the average -----
-            // alert(average)
         }
-        console.log(totaltwo/i)
+        average_one = (totaltwo/i)
+        average.innerText = average_one
+        // console.log(average)
+       
         
-    } 
-    // else {
-    //         for (i in nums) {
-    //         // -------- average not working
-    //         average = nums.reduce(function(){}) / nums.length
-    //         alert(average)
-    //         }
-    //     }
+    } else {
+            for (i in nums) {
+            // average = nums.reduce(function(){}) / nums.length
+            alert(average)
+            }
+        }
 }
 
 
@@ -85,16 +95,6 @@ while (i <5){
 // # The following code demonstrates how to add an
 // # element to the end of a list.
 
-// # nums = []
-// # nums.append(5)
-// # print(nums)
-// # Below is an example input/output:
-
-// # > enter a number, or 'done': 5
-// # > enter a number, or 'done': 3
-// # > enter a number, or 'done': 4
-// # > enter a number, or 'done': done
-// # average: 4
 
 
 
@@ -110,13 +110,16 @@ while (i <5){
 //         numbers.append(int(user_input))
 //         print(numbers)
 let numbers = []
+const total = (accumulator,currentValue) => accumulator + currentValue;
 
 while (true) {
     user_input = prompt("Enter your numbers then type done");
     if(user_input == "done") {
         numbers.pop(-1)
-        average_num = sum(numbers)/length(numbers)
-        alert(`Your average number is ${average_num}`)
+        totaltwo = nums.reduce(total)
+        average = (totaltwo/i)
+
+        alert(`Your average number is ${average}`)
     }else {
         numbers.append(int(user_input))
         alert(numbers)
@@ -129,14 +132,7 @@ while (true) {
 
 
 
-const average_title = document.getElementById("title");
 
-// const eightball_title = document.querySelector("#title")
-// const sect = document.querySelector("secttion")
-// const home = document.querySelector("#button")
-// const text = document.createElement("")
-// text.textContent= "Welcome to eightball"
-// sect.appendChild(text)
 
 
 

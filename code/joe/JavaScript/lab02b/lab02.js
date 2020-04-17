@@ -1,7 +1,7 @@
-let input = document.querySelector("#input");
-let rot_num = document.querySelector("#rot_num");
-let enter = document.querySelector("#enter");
-let output = document.querySelector("#output");
+const input = document.getElementById("input");
+const rot_num = document.getElementById("rot_num");
+const enter = document.getElementById("enter");
+const output = document.getElementById("output");
 
 enter.onclick = function() {
     let to_rot = Number(rot_num.value);
