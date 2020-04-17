@@ -1,9 +1,9 @@
 // Python Lab 10: Average Numbers
 
 /*** Version 2 ***/
-let num_in = document.querySelector('#num_in');
-let enter = document.querySelector('#enter');
-let output = document.querySelector('#output');
+const num_in = document.getElementById("num_in");
+const enter = document.getElementById("enter");
+const output = document.getElementById("output");
 
 let total = 0;
 let nums = 0;

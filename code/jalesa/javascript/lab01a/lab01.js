@@ -42,29 +42,37 @@
 //         average = sum(nums) / len(nums)
 //         alert(average)
 
-nums = [5, 0, 8, 3, 4, 1, 6]
-nums = []
-let i = 0;
+
+let nums = []
+let i = 1;
+const total = (accumulator,currentValue) => accumulator + currentValue;
 while (i <5){
     user_input = prompt("enter a number 1-10 or done if you would like to exit: ");
     if (user_input != "done"){
         int_num = parseInt(user_input);
-        nums.append(user_input);
-        alert(nums)
+        nums.push(int_num);
+        console.log(nums)
    
-    } else if (user_input == "done"){
+    } else if (user_input === "done"){
         // nums = [parseInt(i) for i in nums]
+        console.log("above reduce")
+        totaltwo = nums.reduce(total)
+        console.log(nums.reduce(total)) 
         for(i in nums){
             console.log(i);
-            average = sum(nums) / length(nums);
-            alert(average)
+            // -------- not taking the average -----
+            // alert(average)
         }
-    } else {
-            for (i in nums) {
-            average = sum(nums) / length(nums)
-            alert(average)
-            }
-        }
+        console.log(totaltwo/i)
+        
+    } 
+    // else {
+    //         for (i in nums) {
+    //         // -------- average not working
+    //         average = nums.reduce(function(){}) / nums.length
+    //         alert(average)
+    //         }
+    //     }
 }
 
 
@@ -101,15 +109,15 @@ while (i <5){
 //     else:
 //         numbers.append(int(user_input))
 //         print(numbers)
-numbers = []
+let numbers = []
 
-while (True); {
+while (true) {
     user_input = prompt("Enter your numbers then type done");
-    if(user_input == "done"); {
+    if(user_input == "done") {
         numbers.pop(-1)
         average_num = sum(numbers)/length(numbers)
         alert(`Your average number is ${average_num}`)
-    } else {
+    }else {
         numbers.append(int(user_input))
         alert(numbers)
         }
