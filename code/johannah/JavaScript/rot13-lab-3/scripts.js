@@ -26,6 +26,7 @@ for (let i=0; i<input_lowered.length; i++) {
     // result_output += (chars[index_of_chars_thirteen])
     // let result_output = result_output + (chars[index_of_chars_thirteen])
     result_output.concat(chars[index_of_chars_thirteen])
+    console.log(chars[index_of_chars_thirteen])
     console.log(result_output)
     // # new index of chars to be add to result_output
     // alert(result_output)
@@ -35,6 +36,7 @@ for (let i=0; i<input_lowered.length; i++) {
     // result_output += (chars[index_for_chars])
     // let result_output = result_output + (chars[index_for_chars])
     result_output.concat(chars[index_for_chars])
+    console.log(chars[index_for_chars])
     console.log(result_output)
     // alert(result_output)
     // alert(result_output.join(chars[index_for_chars]))
