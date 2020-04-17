@@ -48,8 +48,9 @@
 from django.db import models
 
 class url(models.Model):
-    code = models.CharField(unique=True, max_length=6, default="", editable=False, null=True)
-    long = models.CharField(unique=True, max_length=100, default="", editable=False, null=True)
+    code = models.URLField(max_length=6)
+    long = models.URLField(max_length=100)
+    clicks = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.code} : '{self.long}'"
