@@ -29,19 +29,17 @@ class Account:
     def __init__(self): 
         self.balance=0
         self.history = []
-        print("Hello!!!")
-
-
+        print("Ohayou!!!")
 
     def deposit(self): 
-        amount = float(input("Enter amount to be Deposited: ")) 
+        amount = float(input("Deposit amount: ")) 
         self.balance += amount 
         output_one = print("Deposit:", amount)
         self.history.append("Deposit:")
         self.history.append(amount)
   
     def withdraw(self): 
-        amount = float(input("Withdrawal: ")) 
+        amount = float(input("Withdrawal amount: ")) 
         if self.balance>=amount: 
             self.balance-=amount
             self.history.append("Withdrawal:")
@@ -56,10 +54,8 @@ class Account:
 # print ('Balance: '),account_balance
 # while (choice== 1 or choice==2):
 
-
-
     def check_transactions(self): 
-        print("Net Available Balance=",self.balance)
+        print("Net balance=",self.balance)
         print(self.history)
 
 # choice =float(input("Deposit, Withdraw, or Exit: "))

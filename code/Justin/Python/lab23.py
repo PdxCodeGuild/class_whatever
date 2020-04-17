@@ -56,7 +56,7 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
         row = row.split(",")
         row = dict(zip(value, row))
         contacts.append(row)
-    print(contacts) #this makes your dict
+    print(contacts) #this makes your actual dictionary
 
     def export():
         global contacts
@@ -79,7 +79,7 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
             
             
 
-        with open('contacts.csv', 'w') as contacts:
+        with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Python/contacts.csv', 'w') as contacts:
             contacts.write("\n".join(list_w))
 
     # contacts = [
@@ -87,36 +87,36 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
     # {'name':'sam', 'favorite fruit':'pineapple' ...}
 
 
-    def create_contact():
-        user_input = [input("What is your name?"),input("Favorite fruit?"), input("Favorite color?")]
+    def create():
+        prompt = [input("What is your name?"),input("Favorite fruit?"), input("Favorite color?")]
         newcontact = dict(zip(value, user_input))
-        contacts.append(newcontact)
+        contacts.append(prompt)
 
-    def read_contact():
+    def read():
 
-        user_input = input("Which contact?")
+        prompt = input("Which contact?")
         for contact in contacts:
-            if contact['name'] == user_input:
+            if contact['name'] == prompt:
                 print(contact)
        
-    def update_contact():
+    def update():
 
-        user_input = input("Which contact?")
+        prompt = input("Which contact?")
         attribute = input("What do you want to update?")
-        user_input_two = input("With what?")
-        for contact in contacts:
+        prompt_two = input("With what?")
+        forx in contacts:
             if contact['name'] == user_input:
                 print(contact)
                 if attribute in contact:     
                     contact[attribute] = user_input_two
                     return contact
-        print(contact)
+        print(x)
 
-    def delete_contact():
+    def delete():
 
-        user_input = input("Which contact?")
+        prompt = input("Which contact?")
         for contact in contacts:
-            if contact['name'] == user_input:
+            if contact['name'] == prompt:
              contacts.remove(contact)
 
 # csv_txt = """fname,lname,phone,fax,notes
