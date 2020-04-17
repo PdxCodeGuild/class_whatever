@@ -17,5 +17,5 @@ def user_signup(request):
 
 def user_detail(request, username):
     author = get_object_or_404(User, username = username)
-    posts = author.post_set.all()
+    posts = author.post_set.all().order_by('-created_date')
     return render(request, 'posts/chirp_index.html', {'posts': posts})
