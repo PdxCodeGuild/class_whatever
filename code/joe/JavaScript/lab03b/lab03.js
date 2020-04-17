@@ -1,8 +1,8 @@
-let card1 = document.querySelector("#card1");
-let card2 = document.querySelector("#card2");
-let card3 = document.querySelector("#card3");
-let enter = document.querySelector("#enter");
-let output = document.querySelector("#output");
+const card1 = document.getElementById("card1");
+const card2 = document.getElementById("card2");
+const card3 = document.getElementById("card3");
+const enter = document.getElementById("enter");
+const output = document.getElementById("output");
 
 let card_value = function(card) {
     switch(card) {
