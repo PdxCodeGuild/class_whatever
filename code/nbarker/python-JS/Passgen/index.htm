@@ -11,8 +11,8 @@
 <body>
     <div class="big_container"> <!--container to hold everything, hence BIG-->
         <h1>Password Generator 5000!</h1> <!--not super original but oh well-->
-        <h3 class="password_display_container">this is where the password will be displayed</h3>
-        <form id="passwordGeneratorForm class="form">
+        <h3 class="password_display_container" id="passwordDisplay">password</h3>
+        <form id="passwordGeneratorForm" class="form">
             <label for="">Number of Characters</label> <!--lots going on here, min, max, default, -->
             <div class="character_amount_container">
                 <input type="range" min="1" max="30" value="10" id="characterAmountRange"> <!--Id so that we can select later in javascript-->
@@ -20,16 +20,16 @@
             </div>
             
             <!--option for including uppercase-->
-            <label for="includeUpperCase">Include UpperCase</label>
-            <input type="checkbox" id="includeUpperCase">
+            <label for="includeUppercase">Include UpperCase</label>
+            <input type="checkbox" id="includeUppercase">
             
-            <!--option for including lowercase-->
-            <label for="includeLowercase">Include Lowercase</label>
-            <input type="checkbox" id="includeLowerCase">
+            <!--option for including Numbers-->
+            <label for="includeNumbers">Include Numbers</label>
+            <input type="checkbox" id="includeNumbers">
             
             <!--option for including symbols -->
             <label for="includeSymbols">Include Symbols</label>
-            <input type="checkbox" id="includeSumbols">
+            <input type="checkbox" id="includeSymbols">
 
             <button type="submit" class="btn">Make me a password!</button>
         </form>

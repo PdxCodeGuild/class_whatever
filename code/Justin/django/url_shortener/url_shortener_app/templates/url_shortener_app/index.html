@@ -1,6 +1,6 @@
 {%extends 'url_shortener_app/get_short_code.html'%}
 {%block content%}
-<form action= '{% url "url_shortener_app:generate"%}' method='post'>
+<form action= '{% url "url_shortener_app:shorten_url"%}' method='post'>
     {% csrf_token %}
     <input type="text" name="url" required>
     <input class="btn btn-primary btn-sm" type="submit" value="submit url">
