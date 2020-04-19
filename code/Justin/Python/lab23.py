@@ -58,6 +58,21 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
         contacts.append(row)
     print(contacts) #this makes your actual dictionary
 
+# *dead code*
+
+#     def homeScreen():
+#   global userInput
+#   if len(contactListName) <= 0:
+#     print("No contacts")
+#     print("add")
+#   elif len(contactListName) > 0:
+#     print("You currently have", len(contacts, "contact(s)")
+#     print("add'")
+#     print("view")
+#     print("delete")
+#     print("search")
+#     print("menu")
+
     def export():
         global contacts
         list_w = []
@@ -67,6 +82,16 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
         contacts[0].keys()
         ",".join(contacts[0].keys())
         ",".join(contacts[0].values())
+
+        # *dead code*
+
+#         def contacts():
+#   if len(contactListName) <= 0:
+#     homeScreen()
+#   if len(contactListName) > 0:
+#     print("Name: )
+#     print("Phone Number: )
+#     print("Email:)
 
 
         for contact in range(len(contacts)):
@@ -92,12 +117,29 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
         newcontact = dict(zip(value, user_input))
         contacts.append(prompt)
 
+    # *dead code*
+
+    # if len(contactListName) > 0:
+    # while True:
+    #   userInput = input("Please type a listed command:")
+    #   userInput = userInput.lower()
+    #   if userInput == "add" or "contacts" or "delete" or "search" or "menu":
+    #     break
+    #   else:
+    #     print("Please try again.")
+
     def read():
 
         prompt = input("Which contact?")
         for contact in contacts:
             if contact['name'] == prompt:
                 print(contact)
+
+    # *too complex*
+
+    #     def SubmitData():
+    # if  FIRSTNAME.get() == "" or LASTNAME.get() == "" or GENDER.get() == "" or AGE.get() == "" or ADDRESS.get() == "" or CONTACT.get() == "":
+    #     result = tkMessageBox.showwarning('', 'Please Complete The Required Field', icon="warning")
        
     def update():
 
