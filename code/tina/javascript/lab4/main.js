@@ -1,19 +1,32 @@
 function newItem() {
-    var item = document.getElementById("input").value;
-    var ul = document.getElementById("list");
-    var li = document.createElement("li");
-    li.appendChild(document.createTextNode("- " + item));
-    ul.appendChild(li);
-    document.getElementById("input").value = "";
-    li.onclick = removeItem;
+  var item = document.getElementById("input").value;
+  var ul = document.getElementById("list");
+  var li = document.createElement("li");
+  var dele = document.createElement("button")
+  li.appendChild(document.createTextNode("- " + item));
+  ul.appendChild(li);
+  li.appendChild(dele);
+  document.getElementById("input").value = "";
+  li.addEventListener("click", OnTodoClicked)
+  document.getElementById("li").addEventListener("click", removeItem()); {
+    document.getElementById("button")
   }
-  
-  document.body.onkeyup = function(e) {
-    if (e.keyCode == 13) {
-      newItem();
-    }
-  };
-  
-  function removeItem(e) {
-    e.target.parentElement.removeChild(e.target);
+}
+
+document.getElementById("input").addEventListener("keyup", function(e)
+{
+  if (e.keyCode === 13)
+  {
+      newItem()
+  }
+})
+
+function OnTodoClicked(e)
+{
+  e.currentTarget.classList.toggle("strike")
+}
+
+
+function removeItem(e){
+    e.target.parentElement.removeChild(e.target); 
   }
