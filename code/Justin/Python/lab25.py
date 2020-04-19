@@ -31,8 +31,16 @@ class Account:
         self.history = []
         print("Ohayou!!!")
 
+# *dead code*
+
+# def main():
+#    accounts = []
+#    for i in range(1000, 9999):
+#        account = Account(i, 0)
+#        accounts.append(account)
+
     def deposit(self): 
-        amount = float(input("Deposit amount: ")) 
+        amount = float(input("Deposit: ")) 
         self.balance += amount 
         output_one = print("Deposit:", amount)
         self.history.append("Deposit:")
@@ -83,17 +91,39 @@ a = Account()
 
 while True: 
 
-    user_input = input("What would you like to do(deposit, withdraw, check transactions)?")
+    # *dead code*
+
+    #    id = int(input("\nEnter account pin: "))
+ 
+    #    while id < 1000 or id > 9999:
+    #        id = int(input("\nInvalid Id.. Re-enter: "))
+
+    prompt = input("What would you like to do(deposit, withdraw, check transactions)?")
         
-    if user_input=="deposit":
+    if prompt=="deposit":
         a.deposit()
         a.check_transactions()
 
-    elif user_input=="withdraw":
+    elif prompt=="withdraw":
         a.withdraw()
         a.check_transactions()
 
-    elif user_input=="check transactions":
+    # *dead code*
+
+        # elif selection == 2:
+        #        amt = float(input("withdraw: "))
+        #        ver_withdraw = input("Is this the correct amount? " + str(amt) + " ")
+ 
+        #        if ver_withdraw == "Yes":
+        #            print("Verify withdraw")
+        #        else:
+        #            break
+ 
+        #        if amt < accountObj.getBalance():
+        #           accountObj.withdraw(amt)
+        #           print("\nUpdated Balance: " + str(accountObj.getBalance()) + " n")
+
+    elif prompt=="check transactions":
         a.check_transactions()
   
 
