@@ -1,25 +1,19 @@
-
-const clear = document.querySelector(".clear");
-const dateElement = document.getElementById("date");
-const list = document.getElementById("list");
-const input = document.getElementById("input");
-
-const CHECK = "fa-check-circle";
-const UNCHECK = "fa-circle-thin";
-const LINE_THROUGH = "lineThrough";
-
-const options = {weekday : "long", month:"short", day:"numeric"};
-const today = new Date();
-
-dateElement.innerHTML = today.toLocaleDateString("en-US", options);
-
-
-
-function addToDo(toDo) {
-
-    const item = 
-                    <i class ="fa fa-circle-thin co" job="complete" id="0"></i> 
-    
-    
-    
-}
+function newItem() {
+    var item = document.getElementById("input").value;
+    var ul = document.getElementById("list");
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode("- " + item));
+    ul.appendChild(li);
+    document.getElementById("input").value = "";
+    li.onclick = removeItem;
+  }
+  
+  document.body.onkeyup = function(e) {
+    if (e.keyCode == 13) {
+      newItem();
+    }
+  };
+  
+  function removeItem(e) {
+    e.target.parentElement.removeChild(e.target);
+  }
