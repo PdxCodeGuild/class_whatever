@@ -20,10 +20,10 @@
 // from string import ascii_lowercase
 // letters = string.ascii_lowercase
 // # print(ascii_lowercase)
-
-var letters = String.fromCharCode
+let input_box = document.getElementById("input_box")
+let new_1 = document.getElementById("new_1")
+var letters = "abcdefghijklmnopqrstuvwxyz";
 console.log(letters)
-
 
 
 // # make empty list outside of for loop because it has to be 
@@ -37,19 +37,18 @@ console.log(letters)
 // user_input = input("Enter a word: ") 
 // new = []
 // for i in user_input:
-//   new.append(ascii_lowercase.index(i))
+//   new.append(letters(i))
 // print(new)
 
-// function home(){
+let submit_button = document.getElementById("submit")
+submit_button.addEventListener("click", home)
 
-    let new1 = []
-    user_input = prompt("Enter a word: ");
-    
-    for (i in user_input) {
-        new1.push(String.fromCharCode(i));
+function home(){
+    for (i in input_box) {
+        new_1.push(letters[i]);
     }
-    // alert(new)
-// }
+    console.log(new_1)
+}
 
 // home()
 
@@ -66,13 +65,16 @@ console.log(letters)
 //     new1 = (g + 13)%26
 //     rot13_index.append(new1)
 // print(rot13_index)
+let rot13_button = document.getElementById("rot13_button")
+rot13_button.addEventListener('click', run)
 
-let rot13_index = []
-for (g in new1) {
-    new2 = (g + 13)%26
-    rot13_index.push(new2)
+function run (){
+    for (g in new1) {
+        new2 = (g + 13)%26
+        rot13_index.push(new2)
+    }
+    console.log(rot13_index)
 }
-alert(rot13_index)
 
 
 
@@ -86,11 +88,15 @@ alert(rot13_index)
 //   a.append(letters[x])
 // print(a)
 
-let a = []
-for (x in rot13_index) {
-  a.push(letters[x])
+let rot13_results = document.getElementById("rot13_results")
+rot13_results.addEventListener("click",results)
+
+function results (){
+    for (x in rot13_index) {
+    a.push(letters[x])
+    }
+    console.log(a)
 }
-alert(a)
 
 
 

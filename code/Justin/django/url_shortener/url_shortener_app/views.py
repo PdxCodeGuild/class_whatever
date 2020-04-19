@@ -31,20 +31,21 @@ def index(request):
 #                              {"short_url":short_url},
 #                              context_instance=RequestContext(request))
 
-def redirect(request, transmit):
-    redirect_link = get_object_or_404(url, long=transmit)
-    try:
-        user = data.objects.filter(ip=request.META["REMOTE_ADDR"], agent=request.META["HTTP_USER_AGENT"], link=redirect_link)
-        if user.count() > 0:
-            user = user[0]
-            user.amount += 1
-        else:
-            user = data(ip=request.META["REMOTE_ADDR"], agent=request.META["HTTP_USER_AGENT"], linkz=redirect_link)
-        # print(user)
-        user.save()
-    except KeyError:
-        print("Analysis error") # something went wrong with getting things from request.META
-    return HttpResponseRedirect(redirect_link.long_link)
+def shorten_url(request):
+    lengthened=request.POST['url']
+    code=''.join(random.choices(string.ascii_lowercase+string.digits, k=7))
+    new=url.objects.create(code=code,long=lengthened)
+    print(new)
+    return render(request,'url_shortener_app/generate.html',context={'code': code})
+
+def redirect(request, new):
+    code = url.objects.get(code=new)
+    code.clicks +=1
+    code.save()
+    # if not re.match('(?:http|https|ftp)://',code.long):
+    #     return HttpResponseRedirect('http://{}'.format(code.long))
+    return HttpResponseRedirect(code.long)
+
 
 # def link(request, id):
 #    db_id = models.Link.deocde_id(id)
@@ -52,13 +53,7 @@ def redirect(request, transmit):
 #    models.Link.objects.filter(id=db_id).update(hits=F('hits')+1)
 #    return redirect(link_db.link)
 
-def shorten_url(request):
 
-    code=''.join(random.choices(string.ascii_lowercase+string.digits, k=7))
-    new=url(code=code,long=request.POST.get('url'))
-    print(new)
-    new.save()
-    return render(request,'url_shortener_app/generate.html',context={'code': code})
     # url_code = request.POST['url']
     # while True:  
     #     url_code= ''
