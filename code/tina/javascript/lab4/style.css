@@ -2,12 +2,11 @@
   text-decoration: line-through;
 }
 
-
 button {
-  background: none;
+  background: blue;
   border: 0px;
   color: #888;
-  font-size: 15px;
+  font-size: 10px;
   width: 60px;
   margin: 10px 0 0;
   font-family: Lato, sans-serif;
