@@ -21,24 +21,23 @@ function blackjack(card_1, card_2, card_3){
 let bt =  document.getElementById('bt')
 let div = document.getElementById('result-container')
 let body = document.querySelector('body')
-bt.addEventListener('click', function(){
+bt.addEventListener('click', () => {
     let card_1 = document.getElementById('card1').value.toUpperCase()
     console.log(card_1)
     let card_2 = document.getElementById('card2').value.toUpperCase()
     console.log(card_2)
     let card_3 = document.getElementById('card3').value.toUpperCase()
     console.log(card_3)
-    let result= document.createTextNode(blackjack(card_1, card_2, card_3))
-    let exception= document.createTextNode("Please check your entries and try again!")
+    let result= blackjack(card_1, card_2, card_3)
+    let exception= "Please check your entries and try again!"
     console.log(result)
     let new_div=document.getElementById('result-container')
-    body.replaceChild(div, new_div)
     if (result.nodeValue==="undefined"){
         result=exception
-        div.appendChild(result)
+        div.innerText=result
     }
     else {
-        div.appendChild(result)
+        div.innerText=result
     }
 })
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 6</title>
+    </head>
+    <body>
+        <input type="button" id="button_v1" value="Clock"/>
+        <input type="button" id="button_v2" value="Stopwatch"/>
+        <input type="button" id="button_v3" value="Timer"/>
+
+        <div id="v1" class="anime">
+            <h1>Clock</h1>
+            <div id="current"></div>
+        </div>
+
+        <br/>
+
+        <div id="v2" style="display: none;" class="anime">
+            <h1>Stopwatch</h1>
+            <div id="total_time"></div>
+            <input type="button" id="start_timer" value="Start"/>
+            <input type="button" id="stop_timer" value="Reset"/>
+            <ul id="laps"></ul>
+        </div>
+
+        <br/>
+
+        <div id="v3" style="display: none;" class="anime">
+            <h1>Timer</h1>
+            <input type="text" id="timer_input" />
+            <select id="timer_units">
+                <option value="sec">Seconds</option>
+                <option value="min">Minutes</option>
+                <option value="hrs">Hours</option>
+            </select>
+            <input type="button" id="timer_button" value="Start Timer"/>
+            <div id="timer_output"></div>
+        </div>
+
+        <script src="lab06.js"></script>
+    </body>
+</html>

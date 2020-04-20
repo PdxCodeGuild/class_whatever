@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.strike {
+  text-decoration: line-through;
+}
+
+</style>
+</head>
+<body>
+
+<ul>
+    <li id="dummy">
+        Hello
+    </li>
+</ul>
+<script>
+    function OnTodoClicked(e)
+    {
+        e.currentTarget.classList.toggle("strike")
+    }
+    
+    document.getElementById("dummy").onclick = OnTodoClicked
+</script>
+</body>
+</html>
