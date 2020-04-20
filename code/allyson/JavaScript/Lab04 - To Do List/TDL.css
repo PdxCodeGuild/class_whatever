@@ -1,0 +1,110 @@
+html {}
+
+body {
+  background-color: #0d19a3;
+  font-family: 'Oxygen', sans-serif;
+  margin: 1px;
+  min-height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-column: 0fr 3fr 0fr;
+  grid-row: 0.4fr 0.2fr 0.5fr 4fr 0.2fr;
+  gap: 0px 0px;
+  grid-area: auto;
+}
+
+.topothepage {
+  width: 100%;
+  color: #e4c580;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 0px;
+  margin-bottom: 0.2px;
+}
+
+.tiny-by-me {
+  margin-top: 0px;
+  width: 100%;
+  color: #15db95;
+  text-align: center;
+}
+
+h5 {
+  margin-top: 0px;
+  margin-bottom: 0.2px;
+  color: #15db95;
+  text-align: center;
+}
+
+.work {
+  left: 0;
+  width: 100%;
+  padding: 4px;
+  text-align: center;
+  text-align: center;
+  font-weight: 500;
+}
+
+input {
+  margin: 0;
+  border: none;
+  border-radius: 2px;
+  width: 75%;
+  font-size: 14px;
+}
+
+label {
+  color: #15db95;
+  text-align: left;
+}
+
+button {
+  padding: 1px;
+  background: #d9d9d9;
+  color: #555;
+  float: inline-end;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.undone-list {
+  margin: 4px;
+  background-color: ;
+}
+
+.complete-list {}
+
+legend {
+  text-align: center;
+  color: #15db95;
+  background-color: #080f5b;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  padding: 1px;
+  padding-top: 1px;
+  font-weight: 500;
+}
+
+ul li {
+  background: #e4c580;
+  list-style: none;
+}
+
+ul li:nth-child(odd) {
+  background: #f4e4c1;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #080f5b;
+  text-align: center;
+}
