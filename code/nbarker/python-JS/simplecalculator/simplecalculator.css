@@ -1,0 +1,67 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: normal;
+}
+
+body{
+    padding: 0; /*background doesn't move and fills screen*/
+    margin: 0;
+    background: linear-gradient(to top right, #e66465, #9198e5);
+}
+
+.calculator-grid{
+    display: grid; /*center it!*/
+    justify-content: center; /*center the content in IT*/
+    align-content: center; /*important! changed from align-items to align-content bc we want to line the entire content of this grid in the center, not the items themselves!*/
+    min-height: 100vh; /*so it takes up the vertical space*/
+    grid-template-columns: repeat(4, 100px); /*4 columns, equal size*/
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px); /*5 rows!*/
+    grid-column-gap: 7px;
+    grid-row-gap: 7px;
+    padding: 10px;
+}
+
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+    background-color: rgba(190, 190, 190, 0.431);
+    box-shadow: 3px 5px #575757;}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .72); /*hover!*/
+}
+
+.span-two{
+    grid-column: span 2; /*big buttons!*/
+}
+
+.output{
+    background: linear-gradient(to bottom left, rgb(230, 100, 101), rgb(145, 152, 229));
+    display: flex; /*best way to expand with large values*/
+    flex-direction: column; /*we want them on top of one another*/
+    align-items: flex-end; /*we want it on the right side!*/
+    justify-content: space-around; /*originally space-between, changed to bring slightly closer togther, size differences will be sufficient for distinction baby!*/
+    grid-column: 1 / -1; /*from the first to the last*/
+    color: white;
+    padding: .5rem;
+    border-radius: 10px; /*everyone likes curves!*/
+    border: 2px solid white;
+    word-wrap: break-word; /*where we want to break our 'words' in the middle is what we're saying here*/
+    word-break: break-all; /*this says that we can break any and everything! yeah!*/
+
+}
+
+.output .previous-operand{
+    color: rgba(255, 255, 255, .55); /*previous info slightly darker*/
+    font-size: 1.5rem;
+}
+
+.output .current-operand{
+    color: white; /*we want this slightly larger, and brighter, it's current!*/
+    font-size: 2.5rem;
+}
