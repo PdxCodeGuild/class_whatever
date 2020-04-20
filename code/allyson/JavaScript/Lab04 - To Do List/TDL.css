@@ -3,65 +3,102 @@ html {}
 body {
   background-color: #0d19a3;
   font-family: 'Oxygen', sans-serif;
-  margin: 10px;
+  margin: 1px;
   min-height: 100vh;
 }
 
-.container1 {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  overflow-y: auto;
+.container {
+  display: grid;
+  grid-column: 0fr 3fr 0fr;
+  grid-row: 0.4fr 0.2fr 0.5fr 4fr 0.2fr;
+  gap: 0px 0px;
+  grid-area: auto;
 }
 
 .topothepage {
-  position: fixed;
-  left: 0;
-  top: 0;
   width: 100%;
   color: #e4c580;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
+  margin-top: 0px;
+  margin-bottom: 0.2px;
 }
 
 .tiny-by-me {
-  position: fixed;
-  left: 0;
-  padding-top: 55px;
+  margin-top: 0px;
   width: 100%;
   color: #15db95;
   text-align: center;
 }
 
-.container2 {
-  padding-top: 100px;
-  position: absolute;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 10px;
-  box-sizing: content-box;
-}
-
-h4 {
+h5 {
+  margin-top: 0px;
+  margin-bottom: 0.2px;
   color: #15db95;
+  text-align: center;
 }
 
 .work {
-  position: fixed;
   left: 0;
   width: 100%;
-  padding-bottom: 10px;
+  padding: 4px;
   text-align: center;
-  background-color: #080f5b;
-  padding: 5px;
-  padding-top: 5px;
   text-align: center;
   font-weight: 500;
 }
 
-ul {}
+input {
+  margin: 0;
+  border: none;
+  border-radius: 2px;
+  width: 75%;
+  font-size: 14px;
+}
+
+label {
+  color: #15db95;
+  text-align: left;
+}
+
+button {
+  padding: 1px;
+  background: #d9d9d9;
+  color: #555;
+  float: inline-end;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.undone-list {
+  margin: 4px;
+  background-color: ;
+}
+
+.complete-list {}
+
+legend {
+  text-align: center;
+  color: #15db95;
+  background-color: #080f5b;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  padding: 1px;
+  padding-top: 1px;
+  font-weight: 500;
+}
+
+ul li {
+  background: #e4c580;
+  list-style: none;
+}
+
+ul li:nth-child(odd) {
+  background: #f4e4c1;
+}
 
 .footer {
   position: fixed;
