@@ -26,8 +26,6 @@ draw.line((150,300, 50, 450), fill=color)
 draw.line((150, 300, 250, 400), fill=color)
 
 
-# draw.rectangle(((100, 100)
-
 img.show()
 
 from PIL import Image, ImageDraw
