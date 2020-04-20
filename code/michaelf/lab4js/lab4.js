@@ -42,15 +42,10 @@ completed_btn.addEventListener('click', function(){
     let items=document.getElementsByClassName('checked')
     console.log(items)
     for(let i=0; i<items.length;i++){
-        console.log(items[i].name)
-        items[i].addEventListener('change',function(){
-            items[i].checked=true
-        })
         if (items[i].checked===true){
             completed(items[i].name,todo)
         }
     }
-    console.log(todo)
     render_list(todo)
 })
 
@@ -59,14 +54,9 @@ delete_btn.addEventListener('click', function(){
     let items=document.getElementsByClassName('checked')
     console.log(items)
     for(let i=0; i<items.length;i++){
-        console.log(items[i].name)
-        items[i].addEventListener('change',function(){
-            items[i].checked=true
-        })
         if (items[i].checked===true){
             remove_item(items[i].name,todo)
         }
     }
-    console.log(todo)
     render_list(todo)
 })
