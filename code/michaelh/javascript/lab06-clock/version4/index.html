@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>    
+        <title>Title</title>
+    </head>
+    <body>
+        <label for='function_selector'>Choose the timing function:</label>
+        <br>
+        <select name='function' id='function_selector'>
+            <option value=''>--Please choose an option--</option>
+            <option value='clock'>Clock</option>
+            <option value='stopwatch'>Stopwatch</option>
+            <option value='countdown'>Countdown</option>
+        </select>
+
+        <div id='clock_div'>
+            <p id='clock_output'></p>
+        </div>
+
+        <div id='stopwatch_div'>
+            <button id='stopwatch_start_button'>Start</button>
+            <p id='stopwatch_output'></p>
+            <button id='lap_button'>Lap</button>
+            <div id='lap_time_div'></div>
+        </div>
+
+        <div id='countdown_div'>
+            <input id='time_input' placeholder='Enter the time'></input>
+            <br>
+            <label for='unit_selector'>Choose the units:</label>
+            <br>
+            <select name='units' id='unit_selector'>
+                <option value=''>--Please choose an option--</option>
+                <option value='s'>Seconds</option>
+                <option value='m'>Minutes</option>
+                <option value='h'>Hours</option>
+            </select>
+            <br>
+            <button id='countdown_start_button'>Begin countdown</button>
+            <p id='countdown_output'></p>
+        </div>
+   
+        <script src="http://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+        <script src='index.js'></script>
+    </body>
+</html>

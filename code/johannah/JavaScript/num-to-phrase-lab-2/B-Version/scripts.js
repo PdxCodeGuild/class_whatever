@@ -1,8 +1,7 @@
-let text_field = document.getElementById('user-input')
+let user_input = document.getElementById('user-input')
 
-let user_input = parseInt(prompt('Enter a whole number 0 to 999 to determine its English representation: '))
+// let user_input = parseInt(prompt('Enter a whole number 0 to 999 to determine its English representation: '))
 const hundreds_digit = Math.floor(user_input / 100)
-// const tens_digit = Math.floor(user_input / 10)
 const ones_digit = user_input % 10
 
 const under_twenty = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
@@ -11,6 +10,7 @@ const hundreds = ['', 'one hundred', 'two hundred', 'three hundred', 'four hundr
 
 if (user_input === 0) {
   alert("zero")
+  // console.log()
 } else if (user_input < 20) {
   tens_digit = Math.floor(user_input / 10)
   alert(under_twenty[user_input]);
