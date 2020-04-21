@@ -87,24 +87,4 @@ def main():
         
 
 
-
-
-
-
-    # def __repr__(self):
-    #     repr = ""
-    #     for row in range(3):
-    #         for column in range(3):
-    #             if self.board [row][column] != "x" and  self.board [row][column] != "o":
-    #                 repr += " "
-
-
-# __repr__
-# make condition if there is a marker there
-# after you print x or o does it need bar or new line.
-
-                   
-
-
-
 game = Game()
