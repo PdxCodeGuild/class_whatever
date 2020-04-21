@@ -4,7 +4,7 @@ from . import views
 app_name = 'chirp_timeline'
 urlpatterns = [
     path('', views.ledger, name='ledger'),
-    path('vestal', views.vestal, name='vestal'),
-    path('<int:post_id>/tarnish', views.edit, name='tarnish'),
-    path('<int:post_id>/banish', views.post_delete, name='banish'),
+    path('vestal', views.affix, name='affix'),
+    path('<int:post_id>/tarnish', views.tarnish, name='tarnish'),
+    path('<int:post_id>/banish', views.banish, name='banish'),
 ]

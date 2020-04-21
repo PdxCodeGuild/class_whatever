@@ -1,22 +1,22 @@
-{% extends 'posts/base.html' %}
+{% extends 'posts/foundation.html' %}
 
 {% block content %}
     {% for post in posts %}
         <div class="post">
             <div class="date">
-                <p>author: <a href="{% url 'users:user_detail' post.author.username %}">{{ post.author }}</a></p>
-                <p>created: {{ post.created_date }}</p>
+                <p>ranter: <a href="{% url 'ranters:detail' rant.ranter.trollavatar %}">{{ post.author }}</a></p>
+                <p>incepted: {{ post.incepted }}</p>
                 {% if post.edited %}
-                    <p>edited: {{ post.edited }}</p>            
+                    <p>edited: {{ post.tarnished }}</p>            
                 {% endif %}
             </div>
             {% if post.author == user %}
-                <a href="{% url 'posts:post_edit' post.pk%}">edit</a>
-                <a href="{% url 'posts:post_delete' post.pk%}">delete</a>
+                <a href="{% url 'posts:tarnish' post.pk%}">tarnish</a>
+                <a href="{% url 'posts:banish' post.pk%}">banish</a>
             {% endif %}
-            <p>{{ post.text|linebreaksbr }}</p>
-            {% if post.image %}
-                <img height=Auto, width=Auto, src="{{post.image.url}}">
+            <p>{{ post.spitfire|linebreaksbr }}</p>
+            {% if post.avatar %}
+                <img height=Auto, width=Auto, src="{{rant.avatar.url}}">
             {% endif %}
         </div>
     {% endfor %}
