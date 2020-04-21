@@ -60,7 +60,7 @@ def play():
         change()
 
     if champion == "1" or champion == "0":
-        print(champion + "was victious")
+        print(champion + "was victorious")
 
     elif champion == None:
         print("Tie!")

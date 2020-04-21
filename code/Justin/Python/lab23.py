@@ -56,7 +56,22 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
         row = row.split(",")
         row = dict(zip(value, row))
         contacts.append(row)
-    print(contacts) #this makes your dict
+    print(contacts) #this makes your actual dictionary
+
+# *dead code*
+
+#     def homeScreen():
+#   global userInput
+#   if len(contactListName) <= 0:
+#     print("No contacts")
+#     print("add")
+#   elif len(contactListName) > 0:
+#     print("You currently have", len(contacts, "contact(s)")
+#     print("add'")
+#     print("view")
+#     print("delete")
+#     print("search")
+#     print("menu")
 
     def export():
         global contacts
@@ -67,6 +82,16 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
         contacts[0].keys()
         ",".join(contacts[0].keys())
         ",".join(contacts[0].values())
+
+        # *dead code*
+
+#         def contacts():
+#   if len(contactListName) <= 0:
+#     homeScreen()
+#   if len(contactListName) > 0:
+#     print("Name: )
+#     print("Phone Number: )
+#     print("Email:)
 
 
         for contact in range(len(contacts)):
@@ -79,7 +104,7 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
             
             
 
-        with open('contacts.csv', 'w') as contacts:
+        with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Python/contacts.csv', 'w') as contacts:
             contacts.write("\n".join(list_w))
 
     # contacts = [
@@ -87,36 +112,53 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
     # {'name':'sam', 'favorite fruit':'pineapple' ...}
 
 
-    def create_contact():
-        user_input = [input("What is your name?"),input("Favorite fruit?"), input("Favorite color?")]
+    def create():
+        prompt = [input("What is your name?"),input("Favorite fruit?"), input("Favorite color?")]
         newcontact = dict(zip(value, user_input))
-        contacts.append(newcontact)
+        contacts.append(prompt)
 
-    def read_contact():
+    # *dead code*
 
-        user_input = input("Which contact?")
+    # if len(contactListName) > 0:
+    # while True:
+    #   userInput = input("Please type a listed command:")
+    #   userInput = userInput.lower()
+    #   if userInput == "add" or "contacts" or "delete" or "search" or "menu":
+    #     break
+    #   else:
+    #     print("Please try again.")
+
+    def read():
+
+        prompt = input("Which contact?")
         for contact in contacts:
-            if contact['name'] == user_input:
+            if contact['name'] == prompt:
                 print(contact)
-       
-    def update_contact():
 
-        user_input = input("Which contact?")
+    # *too complex*
+
+    #     def SubmitData():
+    # if  FIRSTNAME.get() == "" or LASTNAME.get() == "" or GENDER.get() == "" or AGE.get() == "" or ADDRESS.get() == "" or CONTACT.get() == "":
+    #     result = tkMessageBox.showwarning('', 'Please Complete The Required Field', icon="warning")
+       
+    def update():
+
+        prompt = input("Which contact?")
         attribute = input("What do you want to update?")
-        user_input_two = input("With what?")
-        for contact in contacts:
+        prompt_two = input("With what?")
+        forx in contacts:
             if contact['name'] == user_input:
                 print(contact)
                 if attribute in contact:     
                     contact[attribute] = user_input_two
                     return contact
-        print(contact)
+        print(x)
 
-    def delete_contact():
+    def delete():
 
-        user_input = input("Which contact?")
+        prompt = input("Which contact?")
         for contact in contacts:
-            if contact['name'] == user_input:
+            if contact['name'] == prompt:
              contacts.remove(contact)
 
 # csv_txt = """fname,lname,phone,fax,notes

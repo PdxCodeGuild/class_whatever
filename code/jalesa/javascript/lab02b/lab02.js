@@ -22,85 +22,51 @@
 // elif operation == ("/"):
 //     print(first_number / second_number)
 
-operation = prompt("What is the operation you\'d like to perform? ")
-first_number = parseInt(prompt("What is the first number? "))
-second_number = parseInt(prompt("What is the second number?"))
+// ----------- JAVASCRIPT ANSWER --------------
+let submit_button = document.getElementById("submit");
+submit_button.addEventListener("click", run);
 
-if (operation == "*") {
-    prompt(first_number * second_number)
-} else if (operation == ("+")) {
-    prompt(first_number + second_number)
-} else if (operation == "-") {
-    prompt (first_number - second_number)
-} else if (operation == ("/")) {
-    prompt(first_number/second_number)
+let done_button = document.getElementById("done_button")
+done_button.addEventListener("click", done)
+
+
+let first_num1 = document.getElementById("first_num");
+let second_num1 = document.getElementById("second_num");
+
+function run() {
+    let operation = document.getElementById("operation").value;
+    let first_num = parseFloat(first_num1.value)
+    let second_num = parseFloat(second_num1.value)
+    let result;
+    console.log(Number(first_num))
+    if (operation === "*") {
+        console.log(first_num.value)
+
+        result = (first_num * second_num)
+       
+    } else if (operation === "+") {
+        result = (first_num + second_num)
+    } else if (operation === "-") {
+       result = (first_num - second_num)
+    } else if (operation === "/") {
+        result = (first_number/second_number)
+    }
+    console.log(result)
+    let p = document.createElement("p");
+    let text = document.createTextNode(`Your result is ${result}`);
+    p.appendChild(text)
+    document.body.append(p)
+}
+
+function done() {
+    var p01 = document.createElement("p")
+    text01 = document.createTextNode("Good-bye")
+    p01.appendChild(text01)
+    document.body.append(p01)
 }
 
 
 
-
-
-
-
-
-// # Version 2
-// # Allow the user to keep performing operations until
-// # they say 'done'. Use while True and break. 
-// # Below is some sample input/output.
-
-// # > what is the operation you'd like to perform? +
-// # > what is the first number? 5
-// # > what is the second number? 12
-// # > 5 + 12 = 17
-// # > what is the operation you'd like to perform? done
-// # > goodbye! 
-
-
-//-----------------     ANSWER   ------------------------------------        
-// while True:
-//     user_input = input(" choose done if you would like to quit? ")
-
-//     if user_input == ("done"):
-//         print("Good-bye")
-//         break
-    
-//     operation = input("What is the operation you\'d like to perform? ")
-//     first_number = int(input("What is the first number? ") )
-//     second_number = int(input("What is the second number? "))
-
-//     if operation == ("*"):
-//         print(first_number * second_number)
-//     elif operation == ("+"):
-//         print(first_number + second_number)
-//     elif operation == ("-"):
-//         print(first_number - second_number)
-//     elif operation == ("/"):
-//         print(first_number / second_number)
-
-// --------------- Not running while loop  ------------
-while (true) {
-    user_input = prompt("Choose done if you would like to quit? ")
-
-    if (user_input == ("done")) {
-        prompt("Good-bye")
-        break
-    }
-
-    operation = prompt("What is the operation you would like to perform? ")
-    first_number = parseInt(prompt("What is your first number? "))
-    second_number = parseInt(prompt("What is the second number? "))
-
-    if (operation == ("*")) {
-        prompt(first_number * second_number)
-    } else if (operation == ("+")) {
-        prompt(first_number + second_number )
-    } else if (operation == ("-")) {
-        prompt (first_number - second_number)
-    } else if (operation == ("/")) {
-        prompt (first_number / second_number)
-    }
-}
-    
 
 
 

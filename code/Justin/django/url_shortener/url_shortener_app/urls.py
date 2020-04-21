@@ -32,5 +32,5 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("shorten_url/", views.shorten_url, name="shorten_url"),
     path("get_short_code/<str:transmit>/", views.get_short_code, name="get_short_code"),
-    path("<str:transmit>/", views.redirect, name="redirect"),
+    path("<str:new>/", views.redirect, name="redirect"),
 ]
