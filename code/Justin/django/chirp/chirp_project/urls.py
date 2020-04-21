@@ -21,8 +21,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/login/', views.LoginView.as_view(), name='login'),
-    path('accounts/logout/', views.LogoutView.as_view(), name='logout'),
-    path('', include('users.urls')),
-    path('', include('posts.urls'))
+    path('accounts/phish/', views.LoginView.as_view(), name='phish'),
+    path('accounts/leave/', views.LogoutView.as_view(), name='leave'),
+    path('', include('chirp_ranters.urls')),
+    path('', include('chirp_timeline.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
