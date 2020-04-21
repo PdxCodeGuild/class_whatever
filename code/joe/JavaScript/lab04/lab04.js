@@ -35,7 +35,7 @@ let display = function(item) {
         let temp = the_list[index];
         if(the_list[index][1]){
             document.getElementById(complete_button.name).className = "complete";
-            if(index < the_list.length && !the_list[index+1][1]) { //don't need to move anything if already in the complete section
+            if((index+1) < the_list.length && !the_list[index+1][1]) { //don't need to move anything if already in the complete section
                 remove(index);
                 the_list.push(temp);
             }

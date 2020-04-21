@@ -1,16 +1,25 @@
+var completedTasks=document.getElementById("done")
+var addbutton = document.getElementsByTagName("button")[0];
+
+
 function newItem() {
   var item = document.getElementById("input").value;
   var ul = document.getElementById("list");
   var li = document.createElement("li");
-  var dele = document.createElement("button")
   li.appendChild(document.createTextNode("- " + item));
   ul.appendChild(li);
-  li.appendChild(dele);
+  var deletebutton = document.createElement("button");
+
   document.getElementById("input").value = "";
   li.addEventListener("click", OnTodoClicked)
-  document.getElementById("li").addEventListener("click", removeItem()); {
-    document.getElementById("button")
-  }
+  deletebutton.addEventListener("click", removeItem);
+  deletebutton.innerText="Delete";
+  deletebutton.classname="delete";
+
+  li.appendChild(deletebutton)
+
+  
+  
 }
 
 document.getElementById("input").addEventListener("keyup", function(e)
@@ -21,12 +30,26 @@ document.getElementById("input").addEventListener("keyup", function(e)
   }
 })
 
+
+
 function OnTodoClicked(e)
 {
   e.currentTarget.classList.toggle("strike")
-}
+  let todo=this
+  completedTasks.appendChild(todo);
+  let strikelist = document.querySelector('.strike')
+  if (this.classList.contains("strike")) {
+    done.appendChild(this) }
+  else {
+    list.appendChild(this)
+  }
+  }
 
 
 function removeItem(e){
-    e.target.parentElement.removeChild(e.target); 
+  e.stopPropagation()
+  this.parentNode.remove();
   }
+
+
+

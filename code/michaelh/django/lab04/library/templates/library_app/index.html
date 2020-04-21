@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Title</title>
+    </head>
+    <body>
+        <div>
+            <h1>Library</h1>
+        </div>
+        <h2>Checked out books:</h2>
+        {% for book in book_list %}
+            {% if book.checked_out == True%}
+                <div>
+                    <h3>{{ book.title }}</h3>            
+                    {% comment %} <h3><a href="{%url 'detail' book.id%}">{{ book.title }}</a></h3> {% endcomment %}
+                    <p>by: {{ book.author|linebreaksbr }}</p>
+                    <p>published: {{ book.published_date }}</p>
+                </div>
+                <form action = "{% url 'library_app:check_in' book.id %}" method = "post">
+                    {% csrf_token %}
+                    <button type="submit" value={{book.id}}>Return</button>
+                </form> 
+            {% endif %}
+        {% endfor %}
+        <h2>Available books:</h2>
+        {% for book in book_list %}
+            {% if book.checked_out == False%}
+                <div>
+                    <h3>{{ book.title }}</h3>
+                    {% comment %} <h3><a href="{%url 'detail' book.id%}">{{ book.title }}</a></h3> {% endcomment %}
+                    <p>by: {{ book.author|linebreaksbr }}</p>
+                    <p>published: {{ book.published_date }}</p>
+                </div>
+                <form action = "{% url 'library_app:check_out' book.id %}" method = "post">
+                    {% csrf_token %}
+                    <button type="submit" value={{book.id}}>Check out</button>
+                </form> 
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
