@@ -30,21 +30,28 @@ let done_button = document.getElementById("done_button")
 done_button.addEventListener("click", done)
 
 
-let operator = document.getElementById("operation");
-let first_num = document.getElementById("first_num");
-let second_num = document.getElementById("second_num");
+let first_num1 = document.getElementById("first_num");
+let second_num1 = document.getElementById("second_num");
 
 function run() {
-    if (operation == "*") {
-      var result = Number(first_num.value*second_num.value)
-    } else if (operation == "+") {
-        result = Number(first_num.value + second_num.value)
-    } else if (operation == "-") {
-       result = Number(first_num.value - second_num.value)
-    } else if (operation == "/") {
-        result = Number(first_number.value/second_number.value)
+    let operation = document.getElementById("operation").value;
+    let first_num = parseFloat(first_num1.value)
+    let second_num = parseFloat(second_num1.value)
+    let result;
+    console.log(Number(first_num))
+    if (operation === "*") {
+        console.log(first_num.value)
+
+        result = (first_num * second_num)
+       
+    } else if (operation === "+") {
+        result = (first_num + second_num)
+    } else if (operation === "-") {
+       result = (first_num - second_num)
+    } else if (operation === "/") {
+        result = (first_number/second_number)
     }
-    
+    console.log(result)
     let p = document.createElement("p");
     let text = document.createTextNode(`Your result is ${result}`);
     p.appendChild(text)

@@ -1,0 +1,33 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Chirp</title>
+        {% comment %} <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/posts.css' %}"> {% endcomment %}
+    </head>
+<body>
+    <div class="page-header">
+        {% if user.is_authenticated %}
+            <a href="{% url 'posts:vestal' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <p class="top-menu">Ohayou {{ user.trollavatar }} <small>(<a href="{% url 'leave' %}">Leave</a>)</small></p>
+        {% else %}
+            <a href="{% url 'phish' %}" class="top-menu">Phish</a>
+            <a href="{% url 'ranters:beg' %}"  class="top-menu">Beg</a>
+        {% endif %}
+        <h1><a href="{% url 'rants:ledger' %}">Chirp</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div class="page-footer">
+        <a href=""><h1>Back to top</h1></a>
+    </div>
+</body>
+</html>
