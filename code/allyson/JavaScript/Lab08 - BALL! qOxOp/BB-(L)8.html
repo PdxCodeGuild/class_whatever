@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title> P-P-S by ME! </title>
+    <title> Follow the Bouncing Ball! </title>
     <style>
         canvas{
-            position:absolute;
+            position:center;
             width:1000px;
             height:550px;
-            top:15%;
+            border:1px solid black;
         }
     </style>
 </head>
@@ -20,19 +20,26 @@
         </canvas>
     </center>
     <script>
+        var canvas = document.querySelector("canvas"); 
+ 
+        canvas.width = window.innerWidth; 
+        canvas.height = window.innerHeight;
+        var cntx = canvas.getContext('2d');
         let ball={
-            radius:5,
-            px:Math.random()*width,
-            py:Math.random()*height,
+            radius:25,
+            px:Math.random()*canvas.width,
+            py:Math.random()*canvas.height,
             vx:(2*Math.random()-1)*10,
             vy:(2*Math.random()-1)*10
         };
-        ctx.beginPath();
-        ctx.arc(ball.px,ball.py,ball.radius,0,2*Math.PI,false);
-        ctx.fillStyle='red';
-        ctx.fill();
+        cntx.beginPath();
+        cntx.arc(ball.px,ball.py,ball.radius,0,2*Math.PI,false); //The Math.PI property represents the ratio of the circumference of a circle to its diameter, approximately 3.14159  - Stolen from the Internet//
+        cntx.fillStyle='red';
+        cntx.fill();
 
         function loop_garou() {
             window.requestAnimationFrame(loop_garou);
         }
         window.requestAnimationFrame(loop_garou)
+    </script>
+<html>
