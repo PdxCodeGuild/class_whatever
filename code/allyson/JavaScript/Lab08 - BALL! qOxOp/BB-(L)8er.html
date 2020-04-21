@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Follow the Bouncing Ball! </title>
+    <style>
+        body {
+        background: radial-gradient(grey 40%, black);
+}
+        canvas{
+            background-color:white;
+            position:center;
+            width:1400px;
+            height:550px;
+            border:1px solid black;
+        }
+        h1{
+            color:lightgrey;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Bouncing Ball</h1>
+        <h3>By Allyson Phillips</h3>
+        <canvas>
+        </canvas>
+    </center>
+    <script>
+        var canvas = document.querySelector("canvas"); 
+ 
+        canvas.width = window.innerWidth; 
+        canvas.height = window.innerHeight;
+
+        var ball={
+            radius:25,
+            px:Math.random()*canvas.width,
+            py:Math.random()*canvas.height,
+            vx:(2*Math.random()-1)*10,
+            vy:(2*Math.random()-1)*10
+        };
+        
+        function art(){
+            var orb = canvas.getContext('2d');
+            orb.clearRect(0,0,canvas.width,canvas.height);
+            orb.fillStyle="red"
+            orb.arc()
+        }
+        let ball={
+            radius:25,
+            px:Math.random()*canvas.width,
+            py:Math.random()*canvas.height,
+            vx:(2*Math.random()-1)*10,
+            vy:(2*Math.random()-1)*10
+        };
+       
+
+        var canvas=document.getElementById('canvas');
+        var friction= 1;
+
+    </script>
+<html>

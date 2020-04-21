@@ -9,8 +9,8 @@ class Chirp(models.Model):
 
 class Stalk(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    target = models.ForeignKey('auth.User',, on_delete=models.CASCADE)
+    target = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        unique = ('user', 'target')
+    # class Meta:
+    #     unique = ('user', 'target')
