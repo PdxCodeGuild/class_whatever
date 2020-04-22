@@ -65,24 +65,29 @@ complete_button.addEventListener("click",function() {
     let complete_check_boxes = list_div.querySelectorAll("input[type='checkbox'].delete_check_box");
     for (let i = 0; i < complete_check_boxes.length; i++) {
         if (complete_check_boxes[i].checked) {
-           completed_div.append(complete_check_boxes[i].parentElement)
-           
+            completed_div.append(complete_check_boxes[i].parentElement)
+            complete_check_boxes[i].remove()
+            let p = document.querySelector("p")
+            text0 = p.innerText
+            let text = text0
+            console.log(text)
+        // put line through word
+        // var result = str.strike();
+
            
         }
-    // remove from to do list
-    // move to completed list 
-    // draw a line through the word.
-    // let complete_item = "lineThrough";
     }
 });
 
 
 
-
+// fix clear button
 
 function clear () {
-    completed_div.remove()
+    completed_div.remove()   
+    
     list_div.remove()
+        
 }
 
 // for loop in delete_button function explanation:
