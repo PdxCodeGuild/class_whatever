@@ -41,4 +41,4 @@ function delete_me() {}
 
 // btn.addEventListener("click", addListAfterClick);
 delete_btn.addEventListener("click", delete_me);
-completed_btn.addEventListener("click", completed_task)
+completed_btn.addEventListener("click", completed_task);
