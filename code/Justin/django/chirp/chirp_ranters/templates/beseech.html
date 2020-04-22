@@ -1,10 +1,10 @@
-{% extends 'posts/base.html' %}
+{% extends 'posts/foundation.html' %}
 
 {% block content %}
     <h2>Beseech us:</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Sign up</button>
+        <button type="submit">Beseech</button>
     </form>
 {% endblock %}

@@ -2,16 +2,20 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.utils import timezone
 from django.urls import reverse
-# from django.shortcuts import redirect, assign_perm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from .models import Rants
+from django import forms
 
-from .models import Post
-from .forms import PostForm
+class AffixSheet(forms.ModelForm):
+
+    class Meta:
+        model = Rants
+        fields = ('spitfire', 'avatar')
 
 def ledger(request):
-    posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
-    return render(request, 'posts/chirp_index.html', {'posts': posts})
+    rants= Rants.objects.filter(created_date__lte=timezone.now()).order_by('-incepted')
+    return render(request, 'posts/ledger.html', {'rants': rants})
 
 
 @login_required

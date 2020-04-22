@@ -20,6 +20,13 @@ let array = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9,]
         }
         return output;
     }
+
+    // function solutio{
+    //     var storage = [], counter = 0;
+    //     for(var i = 1; i < A.length - 1; i++) {
+    //       if (A[i] > A[i-1] 
+    //           storage.push(i);
+    //       }
     
     function valleys(array){
         let output = [];
@@ -38,6 +45,12 @@ let array = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9,]
         return peaks.concat(valleys);
         
     }
+
+    // def max_profit(prices)
+    // start = prices
+    // #default case which returns 0 if prices only decreases over time
+    // if prices.all? {|n| n < start}
+    //     return 0
 
     alert(peaks(array))
     console.log(peaks(array))
