@@ -4,7 +4,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let c = canvas.getContext('2d');
-
+let gravity = 1;
+let friction = .99;
 //rectangle
 // c.fillStyle = 'rgba( 55, 225, 99, .3)';
 // c.fillRect(100, 200, 100, 100);
@@ -76,7 +77,7 @@ let radius = 50;
 function animate () {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight
-        );
+        ); //clear the canvas, for the entire view window, every.single.time
         
     circle.draw();
 
@@ -88,14 +89,15 @@ function animate () {
     if (x + radius > innerWidth || x - radius < 0){ //OR //||
         dx = -dx; //reverse velocity!
         //radius -= .25; //made it shrink on the x axis 
-    }
+    } 
     x += dx;
     
     if (y + radius > innerHeight || y - radius < 0){ //OR //||
-        dy = -dy; //reverse velocity!
+        dy = -dy * friction; //reverse velocity!
         //radius += .25; //and get bigger on the y!
+    } else{dy += gravity}
+        y += dy;
+    
     }
-    y += dy;
-}
 
 animate();
