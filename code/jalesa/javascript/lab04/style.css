@@ -2,3 +2,7 @@
     
     border: blue;
 }
+
+li {
+    list-style: none;
+}

@@ -11,8 +11,6 @@ outputType.addEventListener("change",Output);
 inputTypeValue = inputType.value;
 outputTypeValue = outputType.value;
 
-
-
 function Output(){
 
   inputTypeValue = inputType.value;
