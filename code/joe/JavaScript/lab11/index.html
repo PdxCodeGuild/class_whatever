@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 11</title>
+        <link rel="stylesheet" href="css/site.css">
+    </head>
+    <body>
+        <h1>Todo List</h1>
+
+        <div id="app">
+            <input type="text" v-model="add_item"/>
+            <button v-on:click="add()">Add</button>
+            <ul>
+                <li v-for="item in my_list">
+                    <span v-bind:class="{ complete: item.complete }">{{ item.text }}</span>
+                    <button v-on:click="complete(item)">{{ complete_text(item.complete) }}</button>
+                    <button v-on:click="remove(item.id)">Remove</button>
+                </li>
+            </ul>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="js/site.js"></script>
+
+    </body>
+</html>

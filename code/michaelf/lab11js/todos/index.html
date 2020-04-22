@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todos</title>
+    <link rel="stylesheet" href="css/site.css">
+  </head>
+  <body>
+    <div id="app">
+        <h3>{{title}}</h3>
+        <input v-model="newTodoText">
+        <button v-on:click="addTodo">add item</button>
+        <ul>
+            <li v-for='todo in todos'>
+                {{todo.text}}<input type='checkbox'v-model="todo.checked">
+            </li>
+        </ul>
+
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src='js/site.js'></script>
+  </body>
+</html>
