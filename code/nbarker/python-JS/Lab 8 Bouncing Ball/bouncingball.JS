@@ -4,7 +4,10 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let c = canvas.getContext('2d');
+let gravity = .98;
+let friction = .98;
 
+//practice
 //rectangle
 // c.fillStyle = 'rgba( 55, 225, 99, .3)';
 // c.fillRect(100, 200, 100, 100);
@@ -43,8 +46,6 @@ let c = canvas.getContext('2d');
 
 // }
 
-//arc lots of arguments!
-
 //let's create a javascript object!
 //each will have:
 //it's OWN x and y value
@@ -68,7 +69,7 @@ let circle = new Circle(200, 200);
 
 
 let x = Math.random() * innerWidth; //x value
-let y = Math.random() * innerHeight; //x value
+let y = 100; //x value, don't need random lol, it's super boring when it starts on the ground 
 let dx = (Math.random() - .5) * 5;  //starting speed x direction
 let dy = (Math.random() - .5) * 5; //starting speed y direction
 let radius = 50;
@@ -76,7 +77,7 @@ let radius = 50;
 function animate () {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight
-        );
+        ); //clear the canvas, for the entire view window, every.single.time
         
     circle.draw();
 
@@ -87,15 +88,16 @@ function animate () {
         
     if (x + radius > innerWidth || x - radius < 0){ //OR //||
         dx = -dx; //reverse velocity!
-        //radius -= .25; //made it shrink on the x axis 
-    }
+        //radius -= .25; //made it shrink on the x axis, so awesome
+    } 
     x += dx;
     
     if (y + radius > innerHeight || y - radius < 0){ //OR //||
-        dy = -dy; //reverse velocity!
-        //radius += .25; //and get bigger on the y!
+        dy = -dy * friction; //reverse velocity!
+        //radius += .25; //and get bigger on the y! this was hilarious
+    } else{dy += gravity}
+        y += dy;
+    
     }
-    y += dy;
-}
 
 animate();
