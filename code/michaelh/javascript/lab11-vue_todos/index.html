@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>title</title>
+    </head>
+    <body>
+    <div id="app">
+        <li v-for = "todo in incompleted" :key="todo.text"> 
+            {{ todo.text }}
+            <button @click="removeTodo(todo.text)">remove</button>
+            <button @click="completeTodo(todo.text)">complete</button>
+        </li>
+
+        <input v-model="newTodo"> 
+        <button @click="addTodo">add</button>
+
+        <li v-for = "todo in completed" :key="todo.text"> 
+            {{ todo.text }}
+        </li>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>        
+    <script src="script.js"></script>
+    </body>
+</html>
