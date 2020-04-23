@@ -14,13 +14,18 @@
     # list.update({contact_name:contact_number})
 
 
-with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Python/contacts.csv', 'r') as file:
+with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Python/contacts copy.csv', 'r') as file:
     # lines = file.read().split('\n')
+
     data = file.read()
+
     lines = data.split('\n')
+
     data = []
-    for line in lines:
-        data.append(line.split(','))
+
+    for x in lines:
+
+        data.append(x.split(','))
 
 # import csv
 # import String
@@ -45,18 +50,25 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
 
     keys = data[0]
 
-    data = [dict(zip(keys, row)) for row in data[1::]]
+    data = [dict(zip(keys, y)) for y in data[1::]]
 
-    contacts = []
+    contact_list = []
 
-    for line in range(len(lines)):
+    for x in range(len(lines)):
+
         value = lines[0]
+
         value = value.split(",")
-        row = lines[line]
-        row = row.split(",")
-        row = dict(zip(value, row))
-        contacts.append(row)
-    print(contacts) #this makes your actual dictionary
+
+        y = lines[x]
+
+        y = y.split(",")
+
+        y = dict(zip(value, y))
+
+        contact_list.append(y)
+
+    print(contact_list) #this makes your actual dictionary
 
 # *dead code*
 
@@ -74,14 +86,22 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
 #     print("menu")
 
     def export():
-        global contacts
+
+        global contact_list
+
         list_w = []
-        contacts[0].values()
-        list(contacts[0].values()) 
-        list(contacts[0].values())
-        contacts[0].keys()
-        ",".join(contacts[0].keys())
-        ",".join(contacts[0].values())
+
+        contact_list[0].values()
+
+        list(contact_list[0].values()) 
+
+        list(contact_list[0].values())
+
+        contact_list[0].keys()
+
+        ",".join(contact_list[0].keys())
+
+        ",".join(contact_list[0].values())
 
         # *dead code*
 
@@ -94,9 +114,12 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
 #     print("Email:)
 
 
-        for contact in range(len(contacts)):
-            list_w.append(",".join(contacts[contact].values()))
+        for x in range(len(contact_list)):
+
+            list_w.append(",".join(contact_list[x].values()))
+
             '\n'.join(list_w)
+
             # row = lines[line]
             # key_value = key_value.join(",")
             # key_value = lines[0]
@@ -104,8 +127,9 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
             
             
 
-        with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Python/contacts.csv', 'w') as contacts:
-            contacts.write("\n".join(list_w))
+        with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Python/contacts copy.csv', 'w') as contact_list:
+
+            contact_list.write("\n".join(list_w))
 
     # contacts = [
     # {'name':'matthew', 'favorite fruit':'blackberries', 'favorite color':'orange'},
@@ -113,9 +137,12 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
 
 
     def create():
+
         prompt = [input("What is your name?"),input("Favorite fruit?"), input("Favorite color?")]
-        newcontact = dict(zip(value, user_input))
-        contacts.append(prompt)
+
+        new = dict(zip(value, prompt))
+
+        contact_list.append(new)
 
     # *dead code*
 
@@ -131,9 +158,10 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
     def read():
 
         prompt = input("Which contact?")
-        for contact in contacts:
-            if contact['name'] == prompt:
-                print(contact)
+
+        for x in contact_list:
+            if x['name'] == prompt:
+                print(x)
 
     # *too complex*
 
@@ -144,29 +172,29 @@ with open('/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/Pytho
     def update():
 
         prompt = input("Which contact?")
-        attribute = input("What do you want to update?")
+        target = input("What do you want to update?")
         prompt_two = input("With what?")
-        forx in contacts:
-            if contact['name'] == user_input:
-                print(contact)
-                if attribute in contact:     
-                    contact[attribute] = user_input_two
-                    return contact
+        for x in contact_list:
+            if x['name'] == prompt:
+                print(x)
+                if target in x:     
+                    x[target] = prompt_two
+                    return x
         print(x)
 
     def delete():
 
         prompt = input("Which contact?")
-        for contact in contacts:
-            if contact['name'] == prompt:
-             contacts.remove(contact)
+        for x in contact_list:
+            if x['name'] == prompt:
+             contact_list.remove(x)
 
 # csv_txt = """fname,lname,phone,fax,notes
 # Possible template
 
 while True:
-    user_input = input("create, read, update, delete, quit?")
-    if user_input == 'quit':
+    prompt = input("create, read, update, delete, quit?")
+    if prompt == 'quit':
         print("done")
         export()
         break
@@ -179,13 +207,16 @@ while True:
 
     # template
 
-    elif user_input == 'create':
-        create_contact()
-    elif user_input == 'read':
-        read_contact()
-    elif user_input == 'update':
-        update_contact()
-    elif user_input == 'delete':
-        delete_contact()
+    elif prompt == 'create':
+        create()
+
+    elif prompt == 'read':
+        read()
+
+    elif prompt == 'update':
+        update()
+
+    elif prompt == 'delete':
+        delete()
 
     

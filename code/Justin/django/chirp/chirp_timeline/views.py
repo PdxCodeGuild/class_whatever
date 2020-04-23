@@ -14,50 +14,50 @@ class AffixSheet(forms.ModelForm):
         fields = ('spitfire', 'avatar')
 
 def ledger(request):
-    rants= Rants.objects.filter(created_date__lte=timezone.now()).order_by('-incepted')
-    return render(request, 'posts/ledger.html', {'rants': rants})
+    rants= Rants.objects.filter(incepted__lte=timezone.now()).order_by('-incepted')
+    return render(request, '/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/django/chirp/chirp_timeline/templates/rants/ledger.html', {'rants': rants})
 
 
 @login_required
-def affix(request):
+def vestal(request):
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES) 
+        form = RantForm(request.POST, request.FILES) 
         if form.is_valid():
             spitfire = form.cleaned_data.get('spitfire')
             avatar = form.cleaned_data.get('avatar')
             ranter = request.user
             incepted = timezone.now()
-            post = Post.objects.create(spitfire=spitfire, avatar=avatar, ranter=ranter, incepted=incepted) 
-            post.save()
-            return redirect('posts:chirp_index')
+            rant = Rant.objects.create(spitfire=spitfire, avatar=avatar, ranter=ranter, incepted=incepted) 
+            rant.save()
+            return redirect('rants:ledger')
     else:
-        form = PostForm()
-    return render(request, 'posts/vestal.html', {'form': form}) 
+        form = RantForm()
+    return render(request, 'chirp_timeline/vestal.html', {'form': form}) 
 
-def tarnish(request, post_id):
-    user = request.user
-    post = get_object_or_404(Post, pk = post_id)
-    if post.ranter == user:
+
+def tarnish(request, rant_id):
+    ranter = request.user
+    rant = get_object_or_404(Rant, pk = rant_id)
+    if rant.ranter == ranter:
         if request.method == 'POST':
-            form = PostForm(request.POST, request.FILES) 
+            form = RantForm(request.POST, request.FILES) 
             if form.is_valid():
                 spitfire = form.cleaned_data.get('spitfire')
                 avatar = form.cleaned_data.get('avatar')
-                post.spitfire = spitfire
-                post.avatar = avatar
-                post.tarnish = timezone.now()
-                post.save()
-                return redirect('posts:ledger')
+                rant.spitfire = spitfire
+                rant.avatar = avatar
+                rant.tarnish = timezone.now()
+                rant.save()
+                return redirect('chirp_timeline:ledger')
         else:
-            form = PostForm()
-        return render(request, 'posts/post_edit.html', {'form': form}) 
+            form = RantForm()
+        return render(request, 'rants/tarnish.html', {'form': form}) 
     return HttpResponseForbidden('403 Forbidden')
 
-def banish(request, post_id):
+def banish(request, rant_id):
     ranter = request.user
-    rant = get_object_or_404(Post, pk = post_id)
-    # if user.has_perm('posts.delete_post', post):
-    if post.author == ranter:
-        post.banish()
-        return HttpResponseRedirect(reverse('posts:ledger'))
+    rant = get_object_or_404(Rant, pk = rant_id)
+    if rant.ranter == troll:
+        rant.banish()
+        return HttpResponseRedirect(reverse('rants:ledger'))
     return HttpResponseForbidden('403 Forbidden')
