@@ -30,8 +30,8 @@ function main_loop() {
 //    let ball = ball
     ball.px += ball.vx;
     ball.py += ball.vy;
-    ball.vy *= .99;
-    ball.vy += .5;
+    // ball.vy *= .99;
+    // ball.vy += .5;
 
     // let ball = {
     // px: Math.random(500)*500, //px balls location 500=wid
@@ -44,26 +44,26 @@ function main_loop() {
 
     //two if statements merged together w a pipe ||
     if (ball.px + ball.vx > canvas.width -4 || ball.px + ball.vx < 4 ) {
-        ball.py = -ball.py
+        // ball.py = -ball.py
         ball.vy = -ball.vy
         
     }
 
     //two if statements merged together w a pipe ||
     if (ball.py + ball.vy > canvas.height - 4 || ball.py + ball.vy > 4) {
-        ball.py = -ball.py
+        // ball.py = -ball.py
         ball.vy = -ball.vy
     }
 
     // ----- DRAWING THE BALL -----
-    // draw.fillStyle = 'blue';
-    // for (let i=0; i<25; i++) {
-    //     draw.beginPath();
-    //     draw.arc(ball.px, ball.py, ball.radius, 0, 2 * Math.PI, true);
+    draw.fillStyle = 'blue';
+    for (let i=0; i<25; i++) {
+        draw.beginPath();
+        draw.arc(ball.px, ball.py, ball.radius, 0, 2 * Math.PI, true);
         
-    //     draw.fill(); 
+        draw.fill(); 
         
-    // }
+    }
     
 
 }
