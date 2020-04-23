@@ -1,0 +1,23 @@
+<!--Feeling refreshed about Vue!
+On this page, we just have a basic html boilerplate with a couple differences, you'll see the script src link in the top (cdn (content delivery network! neat!) for Vue), as well as the reference to the Stylesheet 'VueFirst.css' and another script src tag that goes to my JS page -->
+
+<!--the app lives in the app div!
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="VueFirst.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>TODO THAT ASS!</title>
+</head>
+<body>
+    
+    <div id="app">
+        {{ message }}    <!--refer to message right HERE from JS page, mustache!-->
+    </div>
+    <script src="VueFirst.js"></script>
+</body>
+</html>
