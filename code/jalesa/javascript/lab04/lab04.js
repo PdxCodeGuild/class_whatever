@@ -62,14 +62,14 @@ delete_button.addEventListener("click", function(){
 });
 
 complete_button.addEventListener("click",function() {
-    let complete_check_boxes = list_div.querySelectorAll("input[type='checkbox'].delete_check_box");
+    let complete_check_boxes = list_div.querySelectorAll("input[type='checkbox'].delete_check_box")
+    let p = document.querySelector("p")
+    p.classList.add("complete_ptag");
     for (let i = 0; i < complete_check_boxes.length; i++) {
         if (complete_check_boxes[i].checked) {
             completed_div.append(complete_check_boxes[i].parentElement)
             complete_check_boxes[i].remove()
-            let p = document.querySelector("p")
             text0 = p.innerText
-            p.classList.add("complete_ptag")
             let text = text0
             console.log(text)
         // put line through word
@@ -85,9 +85,9 @@ complete_button.addEventListener("click",function() {
 // fix clear button
 
 function clear () {
+   
     completed_div.remove()   
     
-    list_div.remove()
         
 }
 

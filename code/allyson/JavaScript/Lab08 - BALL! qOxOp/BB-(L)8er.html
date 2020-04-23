@@ -31,21 +31,7 @@
  
         canvas.width = window.innerWidth; 
         canvas.height = window.innerHeight;
-
-        var ball={
-            radius:25,
-            px:Math.random()*canvas.width,
-            py:Math.random()*canvas.height,
-            vx:(2*Math.random()-1)*10,
-            vy:(2*Math.random()-1)*10
-        };
-        
-        function art(){
-            var orb = canvas.getContext('2d');
-            orb.clearRect(0,0,canvas.width,canvas.height);
-            orb.fillStyle="red"
-            orb.arc()
-        }
+        var cntx = canvas.getContext('2d');
         let ball={
             radius:25,
             px:Math.random()*canvas.width,
@@ -53,10 +39,14 @@
             vx:(2*Math.random()-1)*10,
             vy:(2*Math.random()-1)*10
         };
-       
+        cntx.beginPath();
+        cntx.arc(ball.px,ball.py,ball.radius,0,2*Math.PI,false);
+        cntx.fillStyle='red';
+        cntx.fill();
 
-        var canvas=document.getElementById('canvas');
-        var friction= 1;
-
+        function loop_garou() {
+            window.requestAnimationFrame(loop_garou);
+        }
+        window.requestAnimationFrame(loop_garou)
     </script>
 <html>
