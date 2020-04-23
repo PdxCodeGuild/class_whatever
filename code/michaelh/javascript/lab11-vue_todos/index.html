@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="skeleton.css">
+    </head>
+    <body>
+    <div id="app">
+        <li v-for = "todo in incompleted" :key="todo.text"> 
+            {{ todo.text }}
+            <button @click="removeTodo(todo.text)">remove</button>
+            <button @click="toggleTodo(todo.text)">complete</button>
+        </li>
+
+        <input v-model="newTodo"> 
+        <button @click="addTodo">add</button>
+
+        <li v-for = "todo in completed" :key="todo.text"> 
+            {{ todo.text }}
+            <button @click="toggleTodo(todo.text)">incomplete</button>
+        </li>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>        
+    <script src="script.js"></script>
+    </body>
+</html>

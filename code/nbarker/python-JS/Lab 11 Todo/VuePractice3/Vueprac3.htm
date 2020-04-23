@@ -1,0 +1,31 @@
+<!--boiler plate, baby!
+add the script src for the cdn-->
+<!-- the good old "V-FOR directive for displaying a list of items using the data from an array. Ordered List, we are going to use an array to create list items." -->
+    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="VuePrac3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping that A!</title>
+
+
+</head>
+<body>
+    <div id='app'> <!--make a div! nothing new here-->
+        <ol> <!--make an ordered list, okay, done!-->
+
+            <li v-for="todo in todos"> <!--i spaced this out, because there is so much going on here!s-->
+                {{ todo.text }}
+            </li>
+
+
+        </ol>
+    </div>
+    
+    <script src="VuePac3.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+/* i'm pretty sure I was a linear gradient in a former life!*/
+
+html, body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(to left, rgba(255, 103, 255, 0.719), rgba(255, 255, 255, .5));  
+}
