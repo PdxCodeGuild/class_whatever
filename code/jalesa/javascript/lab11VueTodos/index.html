@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title id="title">Vue To do List</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1 id= "title"> Lab 11 Vue To Do List</h1>
+    <div id="app">
+        <label>Enter Item: </label>
+        <input  type="text" v-model = "newMessage">
+        <button v-on:click="addButton">add</button>
+        <br><br><br><br>
+        <h2>To Do List</h2>
+        <ul>
+            <li v-for="item in items">{{item.message}}
+    
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="lab11.js"></script>
+  </body>
+</html>

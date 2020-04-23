@@ -15,9 +15,13 @@ var app = new Vue({
         removeTodo: function (text) {
             this.todos = this.todos.filter(todo => todo.text != text)
         },
-        completeTodo: function (text) {
-            // this.todos = this.todos.filter(todo => todo.text != text)
-        }
+        toggleTodo: function (text) {
+            for (let i=0; i<this.todos.length; i++) {
+                if (this.todos[i].text == text) {
+                    this.todos[i].completed = !this.todos[i].completed;
+                }
+            }
+        },
     },
     computed: {
         completed: function (){
