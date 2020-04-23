@@ -8,13 +8,13 @@ from django.contrib.auth.forms import UserCreationForm
 
 def beg(beg):
     if beg.method == 'POST':
-        sheet = UserCreationrForm(beg.POST)
+        sheet = UserCreationForm(beg.POST)
         if sheet.is_valid():
             sheet.save()
             return redirect('phish')
     else:
         sheet = UserCreationForm()
-    return render(beg, 'beg.html', {'sheet': sheet})
+    return render(beg, 'beseech.html', {'sheet': sheet})
     
 def details(beg, trollavatar):
     ranter = get_object_or_404(ranter, trollavatar = trollavatar)

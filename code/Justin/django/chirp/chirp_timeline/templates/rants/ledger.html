@@ -1,21 +1,21 @@
-{% extends 'posts/foundation.html' %}
+{% extends 'rants/foundation.html' %}
 
 {% block content %}
-    {% for post in posts %}
-        <div class="post">
+    {% for rant in rants %}
+        <div class="rant">
             <div class="date">
                 <p>ranter: <a href="{% url 'ranters:detail' rant.ranter.trollavatar %}">{{ post.author }}</a></p>
-                <p>incepted: {{ post.incepted }}</p>
-                {% if post.edited %}
-                    <p>edited: {{ post.tarnished }}</p>            
+                <p>incepted: {{ rant.incepted }}</p>
+                {% if rant.tarnished %}
+                    <p>tarnished: {{ rant.tarnished }}</p>            
                 {% endif %}
             </div>
-            {% if post.author == user %}
-                <a href="{% url 'posts:tarnish' post.pk%}">tarnish</a>
-                <a href="{% url 'posts:banish' post.pk%}">banish</a>
+            {% if rant.ranter == user %}
+                <a href="{% url 'rants:tarnish' rant.pk%}">tarnish</a>
+                <a href="{% url 'rants:banish' rant.pk%}">banish</a>
             {% endif %}
-            <p>{{ post.spitfire|linebreaksbr }}</p>
-            {% if post.avatar %}
+            <p>{{ rant.spitfire|linebreaksbr }}</p>
+            {% if rant.avatar %}
                 <img height=Auto, width=Auto, src="{{rant.avatar.url}}">
             {% endif %}
         </div>
