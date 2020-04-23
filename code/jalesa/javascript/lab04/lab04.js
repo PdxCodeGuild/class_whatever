@@ -69,6 +69,7 @@ complete_button.addEventListener("click",function() {
             complete_check_boxes[i].remove()
             let p = document.querySelector("p")
             text0 = p.innerText
+            p.classList.add("complete_ptag")
             let text = text0
             console.log(text)
         // put line through word
@@ -95,4 +96,3 @@ function clear () {
 // for loop in javascript has to have 3 parameters. 
 // when i is less than all_check_boxes add one(i++)
 // i will always be less than unless nothing is checked.
-
