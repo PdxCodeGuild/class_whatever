@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class ChirpAppConfig(AppConfig):
+class ChirpTimelineConfig(AppConfig):
     name = 'chirp_timeline'
