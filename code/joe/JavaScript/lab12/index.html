@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 12</title>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="skeleton.css">
+    </head>
+    <body>
+        <h1>Calculator</h1>
+
+        <div id="app">
+        <!--
+            DISPLAY
+            CE      C
+            +/-  %  <x  /
+            7   8   9   *
+            4   5   6   -
+            1   2   3   +
+            0       .   =
+        -->
+            <div class="row">
+                <num-button digit="7"></num-button>
+                <num-button digit="8"></num-button>
+                <num-button digit="9"></num-button>
+                <op-button operator="*"><op-button>
+            </div>
+            <div class="row">
+                <num-button digit="4"></num-button>
+                <num-button digit="5"></num-button>
+                <num-button digit="6"></num-button>
+                <op-button operator="-"><op-button>
+            </div>
+            <div class="row">
+                <num-button digit="1"></num-button>
+                <num-button digit="2"></num-button>
+                <num-button digit="3"></num-button>
+                <op-button operator="+"><op-button>
+            </div>
+            
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="lab12.js"></script>
+
+    </body>
+</html>
