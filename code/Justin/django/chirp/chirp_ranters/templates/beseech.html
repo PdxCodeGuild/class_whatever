@@ -1,10 +1,10 @@
 {% extends 'rants/foundation.html' %}
 
 {% block content %}
-    <h2>Beseech us:</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Beseech</button>
-    </form>
-{% endblock %}
+    <h2>Beseech: </h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="sign up">
+        </form>
+{% endblock content %}
