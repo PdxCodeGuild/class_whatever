@@ -1,0 +1,73 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 0.9fr 1fr;
+    grid-template-rows: 0.6fr 0.9fr 0.9fr 1fr 0.9fr 1.7fr;
+    gap: 1px 1px;
+    grid-template-areas: 
+    "total total total total" 
+    "clearentry clear delete divison" 
+    "seven eight nine muil" 
+    "four five six miuns" 
+    "one two three plus" 
+    ". zero zero equl";
+  }
+  
+  .total { grid-area: total; }
+  
+  .clearentry { grid-area: clearentry; }
+  
+  .clear { grid-area: clear; }
+  
+  .delete { grid-area: delete; }
+  
+  .divison { grid-area: divison; }
+  
+  .seven { grid-area: seven; }
+  
+  .eight { grid-area: eight; }
+  
+  .nine { grid-area: nine; }
+  
+  .muil { grid-area: muil; }
+  
+  .four { grid-area: four; }
+  
+  .five { grid-area: five; }
+  
+  .six { grid-area: six; }
+  
+  .miuns { grid-area: miuns; }
+  
+  .one { grid-area: one; }
+  
+  .two { grid-area: two; }
+  
+  .three { grid-area: three; }
+  
+  .zero { grid-area: zero; }
+  
+  .plus { grid-area: plus; }
+  
+  .equl { grid-area: equl; }
+
+.btn,
+.zero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #484848;
+	background-color: #f4faff;
+	border-radius: 5px;
+}
+
+button {
+  border: 5px solid red;
+}
+
+.Display-number {
+  border: 5px solid blue;
+}
