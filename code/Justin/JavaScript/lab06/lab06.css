@@ -8,6 +8,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .clock {
@@ -19,7 +21,7 @@ body {
     position: relative;
 }
 
-.clock .number{
+.clock .time{
     --rotation: 0;
     position: absolute;
     width: 100%;
@@ -28,17 +30,17 @@ body {
     transform: rotate(var(--rotation));
 }
 
-.clock .number1 { --rotation: 30deg; }
-.clock .number2 { --rotation: 60deg; }
-.clock .number3 { --rotation: 90deg; }
-.clock .number4 { --rotation: 120deg; }
-.clock .number5 { --rotation: 150deg; }
-.clock .number6 { --rotation: 180deg; }
-.clock .number7 { --rotation: 210deg; }
-.clock .number8 { --rotation: 240deg; }
-.clock .number9 { --rotation: 270deg; }
-.clock .number10 { --rotation: 300deg; }
-.clock .number11 { --rotation: 330deg; }
+.clock .time1 { --rotation: 30deg; }
+.clock .time2 { --rotation: 60deg; }
+.clock .time3 { --rotation: 90deg; }
+.clock .time4 { --rotation: 120deg; }
+.clock .time5 { --rotation: 150deg; }
+.clock .time6 { --rotation: 180deg; }
+.clock .time7 { --rotation: 210deg; }
+.clock .time8 { --rotation: 240deg; }
+.clock .time9 { --rotation: 270deg; }
+.clock .time10 { --rotation: 300deg; }
+.clock .time11 { --rotation: 330deg; }
 
 .clock .stick {
     --rotation: 0;
@@ -63,6 +65,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 50%;
 
 }
 

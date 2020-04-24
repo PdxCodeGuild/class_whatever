@@ -21,7 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/phish/', views.LoginView.as_view(), name='phish'),
+    path('accounts/login', views.LoginView.as_view(), name='login'),
     path('accounts/leave/', views.LogoutView.as_view(), name='leave'),
     path('', include('chirp_ranters.urls')),
     path('', include('chirp_timeline.urls'))
