@@ -8,6 +8,21 @@
         <title>Calc-Vue-lator</title>
     </head>
     <body>
-        
+        <div id="CalcVueLator">
+            <total v-bind:displaytotal="display"></total>
+            <num number="1" @inputnumber="numClick($event)"></num>
+            <num number="2" @inputnumber="numClick($event)"></num>
+            <num number="3" @inputnumber="numClick($event)"></num>
+            <num number="4" @inputnumber="numClick($event)"></num>
+            <num number="5" @inputnumber="numClick($event)"></num>
+            <num number="6" @inputnumber="numClick($event)"></num>
+            <num number="7" @inputnumber="numClick($event)"></num>
+            <num number="8" @inputnumber="numClick($event)"></num>
+            <num number="9" @inputnumber="numClick($event)"></num>
+            <num number="0" @inputnumber="numClick($event)"></num>
+
+        </div>
+        <script> https://unpkg.com/vue </script>
+        <script src="Calc.js"></script>
     </body>
 </html>
