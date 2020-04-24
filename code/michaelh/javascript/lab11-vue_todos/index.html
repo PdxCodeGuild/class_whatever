@@ -4,24 +4,25 @@
         <meta charset="UTF-8">
         <title>title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="skeleton.css">
     </head>
     <body>
     <div id="app">
-        <li v-for = "todo in incompleted" :key="todo.text"> 
+        <li v-for = "todo in incompleted" :key="todo.id"> 
             {{ todo.text }}
-            <button @click="removeTodo(todo.text)">remove</button>
-            <button @click="toggleTodo(todo.text)">complete</button>
+            <button @click="removeTodo(todo)">remove</button>
+            <input type="checkbox" id="checkbox" v-model="todo.completed">
         </li>
 
-        <input v-model="newTodo"> 
+        <input v-model="newTodo.text" placeholder="todo text"> 
         <button @click="addTodo">add</button>
 
-        <li v-for = "todo in completed" :key="todo.text"> 
+        <li v-for = "todo in completed" :key="todo.id"> 
             {{ todo.text }}
-            <button @click="toggleTodo(todo.text)">incomplete</button>
+            <button @click="removeTodo(todo)">remove</button>
+            <input type="checkbox" id="checkbox" v-model="todo.completed">
         </li>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>        

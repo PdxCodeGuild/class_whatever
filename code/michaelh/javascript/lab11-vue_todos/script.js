@@ -2,25 +2,19 @@ var app = new Vue({
     el: '#app',
     data: {
         todos: [
-            { text: 'Sweep the floor', completed: false },
-            { text: 'Empty the dishwasher', completed: false },
-            { text: 'Drink plenty of water', completed: false }
+            { text: 'Sweep the floor', completed: false, id: 1},
+            { text: 'Empty the dishwasher', completed: false, id: 2},
+            { text: 'Drink plenty of water', completed: false, id: 3}
         ],
-        newTodo : 'whatever',
+        newTodo : { text: 'whatever', completed: false, id: 4},
     },
     methods: {
         addTodo: function () {
-            this.todos.push( { text : this.newTodo, completed : false } )
+            this.todos.push( { text: this.newTodo.text, completed: false, id: this.newTodo.id} )
+            this.newTodo.id = this.newTodo.id + 1 
         },
-        removeTodo: function (text) {
-            this.todos = this.todos.filter(todo => todo.text != text)
-        },
-        toggleTodo: function (text) {
-            for (let i=0; i<this.todos.length; i++) {
-                if (this.todos[i].text == text) {
-                    this.todos[i].completed = !this.todos[i].completed;
-                }
-            }
+        removeTodo: function (todo) {
+            this.todos.splice(this.todos.indexOf(todo), 1)
         },
     },
     computed: {

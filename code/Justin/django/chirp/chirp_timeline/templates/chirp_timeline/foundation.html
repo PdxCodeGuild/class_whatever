@@ -10,8 +10,8 @@
             <a href="{% url 'chirp_timeline:vestal' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <p class="top-menu">Ohayou {{ ranter.trollavatar }} <small>(<a href="{% url 'leave' %}">Leave</a>)</small></p>
         {% else %}
-            <a href="{% url 'phish' %}" class="top-menu">Phish</a>
-            <a href="{% url 'chirp_ranters:beg' %}"  class="top-menu">Beg</a>
+            <a href="{% url 'login' %}" class="top-menu">Phish</a>
+            <a href="{% url 'chirp_ranters:beseech' %}"  class="top-menu">Beseech</a>
         {% endif %}
         <h1><a href="{% url 'chirp_timeline:ledger' %}">Chirp</a></h1>
     </div>
@@ -26,4 +26,10 @@
         <a href=""><h1>Back to top</h1></a>
     </div>
 </body>
-</html>
+</html> 
+
+
+
+
+    
+   
