@@ -1,39 +1,119 @@
-# -the Player class has the following properties:
-#   - name = player name
-#   - token = 'X' or 'O'
-# -the Game class to model Tic Tac Toe has the following properties:
-#   - board = your representation of the board
-# -a function MAIN that models gameplay taking in user inputs through REPL
 
-# You can represent the board however you like, such as a 2D list, tuples, or dictionary.
+class Player():
 
-# *** The Game class has the following methods:
-#   - __repr__() Returns a pretty string representation of the game board
-#   - move(x, y, player) Place a player's token character string at a given coordinate (top-left is 0, 0), x is horizontal position, y is vertical position
-#   - calc_winner() What token character string has won or None if no one has
-#   - is_full() Returns true if the game board is full
-#   - is_game_over() Returns true if the game board is full or a player has won
+  def __init__(self, name, token):
+    # name = input("Player Name:")
+    self.name = name
+    # token = X or O
+    self.token = token
 
-class Player(name, token):
+class Game():
 
-  def name():
-    name = input("Player Name:")
+  def __init__(self):
+    self.square = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 
-  def token():
-    token = X or O
+  def __repr__(self):
+    print(f"{self.square[1]} | {self.square[2]} | {self.square[3]}")
+    print(f"{self.square[4]} | {self.square[5]} | {self.square[6]}")
+    print(f"{self.square[7]} | {self.square[8]} | {self.square[9]}")
+
+  # update board after each turn
+  def update_square(self, square_num, player):
+    if self.square[square_num] == " ":   # players can only go in an empty square
+      self.square[square_num] = player
+
+  def calc_winner(self, player):
+    if self.square[1] == player and self.square[2] == player and self.square[3] == player:
+      print(f"Player {player} won!")
+      return True
+    elif self.square[4] == player and self.square[5] == player and self.square[6] == player:
+      print(f"Player {player} won!")
+      return True
+    elif self.square[7] == player and self.square[8] == player and self.square[9] == player:
+      print(f"Player {player} won!")
+      return True
+    elif self.square[1] == player and self.square[4] == player and self.square[7] == player:
+      print(f"Player {player} won!")
+      return True
+    elif self.square[2] == player and self.square[5] == player and self.square[8] == player:
+      print(f"Player {player} won!")
+      return True
+    elif self.square[9] == player and self.square[6] == player and self.square[3] == player:
+      print(f"Player {player} won!")
+      return True
+    elif self.square[7] == player and self.square[5] == player and self.square[3] == player:
+      print(f"Player {player} won!")
+      return True
+    elif self.square[1] == player and self.square[5] == player and self.square[9] == player:
+      print(f"Player {player} won!")
+      return True
+    else:
+      return False
+
+  def tie(self):
+    unavailable_squares = 0
+    for square in self.square:
+      if square != " ":
+        unavailable_squares += 1
+    if unavailable_squares == 9:
+      return True
+    else:
+      return False
+  
+  def is_game_over(self):
+    return self.tie() or self.calc_winner()
 
 
-class Game(self,board):
+game = Game()
+# display board
+game.__repr__()
 
-  def board():
-    board = 
-
-  __repr__():
-
-  move(x, y, player):
-
-  calc_winner():
-
-  is_full():
-
-  is_game_over():
+while True:
+  player_x_choice = int(input("Player X, what square number would you like to place your token? (1-9) "))
+  # update board
+  game.update_square(player_x_choice, "X")
+  print(game.__repr__())
+  # checking for a win for player X
+  if game.calc_winner("X") == True:
+    print("Player X is the winner!")
+    play_again = input("Do you want to play again? (y/n) ")
+    if play_again == "y":
+      game.__init__()
+      print(game.__repr__())
+      continue
+    else:
+      break
+  # checking for a tie, after Player X goes
+  if game.tie() == True:
+    print("The board is full. It's a TIE!")
+    play_again = input("Do you want to play again? (y/n) ")
+    if play_again == "y":
+      game.__init__()
+      print(game.__repr__())
+      continue
+    else:
+      break
+  player_o_choice = int(input("Player O, what square number would you like to place your token? (1-9) "))
+  # update board
+  game.update_square(player_o_choice, "O")
+  print(game.__repr__())
+  # checking for a win for player O
+  if game.calc_winner("O") == True:
+    print("Player O is the winner!")
+    play_again = input("Do you want to play again? (y/n) ")
+    if play_again == "y":
+      game.__init__()
+      print(game.__repr__())
+      continue
+    else:
+      break
+  # checking for a tie, after Player O goes
+  if game.tie() == True:
+    print("The board is full. It's a TIE!")
+    play_again = input("Do you want to play again? (y/n) ")
+    if play_again == "y":
+      game.__init__()
+      print(game.__repr__())
+      continue
+    else:
+      break

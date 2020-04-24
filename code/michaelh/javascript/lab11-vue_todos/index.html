@@ -10,20 +10,14 @@
     </head>
     <body>
     <div id="app">
-        <li v-for = "todo in incompleted" :key="todo.id"> 
-            {{ todo.text }}
-            <button @click="removeTodo(todo)">remove</button>
-            <input type="checkbox" id="checkbox" v-model="todo.completed">
-        </li>
+        <ul>
+            <todo-item v-for="todo in incompleted" :key="todo.id" :todo="todo" @remove="removeTodo"></todo-item>
+        </ul>
 
-        <input v-model="newTodo.text" placeholder="todo text"> 
-        <button @click="addTodo">add</button>
-
-        <li v-for = "todo in completed" :key="todo.id"> 
-            {{ todo.text }}
-            <button @click="removeTodo(todo)">remove</button>
-            <input type="checkbox" id="checkbox" v-model="todo.completed">
-        </li>
+        <add-todo @add=addTodo>whatever</add-todo>
+        <ul>
+            <todo-item v-for="todo in completed" :key="todo.id" :todo="todo" @remove="removeTodo"></todo-item>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>        
     <script src="script.js"></script>

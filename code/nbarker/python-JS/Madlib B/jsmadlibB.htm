@@ -1,0 +1,34 @@
+<!-- Part B!
+need to add some input elements and a button to make the mad lib get libby!
+
+MAKE A DIV CALLED APP BRO!
+our button will be v-on click
+when the user clicks, it will invoke the method ('WhateverYouWantToCallIt')
+which should be able to put all of the variables into our paragraph
+unordered list
+list item input type idname
+list item input type idname
+list item input type idname 
+end the ul-->
+
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="madlibB.CSS">
+<script src="https://unpkg.com/vue"></script>
+<meta charset="UTF-8">
+<title>Madlib City!</title>
+<h3>Welcome to this incredible new split joiner app!</h3>
+</head>
+<body>
+    <div id="app"> <!-- not a list, just some text for now p tags!-->
+        <p> {{ message }} </p> <!--this comes from our view instance on our JS page, the message object, which will show whatever message is set to in JS, right now, it's "hey everybody" cause I'm basic-->
+        <button v-on:click="splitMessage">Split Message!</button>
+        <button v-on:click="joinMessage">Join Message!</button>
+    </div>
+
+    <h4>What's that? You wish you had a somewhat lame mad lib machine?! Okay!</h4>
+
+<script src="madlibB.JS"></script>
+</body>
+</html>
