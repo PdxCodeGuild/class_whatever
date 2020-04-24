@@ -19,7 +19,9 @@ Sin,45,male,asian,Japan'''
 with open('contacts.csv', 'r') as file:
     lines = file.read()
     # print(lines)
-lines = lines.split( '\n') #spliting into a list of lines
+lines = lines.split('\n') 
+lines = [item.lower() for item in lines]
+#spliting into a list of lines
 # print(lines)
 
 keys = lines[0].split(',')
@@ -32,6 +34,8 @@ keys = lines[0].split(',')
 
 contact_dict= []
 for i in lines[1:len(lines)]: # from the second(value list)item in lines to the lenght of lines
+    key_list = lines[0]
+    key_list = key_list.split(',')
     values = i.split(',')
     dict_list = dict(zip(keys, values)) #makes the dictionary
     contact_dict.append(dict_list) #puts the dictionary into a list called contact_dict
@@ -50,6 +54,22 @@ Delete a record: ask the user for the contact's name, remove the contact with th
 
 
 '''Create a record: ask the user for each attribute, add a new contact to your contact list with the attributes that the user entered.'''
+def export():
+    global contact_dict
+    list_dict = []
+    contact_dict[0].values()
+    list(contact_dict[0].values())
+    contact_dict[0].keys()
+    ",".join(contact_dict[0].keys())
+    ','.join(contact_dict[0].values())
+    
+    for i in range(len(contact_dict)):
+        list_dict.append(','.join(contact_dict[i].values()))
+        "\n".join(list_dict)
+    with open("contacts.csv", 'w') as file:
+        file.write('\n'.join(list_dict))
+    
+    
 
 attributes = []
 def add_new():
@@ -61,6 +81,7 @@ def add_new():
         # contact_dict.update(contact_dict:attributes)
     new_contacts = dict(zip(keys,attributes))
     contact_dict.append(new_contacts)
+    export()
     return contact_dict
 print("CREATE:" )
 print(add_new())
@@ -87,6 +108,7 @@ def update_record():  #VERSION ONE
     user_input = input("Enter key(attribute) to change or done") #then asks for what what key to change
     new_value = input("Enter new value") #and then what value in that keey to change to
     contact[user_input] = new_value #puts the new value into the key for the list(contact)
+    export()
 print("UPDATE")
 print(update_record())
 
@@ -109,42 +131,7 @@ def delete_record():
     for i in range(len(contact_dict)):
         if contact_dict[i]['name'] == user:
             del contact_dict[i]
-            
+            export()
             return contact_dict
 print(delete_record())
 
-# VERSION 3
-
-while True:
-    user_input = input("(c)reate, (r)ead, (u)pdate, (d)elete, (q)uit? ")
-    if user_input == 'q':
-        break
-    elif user_input == 'c':
-        add_new()
-    elif user_input == 'r':
-        retrieve_contact()
-    elif user_input == 'u':
-        update_record()
-    elif user_input == 'd':
-        delete_record()
-
-
-with open("contacts.csv", 'w') as file:
-    key_value_list = []
-    new_join = []
-    punctuation_join = []
-    new_contact_dict = []
-
-    key_value_list.append(list(contact_dict[0].keys()))
-
-    for x in contact_dict:
-        key_value_list.append(list(x.values()))
-
-    for puncts in key_value_list:
-        punctuation_join = ','.join(puncts)
-        new_join.append(punctuation_join)
-
-    new_contact_dict = '\n'.join(new_join)
-    print(new_contact_dict)
-
-    file.write(new_contact_dict)
