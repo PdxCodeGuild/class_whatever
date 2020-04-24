@@ -1,4 +1,4 @@
-{% comment %} <html>
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -7,31 +7,25 @@
 </head>
 
 <body>
-    <canvas id="gameCanvas" width="400" height="300"></canvas>
+    <canvas id="Bucephalus" width="800" height="500" style="border:3px solid"></canvas>
     <script>
-        // declare variables
         const FPS = 30;
-        var bs = 30;
+        var bs = 250;
         var bx, by;
         var xv, yv;
         var canvas, context;
         
-        // load canvas
-        canvas = document.getElementById("gameCanvas");
+        canvas = document.getElementById("Bucephalus");
         context = canvas.getContext("2d");
 
-        // set up interval (game loop)
-        setInterval(update, 1000 / FPS);
+        setInterval(update, 150 / FPS);
         
-        // ball starting position
         bx = canvas.width / 2;
         by = canvas.height / 2;
         
-        // random ball starting speed (between 25 and 100 pps)
-        xv = Math.floor(Math.random() * 76 + 25) / FPS;
-        yv = Math.floor(Math.random() * 76 + 25) / FPS;
+        xv = Math.floor(Math.random() * 176 + 25) / FPS;
+        yv = Math.floor(Math.random() * 760 + 25) / FPS;
         
-        // random ball direction
         if (Math.floor(Math.random() * 2) == 0) {
             xv = -xv;
         }
@@ -39,13 +33,10 @@
             yv = -yv;
         }
         
-        // update function
         function update() {
-            // move the ball
             bx += xv;
             by += yv;
             
-            // bounce the ball off each wall
             if (bx - bs / 2 < 0 && xv < 0) {
                 xv = -xv;
             }
@@ -59,12 +50,14 @@
                 yv = -yv;
             }
             
-            context.fillStyle = "black";
+            context.fillStyle = "white";
             context.fillRect(0, 0, canvas.width, canvas.height);
-            context.fillStyle = "yellow";
-            context.fillRect(bx - bs / 2, by - bs / 2, bs, bs);
+            context.fillStyle = "red";
+            context.beginPath();
+            context.arc(bx, by, bs * 0.5, 0, Math.PI * 2);
+            context.fill();
         }
     </script>
 </body>
 
-</html> {% endcomment %}
+</html> 
