@@ -1,22 +1,43 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.views import generic
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 
 
-def beg(beg):
-    if beg.method == 'POST':
-        sheet = UserCreationForm(beg.POST)
-        if sheet.is_valid():
-            sheet.save()
-            return redirect('phish')
+def beseech(beseech):
+    if beseech.method == 'POST':
+        form = UserCreationForm(beseech.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
     else:
-        sheet = UserCreationForm()
-    return render(beg, 'beseech.html', {'sheet': sheet})
+        form = UserCreationForm()
+    return render(beseech, 'beseech.html', {'form': form})
     
-def details(beg, trollavatar):
-    ranter = get_object_or_404(ranter, trollavatar = trollavatar)
-    rants = ranter.post_set.all().order_by('-incepted')
-    return render(beg, 'rants/ledger.html', {'rants': rants})
+def details(beseech, trollavatar):
+    ranter = get_object_or_404(User, trollavatar = trollavatar)
+    spitfire = ranter.post_set.all().order_by('-incepted')
+    return render(beseech, 'rants/ledger.html', {'rants': rants})
+
+# from django.shortcuts import render
+# from django.contrib.auth.forms import UserCreationForm
+# from django.urls import reverse_lazy
+# from django.views import generic
+# from django.contrib.auth.models import User
+# from django.shortcuts import get_object_or_404
+
+# class beseech(generic.CreateView):
+#     form = UserCreationForm
+#     template = 'beseech.html'
+#     success = reverse_lazy('phish')
+
+# class details(generic.DetailView):
+#     model = User
+#     template = 'details.html'
+
+#     def get_object(self):
+#         return get_object_or_404(User, username=self.kwargs['trollavatar'])

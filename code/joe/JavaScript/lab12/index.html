@@ -5,6 +5,25 @@
         <title>Lab 12</title>
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="skeleton.css">
+        <style>
+            .row button {
+                margin: 0px;
+                font-weight: bold;
+                font-size: 1.5em;
+            }
+            #app {
+                max-width: 512px;
+            }
+            .six.columns {
+                width: 44%;
+            }
+            input[type="text"] {
+                width: 88%;
+                margin: 0px;
+                text-align: right;
+                font-size: 2em;
+            }
+        </style>
     </head>
     <body>
         <h1>Calculator</h1>
@@ -19,23 +38,39 @@
             1   2   3   +
             0       .   =
         -->
+            <input type="text" v-model="display" disabled/>
             <div class="row">
-                <num-button digit="7"></num-button>
-                <num-button digit="8"></num-button>
-                <num-button digit="9"></num-button>
-                <op-button operator="*"><op-button>
+                <func-button func="C" @func="clear"></func-button>
+                <func-button func="CE" @func="clear"></func-button>
             </div>
             <div class="row">
-                <num-button digit="4"></num-button>
-                <num-button digit="5"></num-button>
-                <num-button digit="6"></num-button>
-                <op-button operator="-"><op-button>
+                <func-button func="+/-" @func="negate"></func-button>
+                <func-button func="%" @func="percent"></func-button>
+                <func-button func="⌫" @func="backspace"></func-button>
+                <op-button operator="÷" @op="doOp"></op-button>
             </div>
             <div class="row">
-                <num-button digit="1"></num-button>
-                <num-button digit="2"></num-button>
-                <num-button digit="3"></num-button>
-                <op-button operator="+"><op-button>
+                <num-button digit="7" @num="addNum"></num-button>
+                <num-button digit="8" @num="addNum"></num-button>
+                <num-button digit="9" @num="addNum"></num-button>
+                <op-button operator="×" @op="doOp"></op-button>
+            </div>
+            <div class="row">
+                <num-button digit="4" @num="addNum"></num-button>
+                <num-button digit="5" @num="addNum"></num-button>
+                <num-button digit="6" @num="addNum"></num-button>
+                <op-button operator="-" @op="doOp"></op-button>
+            </div>
+            <div class="row">
+                <num-button digit="1" @num="addNum"></num-button>
+                <num-button digit="2" @num="addNum"></num-button>
+                <num-button digit="3" @num="addNum"></num-button>
+                <op-button operator="+" @op="doOp"></op-button>
+            </div>
+            <div class="row">
+                <num-button digit="0" @num="addNum"></num-button>
+                <num-button digit="." @num="addNum"></num-button>
+                <op-button operator="=" @op="doOp"></op-button>
             </div>
             
         </div>
