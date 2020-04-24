@@ -20,9 +20,17 @@
             <num number="8" @inputnumber="numClick($event)"></num>
             <num number="9" @inputnumber="numClick($event)"></num>
             <num number="0" @inputnumber="numClick($event)"></num>
+            <num number="." @inputnumber="nimClick($event)"></num>
+            <oper operator="CE"@operation="operClick($event)"></oper>
+            <oper operator="C"@operation="operClick($event)"></oper>
+            <oper operator="/"@operation="operClick($event)"></oper>
+            <oper operator="x"@operation="operClick($event)"></oper>
+            <oper operator="-"@operation="operClick($event)"></oper>
+            <oper operator="+"@operation="operClick($event)"></oper>
+            <oper operator="="@operation="operClick($event)"></oper>
 
         </div>
-        <script> https://unpkg.com/vue </script>
+        <script> "https://unpkg.com/vue" </script>
         <script src="Calc.js"></script>
     </body>
 </html>
