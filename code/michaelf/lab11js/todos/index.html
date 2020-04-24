@@ -10,12 +10,18 @@
   <body>
     <div id="app">
         <h3>{{title}}</h3>
-        <input v-model="newTodoText">
+        <input v-model="newTodo.text" v-on:keyup.enter="addTodo">
         <button v-on:click="addTodo">add item</button>
         <ul>
-            <li v-for='todo in todos'>
-                {{todo.text}}<input type='checkbox'v-model="todo.checked">
+            <li v-for='todo in todos' :key="todo.id">
+            <template v-if="todo.editing">
+                <input v-model="todo.text" v-on:keyup.enter="toggleEdit(todo)"><button @click="toggleEdit(todo)">save</button><button @click="removeTodo(todo)">delete</button>
+            </template>
+            <template v-else>
+                {{todo.checked ? strikeThru(todo.text) : todo.text }}<input type='checkbox'v-model="todo.checked"> <button @click="toggleEdit(todo)">edit</button><button @click="removeTodo(todo)">delete</button>
+            </template>
             </li>
+
         </ul>
 
     </div>

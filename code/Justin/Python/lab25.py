@@ -26,9 +26,13 @@
 # print(name,"I miss you already!")
 
 class Account: 
+
     def __init__(self): 
-        self.balance=0
-        self.history = []
+
+        self.funds=0
+
+        self.legacy = []
+
         print("Ohayou!!!")
 
 # *dead code*
@@ -40,21 +44,35 @@ class Account:
 #        accounts.append(account)
 
     def deposit(self): 
+
         amount = float(input("Deposit: ")) 
-        self.balance += amount 
-        output_one = print("Deposit:", amount)
-        self.history.append("Deposit:")
-        self.history.append(amount)
+
+        self.funds += amount 
+
+        y = print("Deposit:", amount)
+
+        self.legacy.append("Deposit:")
+
+        self.legacy.append(amount)
   
     def withdraw(self): 
-        amount = float(input("Withdrawal amount: ")) 
-        if self.balance>=amount: 
-            self.balance-=amount
-            self.history.append("Withdrawal:")
-            self.history.append(amount)
+
+        amount = float(input("Withdrawal: ")) 
+
+        if self.funds>=amount: 
+
+            self.funds-=amount
+
+            self.legacy.append("Withdrawal:")
+
+            self.legacy.append(amount)
+
             print("Withdrawal", amount)
+
         else: 
-            output_two = print("\n Insufficient balance")
+
+            z = print("\n Insufficient funds")
+
             self.history.append(amount)
 
 # account_balance = 100
@@ -62,9 +80,11 @@ class Account:
 # print ('Balance: '),account_balance
 # while (choice== 1 or choice==2):
 
-    def check_transactions(self): 
-        print("Net balance=",self.balance)
-        print(self.history)
+    def archive(self):
+
+        print("Net funds=",self.funds)
+        
+        print(self.legacy)
 
 # choice =float(input("Deposit, Withdraw, or Exit: "))
 # balance = getBalance(choice, balance)
@@ -87,7 +107,7 @@ class Account:
 #         command=str(getTransaction())
 #     elif (command=="w"):
 
-a = Account()
+x = Account()
 
 while True: 
 
@@ -98,15 +118,19 @@ while True:
     #    while id < 1000 or id > 9999:
     #        id = int(input("\nInvalid Id.. Re-enter: "))
 
-    prompt = input("What would you like to do(deposit, withdraw, check transactions)?")
+    prompt = input("What would you like to do(deposit, withdraw, archive)?")
         
     if prompt=="deposit":
-        a.deposit()
-        a.check_transactions()
+
+        x.deposit()
+
+        x.archive()
 
     elif prompt=="withdraw":
-        a.withdraw()
-        a.check_transactions()
+
+        x.withdraw()
+
+        x.archive()
 
     # *dead code*
 
@@ -123,7 +147,8 @@ while True:
         #           accountObj.withdraw(amt)
         #           print("\nUpdated Balance: " + str(accountObj.getBalance()) + " n")
 
-    elif prompt=="check transactions":
-        a.check_transactions()
+    elif prompt=="archive":
+
+        x.archive()
   
 

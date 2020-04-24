@@ -1,0 +1,23 @@
+body{
+    background:#FFC0CB;
+    color: #32CD32;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150vh;
+}
+
+.stopwatch {
+    font-size: 20em;
+    font-family: 'Digital-7';
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    padding: 10px 0;
+}

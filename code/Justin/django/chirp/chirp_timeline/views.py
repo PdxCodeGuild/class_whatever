@@ -15,32 +15,32 @@ class AffixSheet(forms.ModelForm):
 
 def ledger(request):
     rants= Rants.objects.filter(incepted__lte=timezone.now()).order_by('-incepted')
-    return render(request, '/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/django/chirp/chirp_timeline/templates/rants/ledger.html', {'rants': rants})
+    return render(request, '/Users/pizzaboynizza/PycharmProjects/class_whatever/code/Justin/django/chirp/chirp_timeline/templates/chirp_timeline/ledger.html', {'rants': rants})
 
 
 @login_required
 def vestal(request):
     if request.method == 'POST':
-        form = RantForm(request.POST, request.FILES) 
+        form = AffixSheet(request.POST, request.FILES) 
         if form.is_valid():
             spitfire = form.cleaned_data.get('spitfire')
             avatar = form.cleaned_data.get('avatar')
             ranter = request.user
             incepted = timezone.now()
-            rant = Rant.objects.create(spitfire=spitfire, avatar=avatar, ranter=ranter, incepted=incepted) 
+            rant = Rants.objects.create(spitfire=spitfire, avatar=avatar, ranter=ranter, incepted=incepted) 
             rant.save()
             return redirect('rants:ledger')
     else:
-        form = RantForm()
+        form = AffixSheet()
     return render(request, 'chirp_timeline/vestal.html', {'form': form}) 
 
 
 def tarnish(request, rant_id):
     ranter = request.user
-    rant = get_object_or_404(Rant, pk = rant_id)
+    rant = get_object_or_404(Rants, pk = rant_id)
     if rant.ranter == ranter:
         if request.method == 'POST':
-            form = RantForm(request.POST, request.FILES) 
+            form = AffixSheet(request.POST, request.FILES) 
             if form.is_valid():
                 spitfire = form.cleaned_data.get('spitfire')
                 avatar = form.cleaned_data.get('avatar')
@@ -50,14 +50,14 @@ def tarnish(request, rant_id):
                 rant.save()
                 return redirect('chirp_timeline:ledger')
         else:
-            form = RantForm()
+            form = AffixSheet()
         return render(request, 'rants/tarnish.html', {'form': form}) 
     return HttpResponseForbidden('403 Forbidden')
 
 def banish(request, rant_id):
     ranter = request.user
-    rant = get_object_or_404(Rant, pk = rant_id)
-    if rant.ranter == troll:
+    rant = get_object_or_404(Rants, pk = rant_id)
+    if rant.ranter == ranter:
         rant.banish()
         return HttpResponseRedirect(reverse('rants:ledger'))
     return HttpResponseForbidden('403 Forbidden')
