@@ -10,7 +10,14 @@
     },
     methods: {
         Todo: function(){
-            this.todos.unshift(this.new_todo)
-        }
+            this.todos.unshift(this.newtodo)
+        },
+        removeTodo: function(todo) {
+          this.todos.splice(this.todos.indexOf(todo),1);
+        },
+
+        editTodo: function(todo) {
+          this.todos.edit(this.todos.indexOf(todo),1);
+        },
     }
   })
