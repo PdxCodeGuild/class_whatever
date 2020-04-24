@@ -4,8 +4,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let c = canvas.getContext('2d');
-let gravity = .98;
-let friction = .98;
+let gravity = 3;
+let friction = .999;
 
 //practice
 //rectangle
@@ -88,7 +88,7 @@ function animate () {
         
     if (x + radius > innerWidth || x - radius < 0){ //OR //||
         dx = -dx; //reverse velocity!
-        //radius -= .25; //made it shrink on the x axis, so awesome
+        radius -= .55; //made it shrink on the x axis, so awesome
     } 
     x += dx;
     

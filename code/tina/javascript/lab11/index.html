@@ -14,7 +14,7 @@
         <button @click="Todo">add</button>
 
         <li v-for="(todo) in todos">
-            <span>{{ todo }}</span> 
+            <span>{{ todo }}<button @click="removeTodo(todo)">Delete</button></span> 
         </li>
     </ol>
 </div>

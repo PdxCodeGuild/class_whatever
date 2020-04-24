@@ -10,7 +10,7 @@
 
         <div id="app">
             <input type="text" v-model="add_item"/>
-            <button v-on:click="add()">Add</button>
+            <button v-on:click="add()" @keyup.enter="add()">Add</button>
             <ul>
                 <li v-for="item in my_list">
                     <span v-bind:class="{ complete: item.complete }">{{ item.text }}</span>
