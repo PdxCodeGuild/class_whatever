@@ -8,16 +8,26 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="app">
-    <ol>
-        <input type="text" v-model="newtodo">
-        <button @click="Todo">add</button>
+        <div id="app">
+            <ol>
+                <input type="text" v-model="newtodo">
+                <button @click="Todo">add</button>
 
-        <li v-for="(todo) in todos">
-            <span>{{ todo }}<button @click="removeTodo(todo)">Delete</button></span> 
-        </li>
-    </ol>
-</div>
+                <li v-for="(todo) in todos">
+                    <span>{{ todo }}</span> 
+                    <button @click="removeTodo(todo)">Delete</button>
+                    <button @click="completeTodo(todo)">completed</button>
+                </li>
+            </ol>
+            <h2>complete_todo</h2>
+            <ul id="completed_todos_ul">
+                <li v-for="complete_todo in completed_todos">
+                    {{complete_todo}}
+                <button @click="remove(complete_todo)">Delete</button>
+                <button @click="un_completeTodo(complete_todo)">Un-completed</button>
+                </li>
+            </ul>
+        </div>
 
     <script src="https://unpkg.com/vue"></script>
     <script src="main.js"></script>

@@ -3,33 +3,36 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial scale=1.0">
-        <!!--- Find a stylesheet-->
+        <link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="Calc.css"></link>
         <title>Calc-Vue-lator</title>
     </head>
     <body>
-        <div id="CalcVueLator">
-            <total v-bind:displaytotal="display"></total>
-            <num number="1" @inputnumber="numClick($event)"></num>
-            <num number="2" @inputnumber="numClick($event)"></num>
-            <num number="3" @inputnumber="numClick($event)"></num>
-            <num number="4" @inputnumber="numClick($event)"></num>
-            <num number="5" @inputnumber="numClick($event)"></num>
-            <num number="6" @inputnumber="numClick($event)"></num>
-            <num number="7" @inputnumber="numClick($event)"></num>
-            <num number="8" @inputnumber="numClick($event)"></num>
-            <num number="9" @inputnumber="numClick($event)"></num>
-            <num number="0" @inputnumber="numClick($event)"></num>
-            <num number="." @inputnumber="nimClick($event)"></num>
-            <oper operator="CE"@operation="operClick($event)"></oper>
-            <oper operator="C"@operation="operClick($event)"></oper>
-            <oper operator="/"@operation="operClick($event)"></oper>
-            <oper operator="x"@operation="operClick($event)"></oper>
-            <oper operator="-"@operation="operClick($event)"></oper>
-            <oper operator="+"@operation="operClick($event)"></oper>
-            <oper operator="="@operation="operClick($event)"></oper>
-
-        </div>
+        <div id="app">
+            <div class="Calc-Vue-Lator">
+                <div class"display">{{ answer}}</br>
+                    <button v-on:click="%">%</button>
+                    <button v-on:click="CE">CE</button>
+                    <button v-on:click="C">C</button>
+                    <button v-on:click="+">+</button></br>
+                    <button v-on:click="1">1</button>
+                    <button v-on:click="2">2</button>
+                    <button v-on:click="3">3</button>
+                    <button v-on:click="-"> - </button></br>
+                    <button v-on:click="4">4</button>
+                    <button v-on:click="5">5</button>
+                    <button v-on:click="6">6</button>
+                    <button v-on:click="x">x</button><br>
+                    <button v-on:click="7">7</button>
+                    <button v-on:click="8">8</button>
+                    <button v-on:click="9">9</button>
+                    <button v-on:click="/">/</button></br>
+                    <button v-on:click="+/-">+/-</button>
+                    <button v-on:click="0">0</button>
+                    <button v-on:click=".">.</button>
+                    <button v-on:click="=">=</button></br>
+                </div>
+            </div>
         <script> "https://unpkg.com/vue" </script>
         <script src="Calc.js"></script>
     </body>
