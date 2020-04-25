@@ -8,20 +8,23 @@
 //5. f*ck it I did it both ways, with document.write and with alert, why in the hell do we have to use such a ridiculous syntax? " + variable + "
 //LOOK AT ALL THE WAYS WE CAN MAKE STUFF APPEAR!!!!
 
-var app = new Vue({
-    el: '#app',
-    data: {              
-        message: 'Hey Everybody!' 
-    }, 
-    methods: { 
-        splitMessage: function () { 
-            this.message = this.message.split('')
-        },
-        joinMessage: function () {
-            this.message = this.message.join('')
-        }
-    }
-})
+
+
+
+
+
+
+/*function myFunction(){
+    let place = document.getElementById("place").value;
+    let animal1 = document.getElementById("animal1").value;
+    let animal2 = document.getElementById("animal2").value;
+    let planet = document.getElementById("planet").value;
+    document.getElementById("story").innerHtml = story;
+}*/
+
+    // 1. Find and store the element we want to listen to events on.
+    // 2. Define the function that will respond to the event.
+    // 3. Add the event listener for the element and function
 
 /*
 var madlib = new Vue({
@@ -40,13 +43,6 @@ var madlib = new Vue({
 }
 })
 */
-
-//View Instance
-//yup
-//make a method!
-//don't forget this comma! also, METHOD time!  "with the v-on directive, allows us to attach event listeners that invoke methods on our view instance" Holy fuck what a sentence.
-//called it splitMessage
-//this is what splitMessage does essentially, split the message
 
 ///////everything below this line is from part A/////////////
 /*
