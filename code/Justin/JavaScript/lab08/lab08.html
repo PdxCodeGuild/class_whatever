@@ -10,18 +10,18 @@
     <canvas id="Bucephalus" width="800" height="500" style="border:3px solid"></canvas>
     <script>
         const FPS = 30;
-        var bs = 250;
-        var bx, by;
-        var xv, yv;
-        var canvas, context;
+        let ball_size = 250;
+        let ball_x, ball_y;
+        let xv, yv;
+        let canvas, context;
         
         canvas = document.getElementById("Bucephalus");
         context = canvas.getContext("2d");
 
         setInterval(update, 150 / FPS);
         
-        bx = canvas.width / 2;
-        by = canvas.height / 2;
+        ball_x = canvas.width / 2;
+        ball_y = canvas.height / 2;
         
         xv = Math.floor(Math.random() * 176 + 25) / FPS;
         yv = Math.floor(Math.random() * 760 + 25) / FPS;
@@ -34,19 +34,19 @@
         }
         
         function update() {
-            bx += xv;
-            by += yv;
+            ball_x += xv;
+            ball_y += yv;
             
-            if (bx - bs / 2 < 0 && xv < 0) {
+            if (ball_x - ball_s / 2 < 0 && xv < 0) {
                 xv = -xv;
             }
-            if (bx + bs / 2 > canvas.width && xv > 0) {
+            if (ball_x + ball_s / 2 > canvas.width && xv > 0) {
                 xv = -xv;
             }
-            if (by - bs / 2 < 0 && yv < 0) {
+            if (ball_y - ball_s / 2 < 0 && yv < 0) {
                 yv = -yv;
             }
-            if (by + bs / 2 > canvas.height && yv > 0) {
+            if (ball_y + ball_s / 2 > canvas.height && yv > 0) {
                 yv = -yv;
             }
             

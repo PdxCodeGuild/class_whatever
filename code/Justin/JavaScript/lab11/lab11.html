@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link href="lab11.css" rel="stylesheet">
+    </head>
+    <body>
+    <main id="new_object">
+        <h3>{{designator}}</h3>
+        <form @submit.prevent="add_new_much_todo">
+            <input v-model="new_much_todo" type="text" name="new_much_todo" id="new_much_todo">
+            <button type="submit" name="button">Add New Much To Do</button>
+            <label for="new_much_todo">New Much To Do</label>
+        </form>
+        <ul>
+            <li v-for="x in much_todos">
+            <input type="checkbox" v-model="x.complete">
+            <span :class="{ complete: x.complete }">{{x.title}}</span>
+            <button @click=" remove_old_much_todo(x)" type="button">Remove Old Much To Do
+            </li>
+        </ul>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="lab11.js" charset="utf-8"></script>
+    </body>
+</html>

@@ -1,11 +1,13 @@
-let ms = 0, s = 0, m = 0;
+let milliseconds = 0, seconds = 0, minutes = 0;
 let timer;
 
 let stopwatchElement = document.querySelector('.stopwatch');
 let cyclesContainer = document.querySelector('.cycles')
 
 function getTimer() {
-    return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s) + ":" + (ms < 10 ? "0" + ms : ms);
+    return (minutes < 10 ? "0" + minutes : minutes) + ":" +
+    (seconds < 10 ? "0" + seconds : seconds) + ":" + 
+    (milliseconds < 10 ? "0" + milliseconds : milliseconds);
 }
 
 function stopTimer() {
@@ -22,14 +24,14 @@ function begin() {
 
 function run() {
     stopwatchElement.textContent = getTimer();
-    ms++;
-    if(ms == 100) {
-        ms = 0;
-        s++;
+    milliseconds++;
+    if(milliseconds == 100) {
+        milliseconds = 0;
+        seconds++;
     }
-    if(s == 60) {
-        s = 0;
-        m++;
+    if(seconds == 60) {
+        seconds = 0;
+        minutes++;
     }
 
 }
@@ -38,10 +40,10 @@ function halt() {
    stopTimer();
 
 function cease() {
-    m = 0
-    s = 0
-    ms = 0
-    stopwatchElement.textContent = getTimer
+    minutes = 0
+    seconds = 0
+    milliseconds = 0
+    stopwatchElement.textContent = getTimer();
 }
 
 function renew() {

@@ -1,3 +1,8 @@
+// var today = new Date();
+// var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+// var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+// var dateTime = date+' '+time;
+
 const hourStick = document.querySelector('[data-hour-stick]')
 const minuteStick = document.querySelector('[data-minute-stick]')
 const secondStick = document.querySelector('[data-second-stick]')
@@ -17,7 +22,9 @@ function clock(){
 function setRotation(element, ratio){
     element.style.setProperty('--rotation', ratio * 360)
 }
+
 clock()
+// dateTime()
 
 
 

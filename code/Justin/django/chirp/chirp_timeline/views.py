@@ -29,7 +29,7 @@ def vestal(request):
             incepted = timezone.now()
             rant = Rants.objects.create(spitfire=spitfire, avatar=avatar, ranter=ranter, incepted=incepted) 
             rant.save()
-            return redirect('rants:ledger')
+            return redirect('chirp_timeline:ledger')
     else:
         form = AffixSheet()
     return render(request, 'chirp_timeline/vestal.html', {'form': form}) 
@@ -51,7 +51,7 @@ def tarnish(request, rant_id):
                 return redirect('chirp_timeline:ledger')
         else:
             form = AffixSheet()
-        return render(request, 'rants/tarnish.html', {'form': form}) 
+        return render(request, 'chirp_timeline/tarnish.html', {'form': form}) 
     return HttpResponseForbidden('403 Forbidden')
 
 def banish(request, rant_id):
@@ -59,5 +59,5 @@ def banish(request, rant_id):
     rant = get_object_or_404(Rants, pk = rant_id)
     if rant.ranter == ranter:
         rant.banish()
-        return HttpResponseRedirect(reverse('rants:ledger'))
+        return HttpResponseRedirect(reverse('chirps_timeline:ledger'))
     return HttpResponseForbidden('403 Forbidden')
