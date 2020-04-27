@@ -1,0 +1,120 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Bucephalus Bouncing Ball</title>
+
+    <style></style>
+
+</head>
+
+<body>
+
+    <canvas id="Bucephalus" width="800" height="500" style="border:3px solid"></canvas>
+
+    <script>
+
+    //template
+    //var x = Math.floor(Math.random() * innerWidth); 
+    //var y = Math.floor(Math.random() * innerHeight); 
+    //var vx = Math.floor(Math.random() * 2); 
+    //var vy = Math.floor(Math.random() * 4); 
+    //var radius = 20; 
+
+        const FPS = 30;
+
+        let ball_size = 250;
+
+        let ball_x, ball_y;
+
+        let xv, yv;
+
+        let canvas, context;
+        
+        canvas = document.getElementById("Bucephalus");
+
+        context = canvas.getContext("2d");
+
+        //dead code
+        //const form = document.querySelector('.js-form');
+//form.addEventListener('submit', event => {
+  //event.preventDefault();
+  
+
+        setInterval(update, 150 / FPS);
+
+//reference
+//function component(width, height, color, x, y, type) {
+  //this.type = type;
+  //this.width = width;
+  //this.height = height;
+  //this.x = x;
+  //this.y = y;
+  //this.speedX = 0;
+  //this.speedY = 0;
+  //this.gravity = 0.1;
+  //this.gravitySpeed = 0;
+        
+        ball_x = canvas.width / 2;
+        ball_y = canvas.height / 2;
+        
+        xv = Math.floor(Math.random() * 176 + 25) / FPS;
+        yv = Math.floor(Math.random() * 760 + 25) / FPS;
+
+
+        
+        if (Math.floor(Math.random() * 2) == 0) {
+            xv = -xv;
+        }
+        if (Math.floor(Math.random() * 2) == 0) {
+            yv = -yv;
+        }
+        
+        function update() {
+            ball_x += xv;
+            ball_y += yv;
+            
+            if (ball_x - ball_size / 2 < 0 && xv < 0) {
+                xv = -xv;
+            }
+            if (ball_x + ball_size / 2 > canvas.width && xv > 0) {
+                xv = -xv;
+            }
+
+            //reference
+            //if (radius + x > innerWidth) 
+            //vx = 0 - vx; 
+ 
+        //if (x - radius < 0) 
+            //vx = 0 - vx; 
+ 
+        //if (y + radius > innerHeight) 
+            //vy = 0 - vy; 
+ 
+        //if (y - radius < 0) 
+            //vy = 0 - vy; 
+
+            if (ball_y - ball_size / 2 < 0 && yv < 0) {
+                yv = -yv;
+            }
+            if (ball_y + ball_size / 2 > canvas.height && yv > 0) {
+                yv = -yv;
+            }
+            
+            context.fillStyle = "white";
+
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            context.fillStyle = "red";
+
+            context.beginPath();
+
+            context.arc(ball_x, ball_y, ball_size * 0.5, 0, Math.PI * 2);
+
+            context.fill();
+        }
+    </script>
+</body>
+
+</html> 

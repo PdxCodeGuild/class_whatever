@@ -23,6 +23,24 @@ var app = new Vue({
     }
 })
 
+/*
+var madlib = new Vue({
+    el: '#madlib',
+    data: {
+        story: 'There was was a man from "+ place1 +", he had the most glorious " + animal1 + "  you had ever seen! He once crossed an " + animal1 + " with an " + animal2 + ", which took over the city, killing millions! You may remember it as the book Moby "+animal1+"-"+animal2+" ! In fact, this is how the planet " + planet + " was formed trillions of years ago.'
+    },
+    methods: {
+        showMadlib: function () {
+    this.place = document.getElementById('place');
+    this.animal1 = animal1.getElementById('animal1');
+    this.animal2 = animal2.getElementById('animal2')
+    this.planet = planet.getElementById('planet');
+    story = this.story.showMadlib()
+        }
+}
+})
+*/
+
 //View Instance
 //yup
 //make a method!

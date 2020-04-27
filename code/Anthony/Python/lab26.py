@@ -1,150 +1,174 @@
-#board
-# display board
-# play game
-# check win
-# rows/columns/diadonals
-# check tie
+class Player :
+  def __init__(self, name,token):
+    self.name = name
+    self.token = token
 
-game_ongoing = True
-winner = None
-current_player = "X"
+class Game :
+  def __init__(self, board):
+    self.board = board
 
-board = ["-","-","-", 
-         "-","-", "-", 
-         "-","-", "-"]
-
-
-def show_board():
-    print(board[0] + " | " + board[1] + " | " + board[2])
-    print(board[3] + " | " + board[4] + " | " + board[5])
-    print(board[6] + " | " + board[7] + " | " + board[8])
-
-
-def play_game():
-    show_board()
-    while game_ongoing:
-        player_move(current_player)
-        check_game_over()
-        change_player()
-    if winner == "X" or winner == "O":
-        print(winner + " won")
-    elif winner == None:
-        print("Tie")
-
-
-def player_move(player):
-    print(f"{player}'s turn")
-    position = input("Choose a postion 1- 9: ")
-    valid = False
-    while not valid:
-        while position not in ["1","2","3","4","5","6","7","8","9"]:
-            position = input("Choose a postion 1- 9: ")
-        position = int(position) - 1
-        if board[position] == "-":
-            valid = True
-        else:
-            print("Position already taken, enter another position!")
-    board[position] = player
-    show_board()
-
-def check_game_over():
-    check_winner()
-    check_tie()
-
-
-
-def check_winner():
-    global winner
-    row_winner = check_row()
-    column_winner = check_column()
-    diagonal_winner = check_diagonal()
-    if row_winner:
-        winner = row_winner
-    elif column_winner:
-        winner = column_winner
-    elif diagonal_winner:
-        winner = diagonal_winner
-    else:
-        winner = None
-
-def check_row():
-    global game_ongoing
-    row_1 = board[0] == board[1] == board[2] != "-"
-    row_2 = board[3] == board[3] == board[5] != "-"
-    row_3 = board[6] == board[7] == board[8] != "-"
-
-    # ANY WOR WITH A MATCH
-    if row_1 or row_2 or row_3:
-        game_ongoing = False
-
-        # WINNER X OR O
-    if row_1:
-        return board[0]
-    elif row_2:
-        return board[3]
-    elif row_3:
-        return board[6]
-    return
-
-def check_column():
-    global game_ongoing
-    column_1 = board[0] == board[3] == board[6] != "-"
-    column_2 = board[1] == board[4] == board[7] != "-"
-    column_3 = board[2] == board[5] == board[8] != "-"
+  def __repr__(self):
     
-    # ANY column WITH A MATCH
-    if column_1 or column_2 or column_3:
-        game_ongoing = False
+      board_str = ""
+      for b_x in range(len(self.board)):
+          for b_y in range(len(self.board[0])):
+              if b_y != 2:
+                  if self.board[b_x][b_y] == "X":
+                     board_str = board_str +"X" + " | " 
+                  elif self.board[b_x][b_y] == "O":
+                     board_str = board_str +"O" + " | "
+                  else:
+                     board_str = board_str +" " + " | "  
+              else:
+                  if self.board[b_x][b_y] == "X":
+                     board_str = board_str +" X "  
+                  elif self.board[b_x][b_y] == "O":
+                     board_str = board_str +" O " 
+                  else:
+                     board_str = board_str +" "   
+          board_str = board_str +"\n"   
+           
+      return board_str    
 
-        # WINNER X OR O
-    if column_1:
-        return board[0]
-    elif column_2:
-        return board[1]
-    elif column_3:
-        return board[2]
-    return
+  def move(self,x, y, player):      
+      self.board[x][y] = player
+  
+  def calc_winner(self):
+      
+      for b_x in range(len(self.board)):
+          counter = 0
+          for b_y in range(len(self.board[0])):  
+              if self.board[b_x][b_y] == "X":
+                  counter = counter + 1
+          if counter == 3:
+              return "X" 
 
-def check_diagonal():
-    global game_ongoing
-    diagonal_1 = board[0] == board[4] == board[8] != "-"
-    diagonal_2 = board[6] == board[4] == board[2] != "-"
+          counter = 0
+          for b_y in range(len(self.board[0])):  
+              if self.board[b_y][b_x] == "X":
+                  counter = counter + 1
+          if counter == 3:
+              return "X"            
+      
+      if self.board[0][0] == "X":
+          if self.board[1][1] == "X":    
+             if self.board[2][2] == "X": 
+                 return "X"
+      
+      if self.board[0][2] == "X":
+          if self.board[1][1] == "X":    
+             if self.board[2][0] == "X": 
+                 return "X"
+
+
+      for b_x in range(len(self.board)):
+          counter = 0
+          for b_y in range(len(self.board[0])):  
+              if self.board[b_x][b_y] == "O":
+                  counter = counter + 1
+          if counter == 3:
+              return "O" 
+          counter = 0
+          for b_y in range(len(self.board[0])):  
+              if self.board[b_y][b_x] == "O":
+                  counter = counter + 1
+          if counter == 3:
+              return "O"            
+      if self.board[0][0] == "O":
+          if self.board[1][1] == "O":    
+             if self.board[2][2] == "O": 
+                 return "O"
+      
+      if self.board[0][2] == "O":
+          if self.board[1][1] == "O":    
+             if self.board[2][0] == "O": 
+                 return "O"           
+      return "None"
+
+
+       
+
+  def is_full(self):
+       full = True
+
+       for b_x in range(len(self.board)):
+          for b_y in range(len(self.board[0])):  
+              if self.board[b_x][b_y] != " ":
+                  full = False
+                  return full
+           
+       return full            
+      
+                  
+
+           
+  def is_game_over(self):
+       game_over = True
+       if self.calc_winner() == "None":
+           game_over = False
+       if self.is_full() == True:
+           game_over = False    
+       
+       return game_over    
+
+
+
+
+def main():
+    name1 = input("Please enter palyer 1 name: ")
+    name2 = input("Please enter palyer 2 name: ")
+    player1 = Player(name1,"X")
+    player2 = Player(name2,"O")
+    board = []
     
+    for i in range(3):
+        board_row = []
+        for j in range(3):
+            board_row.append(0)
+        board.append(board_row)    
+    game = Game(board)
+   
+    print(game.__repr__())
     
-    # ANY WOR WITH A MATCH
-    if diagonal_1 or diagonal_2:
-        game_ongoing = False
+    while True:    
+        print("Player 1")
+        x = int(input("Please enter the x - co-ordinate: "))
+        y = int(input("Please enter the y - co-ordinate: "))
+        game.move(x,y,player1.token)
+        print(game.__repr__())
 
-        # WINNER X OR O
-    if diagonal_1:
-        return board[0]
-    elif diagonal_2:
-        return board[6]
-    return
-def check_tie():
-    global game_ongoing
-    if "-" not in board:
-        game_ongoing = False
-    return
-
-
-def change_player():
-    global current_player
-    # if current player was X, change to O
-    if current_player == "X":
-        current_player = "O"
-
-    # if current player was O, change to X
-    elif current_player == "O":
-        current_player = "X"
-    return
+        if game.is_game_over() == True:
+            if game.is_full() == False:
+                winner = game.calc_winner()
+                if winner == player1.token:
+                    print("Player 1 wins")
+                elif winner == player2.token:
+                    print("Player 2 wins")    
+                break
+            else:
+                print("The board is full")
+                break       
 
 
-play_game()
-
+        print("\nPlayer 2")
+        x = int(input("Please enter the x - co-ordinate: "))
+        y = int(input("Please enter the y - co-ordinate: "))
+        game.move(x,y,player2.token)
+        print(game.__repr__())
         
+        if game.is_game_over() == True:
+            if game.is_full() == False:
+                winner = game.calc_winner()
+                if winner == player1.token:
+                    print("Player 1 wins")
+                elif winner == player2.token:
+                    print("Player 2 wins")    
+                break
+            else:
+                print("The board is full")
+                break          
 
-        
+main()
 
 
 
