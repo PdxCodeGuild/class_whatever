@@ -2,15 +2,36 @@
 
 
 
-function randomChar(array) {
-    let randomIndex = Math.floor(Math.random()*array.length);
-    return array[randomIndex];
+// function randomChar(array) {
+//    let randomIndex = Math.floor(Math.random()*array.length);
+//     return array[randomIndex];
+// }
+
+const noses = ['-', '^', '@'];
+const eyes = ['8', 'B', ';', ':'];
+const mouths = ['D', ')', 'P']
+
+function randomNose(noses) {
+    return noses[Math.floor(Math.random() * noses.length)];
 }
 
-const noses = ['-', '>', '_'];
+function randomEye(eyes) {
+    return eyes[Math.floor(Math.random() * eyes.length)];
+}
 
-function randomNose(noses)
+function randomMouth(mouths) {
+    return mouths[Math.floor(Math.random() * mouths.length)];
+}
+newNose = randomNose(noses);
+console.log(newNose);
 
+newEyes = randomEye(eyes);
+console.log(newEyes);
+
+newMouth = randomMouth(mouths);
+console.log(newMouth);
+
+console.log(newEyes + newNose + newMouth);
 
 /*
 //for (var i=1; i<101; i++) {
