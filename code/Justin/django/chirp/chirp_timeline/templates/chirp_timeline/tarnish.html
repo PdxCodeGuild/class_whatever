@@ -1,10 +1,27 @@
 {% extends 'chirp_timeline/foundation.html' %}
 
+{% comment %} //template {% endcomment %}
+{% comment %} {% block content %}
+    <h2>Beseech: </h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="sign up">
+        </form>
+{% endblock content %} {% endcomment %}
+
 {% block content %}
+
     <h2>Tarnish</h2>
-    <form method="POST" class="rant-form" enctype="multipart/form-data">
+
+    <form method="POST" class="form" enctype="multipart/form-data">
+
         {% csrf_token %}
+
         {{ form.as_p }}
+
         <button type="submit" class="save btn btn-default">Save</button>
+
     </form>
+    
 {% endblock %}

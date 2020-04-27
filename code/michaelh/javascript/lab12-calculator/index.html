@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>title</title>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Inter:wght@300;400;600&display=swap" type="text/css">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="skeleton.css">
+        <link rel="stylesheet" href="style.css">        
+    </head>
+    <body>
+        <div id="app">
+            <div class="wrapper">
+                <button-digit v-for="digit in digits" :key="digit" :digit="digit" @append-digit="appendDigit"></button-digit>
+            </div>
+            <br>
+            <div class="wrapper">
+                <button-operation v-for="operation in operations" :key ="operation" :operation="operation" @change-operation="changeOperation"></button-operation>
+                <button-sv-operation v-for="operation in svOperations" :key = "operation" :operation="operation" @operation="svOperation"></button-sv-operation>
+            </div>
+            <br>
+            <div class="wrapper">
+                <button-equal @show-result=showResult></button-equal>
+                <button-backspace @undo=undo></button-backspace>
+            </div>
+            <h2>{{total === 0 ? ' ' : total}}{{current_operation}}{{subtotal}}</h2>
+            <h3 v-for="result in oldResults" v-show="oldResults.length">{{result}}</h3>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
