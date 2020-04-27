@@ -4,9 +4,10 @@
 
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 30px;
-    text-align: justify;
+    font-size: 40px;
+    text-align: center;
     color: #C7A7C5;
+    width: 100%;
 }
 
 button {
@@ -14,8 +15,20 @@ button {
     background-color: #EBFAF0;
 }
 
-quote {
+p1 {
     color: #719E99;
     text-align: center;
     text-emphasis: bold;
+    width: 100%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 35;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #FABBD7;
+    text-align: center;
 }
