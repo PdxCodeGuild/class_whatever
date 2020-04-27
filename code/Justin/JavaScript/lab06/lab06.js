@@ -1,3 +1,4 @@
+//reference
 // var today = new Date();
 // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -6,6 +7,19 @@
 const hourStick = document.querySelector('[data-hour-stick]')
 const minuteStick = document.querySelector('[data-minute-stick]')
 const secondStick = document.querySelector('[data-second-stick]')
+
+//reference
+//function startTime() {
+  //  var today = new Date();
+    //var h = today.getHours();
+    //var m = today.getMinutes();
+    //var s = today.getSeconds();
+    //m = checkTime(m);
+    //s = checkTime(s);
+    //document.getElementById('txt').innerHTML =
+    //h + ":" + m + ":" + s;
+    //var t = setTimeout(startTime, 500);
+  //}
 
 setInterval(clock, 1000)
 
@@ -22,6 +36,14 @@ function clock(){
 function setRotation(element, ratio){
     element.style.setProperty('--rotation', ratio * 360)
 }
+
+//reference
+//function currentTime() {
+//    var date = new Date(); /* creating object of Date class */
+//    var hour = date.getHours();
+//    var min = date.getMinutes();
+//    var sec = date.getSeconds();
+//  }
 
 clock()
 // dateTime()

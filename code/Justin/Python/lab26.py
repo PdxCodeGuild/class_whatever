@@ -1,8 +1,8 @@
 
-class Player:
-    def __init__(self, name, token): 
-        self.nomen = nomen
-        self.symbol = symbol
+# class Player:
+#     def __init__(self, name, token): 
+#         # self.nomen = nomen
+#         # self.symbol = symbol
     
 # # p1 = Player("player_one", "x")
 # # p2 = Player("player_two", "y")
@@ -20,32 +20,6 @@ current = "1"
 table = ["...", "...", "...",
         "...", "...", "...",
         "...", "...", "..."]
-
-def visual():
-    print(table[0] + " : " + table[1] + " : " + table[2])
-    print(table[3] + " : " + table[4] + " : " + table[5])
-    print(table[6] + " : " + table[7] + " : " + table[8])
-
-def mechanics(player):
-    print(player + "'s turn.")
-    spot = input("Choose a position between 1 and 9, (starting from the top left)")
-
-    valid = False
-    while not valid:
-
-        while spot not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
-            spot = input("Invalid input.")
-        
-        spot = int(spot) - 1
-    
-    # TypeError: list indices must be integers or slices, not str
-        if table[spot] == "...":
-            valid = True
-        else:
-            print("Restricted area.")
-
-    table[spot] = player
-    visual()
 
 def play():
 
@@ -65,6 +39,32 @@ def play():
     elif champion == None:
         print("Tie!")
 
+def visual():
+    print(table[0] + " : " + table[1] + " : " + table[2])
+    print(table[3] + " : " + table[4] + " : " + table[5])
+    print(table[6] + " : " + table[7] + " : " + table[8])
+
+def mechanics(player):
+    print(player + "'s turn.")
+    spot = input("Choose a position between 1 and 9, (starting from the top left):")
+
+    valid = False
+    while not valid:
+
+        while spot not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+            spot = input("Invalid input.")
+        
+        spot = int(spot) - 1
+    
+    # TypeError: list indices must be integers or slices, not str
+        if table[spot] == "...":
+            valid = True
+        else:
+            print("Restricted area.")
+
+    table[spot] = player
+    visual()
+
 def status():
 
     win()
@@ -80,6 +80,7 @@ def win():
     call_ems_win = call_ems()
 
     diagonals_win = diagonals()
+
     if rose_win:
         champion = rose
 
@@ -109,21 +110,46 @@ def rose():
 
     global playing
 
+    # template
+
+#      53.     return ((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top
+
+#  54.     (bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle
+
+#  55.     (bo[1] == le and bo[2] == le and bo[3] == le) or # across the bottom
+
+#  56.     (bo[7] == le and bo[4] == le and bo[1] == le) or # down the left side
+
+#  57.     (bo[8] == le and bo[5] == le and bo[2] == le) or # down the middle
+
+#  58.     (bo[9] == le and bo[6] == le and bo[3] == le) or # down the right side
+
+#  59.     (bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal
+
+#  60.     (bo[9] == le and bo[5] == le and bo[1] == le)) # diagonal
+
+#  61.
+
     row_one = table[0] == table[1] == table[2] != "..."
     row_two = table[3] == table[4] == table[5] != "..."
     row_three = table[6] == table[7] == table[8] != "..."
 
     if row_one or row_two or row_three:
         playing = False
+        print("Player wins! Sort of!!!")
     if row_one:
         return table[0]
-    if row_two:
+    elif row_two:
         return table[3]
-    if row_three:
+    elif row_three:
         return table[6]
-    return
+    else:
+        return None
+
 
 def call_ems():
+
+    global playing
 
     column_one = table[0] == table[3] == table[6] != "..."
     column_two = table[1] == table[4] == table[7] != "..."
@@ -131,31 +157,155 @@ def call_ems():
 
     if column_one or column_two or column_three:
         playing = False
+        print("Player wins! Sort of!!!")
     if column_one:
         return table[0]
-    if column_two:
-        return table[3]
-    if column_three:
-        return table[6]
-    return
+    elif column_two:
+        return table[1]
+    elif column_three:
+        return table[2]
+    else:
+        return None
 
 def diagonals():
+    
+    global playing
+
     diagonal_one = table[0] == table[4] == table[8] != "..."
     diagonal_two = table[6] == table[4] == table[2] != "..."
 
     if diagonal_one or diagonal_two:
         playing = False
+        print("Player wins! Sort of!!!")
     if diagonal_one:
         return table[0]
-    if diagonal_two:
+    elif diagonal_two:
         return table[6]
-    return
+    else:
+        return None
 
 def tie():
     global playing
     if "..." not in table:
         playing = False
-    return
+        print("You're both winners because you paid attention! Nobody should ever lose at Tic-tac-toe!!!")
+    else:
+        return False
+    
+    # Template
+#     Welcome to Tic Tac Toe!
+
+# Do you want to be X or O?
+
+# X
+
+# The computer will go first.
+
+#    |   |
+
+#  O |   |
+
+#    |   |
+
+# -----------
+
+#    |   |
+
+#    |   |
+
+#    |   |
+
+# -----------
+
+#    |   |
+
+#    |   |
+
+#    |   |
+
+# What is your next move? (1-9)
+
+# 3
+
+#    |   |
+
+#  O |   |
+
+#    |   |
+
+# -----------
+
+#    |   |
+
+#    |   |
+
+#    |   |
+
+# -----------
+
+#    |   |
+
+#  O |   | X
+
+#    |   |
+
+# What is your next move? (1-9)
+
+# 4
+
+#    |   |
+
+#  O |   | O
+
+#    |   |
+
+# -----------
+
+#    |   |
+
+#  X |   |
+
+#    |   |
+
+# -----------
+
+#    |   |
+
+#  O |   | X
+
+#    |   |
+
+# What is your next move? (1-9)
+
+# 5
+
+#    |   |
+
+#  O | O | O
+
+#    |   |
+
+# -----------
+
+#    |   |
+
+#  X | X |
+
+#    |   |
+
+# -----------
+
+#    |   |
+
+#  O |   | X
+
+#    |   |
+
+# The computer has beaten you! You lose.
+
+# Do you want to play again? (yes or no)
+
+# no
 
 def change():
     global current
