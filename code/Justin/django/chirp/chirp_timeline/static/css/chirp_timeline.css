@@ -6,23 +6,23 @@ h1 a{
 body {
   font-family: Georgia;
   padding: 20px;
-  background: #f1f1f1;
+  background: black;
 }
 
 img{
-  max-height:200px;
-  max-width:200px;
+  max-height:300px;
+  max-width:300px;
   height:auto;
   width:auto;
 }
 
-.page-header {
+.header {
   background-color: #808080;
   margin-top: 0;
   padding: 20px 20px 20px 40px;
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+.header h1, .header h1 a, .header h1 a:visited, .header h1 a:active {
   color: #ffffff;
   font-size: 36pt;
   text-decoration: none;
@@ -38,14 +38,14 @@ h1, h2, h3, h4 {
 }
 
 .save {
-  float: right;
+  float: center;
 }
 
-.post-form textarea, .post-form input {
+.form textarea, .form input {
   width: 100%;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
+.top, .top:hover, .top:visited {
   color: #ffffff;
   float: right;
   font-size: 26pt;
@@ -63,7 +63,7 @@ h1, h2, h3, h4 {
   font-family: Georgia;
 }
 
-.page-footer h1{
+.footer h1{
   font-size: 36pt;
   text-decoration: none;
   font-family: Georgia;

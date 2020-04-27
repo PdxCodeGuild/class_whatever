@@ -5,13 +5,13 @@
         <title>Chirp</title>
         <link rel="stylesheet" href="{% static 'css/chirp_timeline.css' %}"> 
     </head> 
-    <div class="page-header">
+    <div class="header">
         {% if user.is_authenticated %}
             <a href="{% url 'chirp_timeline:vestal' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <p class="top-menu">Ohayou {{ ranter.trollavatar }} <small>(<a href="{% url 'leave' %}">Leave</a>)</small></p>
+            <p class="top">Ohayou {{ ranter.trollavatar }} <small>(<a href="{% url 'leave' %}">Leave</a>)</small></p>
         {% else %}
-            <a href="{% url 'login' %}" class="top-menu">Phish</a>
-            <a href="{% url 'chirp_ranters:beseech' %}"  class="top-menu">Beseech</a>
+            <a href="{% url 'login' %}" class="top">Phish</a>
+            <a href="{% url 'chirp_ranters:beseech' %}"  class="top">Beseech</a>
         {% endif %}
         <h1><a href="{% url 'chirp_timeline:ledger' %}">Chirp</a></h1>
     </div>
@@ -22,7 +22,7 @@
             {% endblock %}
             </div>
         </div>
-    </div class="page-footer">
+    </div class="footer">
         <a href=""><h1>Back to top</h1></a>
     </div>
 </body>
