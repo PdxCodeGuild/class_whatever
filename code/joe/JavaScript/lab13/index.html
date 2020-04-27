@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 13</title>
+        <style>
+            .quote {
+                border: 1px solid grey;
+                padding: 8px;
+                width: 95%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <!--Search by select-->
+            <label for="searchby">Search by</label>
+            <select id="searchby" v-model="search_type">
+                <option value="keyword">Keyword</option>
+                <option value="author">Author</option>
+                <option value="tag">Tag</option>
+            </select>
+            <!--Search Textbox-->
+            <input type="text" v-model="search_text"/>
+            <!--Search Button-->
+            <button @click="search">Search</button>
+            <div>
+                <p>
+                    <!--Previous Page Button-->
+                    <button v-show="current_page.page > 1" @click="prev">Previous</button>
+                    <!--Current Page Number-->
+                    <span>Page {{ current_page.page }}</span>
+                    <!--Next Page Button-->
+                    <button v-show="!lastPage()" @click="next">Next</button>
+                </p>
+            </div>
+
+            <!--All the quotes-->
+            <div>
+                <quote v-for="quote in current_page.quotes" v-bind:quote="quote"></quote>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="lab13.js"></script>
+    </body>
+</html>
