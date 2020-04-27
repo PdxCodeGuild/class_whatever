@@ -1,12 +1,14 @@
 h1 a{
   color: #808080;
-  font-family: 'Georgia';
+  font-family: 'pepperoni pizza';
 }
 
 body {
-  font-family: Georgia;
+  font-family: 'Evogria';
   padding: 20px;
-  background: #f1f1f1;
+  /* background: black; */
+  color: red;
+  background-image: url("/static/css/photo-1517594422361-5eeb8ae275a9.jpeg");
 }
 
 img{
@@ -16,17 +18,18 @@ img{
   width:auto;
 }
 
-.page-header {
+.header {
   background-color: #808080;
   margin-top: 0;
   padding: 20px 20px 20px 40px;
+  background-image: url("/static/css/photo-1560698711-6df2370d7d62.jpeg");
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+.header h1, .header h1 a, .header h1 a:visited, .header h1 a:active {
   color: #ffffff;
   font-size: 36pt;
   text-decoration: none;
-  font-family: Georgia;
+  font-family: 'pepperoni pizza';
 }
 
 .content {
@@ -34,37 +37,49 @@ img{
 }
 
 h1, h2, h3, h4 {
-  font-family: Georgia;
+  font-family: 'orange juice';
+  color: red;
 }
 
 .save {
-  float: right;
+  float: center;
 }
 
-.post-form textarea, .post-form input {
+.form textarea, .form input {
   width: 100%;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
+.top, .top:hover, .top:visited {
   color: #ffffff;
   float: right;
   font-size: 26pt;
   margin-right: 20px;
-  font-family: Georgia;
+  font-family: 'Evogria';
+}
+
+.rant {
+  color: #ffffff;
+  float: center;
+  font-size: 26pt;
+  margin-right: 20px;
+  font-family: 'Firestarter';
+  background-image: url("/static/css/photo-1517594422361-5eeb8ae275a9.jpeg");
 }
 
 .post {
   margin-bottom: 70px;
-  font-family: Georgia;
+  font-family: 'Evogria';
+  color: lightslategray;
 }
 
 .post h2 a, .post h2 a:visited {
   color: #000000;
-  font-family: Georgia;
+  font-family: 'Evogria';
 }
 
-.page-footer h1{
+.footer h1{
   font-size: 36pt;
   text-decoration: none;
-  font-family: Georgia;
+  font-family: 'orange juice';
+  color: red;
 }

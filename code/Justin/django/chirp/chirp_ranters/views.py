@@ -21,7 +21,7 @@ def beseech(beseech):
 def details(beseech, trollavatar):
     ranter = get_object_or_404(User, trollavatar = trollavatar)
     spitfire = ranter.post_set.all().order_by('-incepted')
-    return render(beseech, 'rants/ledger.html', {'rants': rants})
+    return render(beseech, 'chirp_timeline/ledger.html', {'chirp_timeline': chirp_timeline})
 
 # from django.shortcuts import render
 # from django.contrib.auth.forms import UserCreationForm

@@ -122,8 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = 'rants:ledger'
-LOGOUT_REDIRECT_URL = 'rants:ledger'
+LOGIN_REDIRECT_URL = 'chirp_timeline:ledger'
+LOGOUT_REDIRECT_URL = 'chirp_timeline:ledger'
 
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

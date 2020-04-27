@@ -1,0 +1,21 @@
+.container {
+    max-width: 750px;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    text-align: justify;
+    color: #C7A7C5;
+}
+
+button {
+    text-align: center;
+    background-color: #EBFAF0;
+}
+
+quote {
+    color: #719E99;
+    text-align: center;
+    text-emphasis: bold;
+}

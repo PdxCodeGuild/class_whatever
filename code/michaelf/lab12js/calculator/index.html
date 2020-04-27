@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>calculator</title>
+    <link rel="stylesheet" href="css/site.css">
+  </head>
+  <body>
+    <div id="calculator" class="calculator">
+      <div class="display">
+        {{current || '0'}}
+      </div>
+      <clear @clear="clear"></clear>
+      <negate @negate="negate"></negate>
+      <percent @percent="percent"></percent>
+      <operator operator="/" @operate="divide"></operator>
+      <char char="7" @append="append"></char>
+      <char char="8" @append="append"></char>
+      <char char="9" @append="append"></char>
+      <operator operator="*" @operate="multiply"></operator>
+      <char char="4" @append="append"></char>
+      <char char="5" @append="append"></char>
+      <char char="6" @append="append"></char>
+      <operator operator="+" @operate="add"></operator>
+      <char char="1" @append="append"></char>
+      <char char="2" @append="append"></char>
+      <char char="3" @append="append"></char>
+      <operator operator="-" @operate="subtract"></operator>
+      <char class= "zero" char="0" @append="append"></char>
+      <div class=btn @click="dot">.</div>
+      <evaluate @equal="equal"></evaluate>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/site.js"></script>
+  </body>
+</html>
