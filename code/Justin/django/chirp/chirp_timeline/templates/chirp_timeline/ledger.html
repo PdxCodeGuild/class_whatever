@@ -1,4 +1,4 @@
-{% extends 'chirp_timeline/foundation.html' %}
+{% extends 'chirp_timeline/foundation.html' %} 
 
 {% block content %}
     {% for rant in rants %}
@@ -11,8 +11,8 @@
                 {% endif %}
             </div>
             {% if rant.ranter == user %}
-                <a href="{% url 'rants:tarnish' rant.pk%}">tarnish</a>
-                <a href="{% url 'rants:banish' rant.pk%}">banish</a>
+                <a href="{% url 'chirp_timeline:tarnish' rant.pk%}">tarnish</a>
+                <a href="{% url 'chirp_timeline:banish' rant.pk%}">banish</a>
             {% endif %}
             <p>{{ rant.spitfire|linebreaksbr }}</p>
             {% if rant.avatar %}
@@ -20,4 +20,4 @@
             {% endif %}
         </div>
     {% endfor %}
-{% endblock %}
+{% endblock %} 
