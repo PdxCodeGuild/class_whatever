@@ -23,12 +23,30 @@ h1 {
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-  }
+}
 
-button {
+.btn {
     text-align: center;
-    background-color: #C8F4E5;
+    background-color: #11EB9B;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+}
 
+.twt {
+    text-align: center;
+    background-color: #00acee;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
 }
 
 p {

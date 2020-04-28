@@ -14,14 +14,15 @@
         <div class='container'>
             <h1>A Random Quote For You</h1>
             <p id='random'></p></br>
-        </div>
-        <div class='vertical-center'>
-            <button @click="load-new-quote">New Quote</button>
+            <div class='vertical-center'>
+                <button class="btn" @click="load-new-quote">New Quote</button>
+                <button class="twt" @click="tweet-dis">Tweet This!</button>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="app.js"></script>
+    <script src="quotes.js"></script>
 </body>
 <footer>
     <p>Thank you<url> https://stormconsultancy.co.uk/</url> for use of your API
