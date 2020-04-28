@@ -31,18 +31,8 @@ btn.addEventListener("click", function() {
   
   // make completed_btn work
   completed_btn.addEventListener("click", function() {
-    // console.log(input_val);
-    // move input (create_add) to completed
-    // let node_completed = document.createElement("p");
-    // let move_completed = document.createTextNode(input_val);
-    // node_completed.appendChild(create_add.parentNode);  // move to completed div/p tag
-    
     completed.appendChild(create_add);
-    // document.getElementById("completed").appendChild(input_val.parentNode);
-    completed_btn.remove();   // removes the "completed" button
+    completed_btn.remove();
     delete_btn.remove();
-    create_add.strike();
-    // input_val.strike();
-    // move_completed.strike();
   }) 
 })
