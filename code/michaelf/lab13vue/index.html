@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>lab13vue</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"> -->
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+      <div id="app">
+        <h2>soulsearch</h2>
+        <h4>a quotation search engine</h4>
+        <input type="text" v-model="searchinput"><button @click="pagecheck">submit</button><br>
+        <input v-model="searchtype" type="radio" id="keyword" name="searchtype" value="keyword">
+        <label for="keyword">keyword</label>
+        <input v-model="searchtype" type="radio" id="author" name="searchtype" value="author">
+        <label for="author">author</label>
+        <input v-model="searchtype" type="radio" id="tag" name="searchtype" value="tag">
+        <label for="tag">tag</label><br><br>
+        <div v-if="!submitted" id="qotd">
+          <i>{{qotd.body}}</i>
+          <p>{{qotd.author}}</p>
+        </div>
+        <div v-if="submitted" id="results">
+          <button v-show="page>1" @click="previouspage">previous page</button> page {{page}} <button v-show="!results.last_page" @click="nextpage">next page</button>
+          <div v-for="quote in results.quotes">
+            <i>{{quote.body}}</i>
+            <p>{{quote.author}}</p>
+
+          </div>
+        </div>
+      </div>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
