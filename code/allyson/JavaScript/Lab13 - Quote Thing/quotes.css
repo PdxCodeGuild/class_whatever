@@ -1,27 +1,44 @@
 .container {
     max-width: 750px;
+    margin: auto;
+    height: 200px;
+    position: relative;
+}
+
+body {
+    background-color: #EDFAEB;
 }
 
 h1 {
     font-family: 'Dancing Script', cursive;
     font-size: 40px;
     text-align: center;
-    color: #C7A7C5;
+    color: #F5655D;
     width: 100%;
 }
 
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
 button {
     text-align: center;
-    background-color: #EBFAF0;
+    background-color: #C8F4E5;
+
 }
 
-p1 {
-    color: #719E99;
+p {
+    color: #5DD4F5;
     text-align: center;
     text-emphasis: bold;
     width: 100%;
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 35;
+    font-size: 35px;
+    margin: 25px;
 }
 
 footer {
@@ -29,6 +46,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    color: #FABBD7;
+    color: #C28C9D;
     text-align: center;
+    font-size: 14px;
 }
