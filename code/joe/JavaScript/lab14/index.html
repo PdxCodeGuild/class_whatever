@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 14</title>
+        <link rel="stylesheet" href="normalize.css"/>
+        <link rel="stylesheet" href="skeleton.css"/>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="exchange_value"/>
+            <select  v-model="from_currency">
+                <option v-for="currency in currencies" v-bind:value="currency.id">{{ currency.id }} - {{ currency.name }}</option>
+            </select>
+            →
+            <select  v-model="to_currency">
+                <option v-for="currency in currencies" v-bind:value="currency.id">{{ currency.id }} - {{ currency.name }}</option>
+            </select>
+            <button @click="getRate">Get Exchange Rate</button>
+
+            <history v-for="result in cached_results" v-bind:exchange="result"></history>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="lab14.js"></script>
+    </body>
+</html>
