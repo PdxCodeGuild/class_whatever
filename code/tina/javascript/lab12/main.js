@@ -1,38 +1,26 @@
-Vue.component('clear',{
-  template: 
-  `
-    <button @click="$emit('clear')" id="nclear" class="btn">clear</button>
-    <button @click="$emit('ce')" id="nclearentry" class="btn">CE</button>
-  `
-})
-
-Vue.component('number',{
-    template:
+Vue.component('calc',{
+    template:`   
+        <button @click="divide" id="divide" class="btn">/</button>
+        <button @click="push('7')" id="seven" class="btn">7</button>
+        <button @click="push('8')" id="eight" class="btn">8</button>
+        <button @click="push('9')" id="nine" class="btn">9</button>
+        <button @click="push('*')" id="muil" class="btn">*</button>
+        <button @click="push('4')" id="four" class="btn">4</button>
+        <button @click="push('5')" id="five" class="btn">5</button>
+        <button @click="push('6')" id="six" class="btn">6</button>
+        <button @click="minus" id="minus" class="btn">-</button>
+        <button @click="push('2')" id="two" class="btn">2</button>
+        <button @click="push('1)" id="one" class=btn>1</button>
+        <button @click="push('3')" id="three" class="btn">3</button>
+        <button @click="plus" id="plus" class="btn">+</button>
+        <button @click="push('0')" id="zero" class="btn">0</button>
+        <button @click="equal" id="equl" class="btn">=</butoon>
+        <button @click="$emit('clear')" id="clear" class="btn">clear</button>
+        <button @click="$emit('ce')" id="clearentry" class="btn">CE</button>
+        <button @click="dems('.)" id="des" class="btn">.</button
         `
-          <button @click="append('7')" id="seven" class="btn">7</button>
-          <button @click="append('8')" id="eight" class="btn">8</button>
-          <button @click="append('9')" id="nine" class="btn">9</button>
-          <button @click="append('4')" id="n4" class="btn">4</button>
-          <button @click="append('5')" id="n5" class="btn">5</button>
-          <button @click="append('6')" id="n6" class="btn">6</button>
-          <button @click="append('2')" id="n2" class="btn">2</button>
-          <button @click="append('1)" id="n1" class=btn>1</button>
-          <button @click="append('3')" id="n3" class="btn">3</button>
-          <button @click="append('0')" id="n0" class="btn">0</button>`
 })
 
-Vue.component('math',{
-  template:
-    `
-      <button @click="append('delete')" id="ndelete" class="btn">delete</button>
-      <button @click="append('/')" id="n/" class="btn">/</button>
-      <button @click="append('*')" id="n*" class="btn">*</button>
-      <button @click="append('-')" id="n-" class="btn">-</button>
-      <button @click="append('+')" id="n+" class="btn">+</button>
-      <button @click="append('=')" id="n=" class="btn">=</butoon>
-    `
-    
-})
 
 var app = new Vue({
     el: '#app',
