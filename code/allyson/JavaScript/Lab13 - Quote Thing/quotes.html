@@ -10,17 +10,22 @@
 </head>
 
 <body>
-    <div class'"app">
-        <div class='container text-center'>
+    <div class='app'>
+        <div class='container'>
             <h1>A Random Quote For You</h1>
-            <p1 id='random_quote'>Insert Quote Here</p1></br>
-            <button @click="load-new-quote">New Quote</button>
+            <p id="quotehere"></p>
+            <div class='vertical-center'>
+                <button class="btn">New Quote</button>
+                <button class="twt">Tweet This!</button>
+            </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="quotes.js"></script>
 </body>
 <footer>
-    <p>Thank you<url> https://stormconsultancy.co.uk/</url> for usage of your API
-    </p>
+    <p>Thank you<a href="https://stormconsultancy.co.uk"> Storm Consultancy </a> for use of your API.</p>
 </footer>
 
 </html>
