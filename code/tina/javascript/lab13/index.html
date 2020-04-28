@@ -6,13 +6,21 @@
   </head>
   <body>
     <div id="app">
-        <quotes></quotes>
-        
+      <quotes @results="info=$event">
+      </quotes>
+      <ul>
+        <li v-for="person in info">
+          <p>{{person.body}}<br></p>
+          <b>{{person.author}}</b><br>
+        </li>
+      </ul>
+      
         
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
     <script src="main.js"></script>
   </body>
 </html>

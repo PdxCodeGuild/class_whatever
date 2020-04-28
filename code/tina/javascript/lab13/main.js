@@ -1,56 +1,58 @@
 Vue.component('quotes',{
   data () {
     return {
-      info: [],
       author: '',
-      last_page: false
+      info: [],
+      
+      
     }
   },
   template:
   
-  `<div class="class">
-    <input placeholder='author' type='Text' v-model='author'>
-    <button @click="getData">Quote</button>
-    <ul>
-      <li v-for="object in info">
-        {{object.body}}
-      </li>
-    </ul>
-
-  </div>
+  `<form class="form">
+    <input placeholder='author' type='text' v-model='author'>
+    <button @click.prevent="getData">Quote</button>
+  </form>
   `
   ,
   methods:{
     getData: function() {
       axios({
         method:"get",
-        url:"https://favqs.com/api/quotes",
+        url:"https://favqs.com/api/quotes/",
         headers: {
           Authorization:
           'Token token="486c11b9bd4c82f3fce1627f2897f3b5"'
         },
         params: {
-          fliter:this.author,
-          type: 'author'
+          filter: this.author,
+          type: 'author',
+
         }
       }).then(response =>{
         this.info = response.data.quotes;
-        
+        this.$emit('results',this.info)
       })
+
+      
       
     }
+    
   }
   
   
 })
+
 
   new Vue({
     el: '#app',
     data () {
       return {
         info: [],
+        
       }
     },
+    
     
   })
 
