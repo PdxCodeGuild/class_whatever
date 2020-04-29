@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css" type="text/css">
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>Bored?</title>
   </head>
   <body>
-    <div id="app">
-    <ul>
-        <ul>
-            <li v-for="place in info">
-                {{info}}
-            </li>
-      </ul>
-        
-    </div>
+      
+      <div id="app">
+
+        <div class="content">
+          <div class="box">
+            <h2>Bored? Pick something to do!</h2>
+
+            <active @results="info=$event">
+            </active>
+
+              <ul>
+                  <li v-for="place in info">
+                      {{place}}
+                  </li>
+              </ul>
+          </div>
+
+          </div>
+
+      </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -21,3 +34,5 @@
     <script src="main.js"></script>
   </body>
 </html>
+
+

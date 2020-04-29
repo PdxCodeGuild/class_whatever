@@ -1,25 +1,25 @@
 /*
-TODO:
-    css styling
-    add more currency types     https://en.wikipedia.org/wiki/List_of_circulating_currencies
-    confirm all currencies work
-    api can sometimes be slow; show a message if waiting too long?
-    interactivity
+    the api is refusing to convert currencies a lot more often today, despite the fact I know it's done some of the exact ones I'm asking for
+    Update: alright, so it just works whenever it wants to, with no rhyme or reason.
 */
 Vue.component("history", {
     props: ["exchange"],
-    template: `<div>
-        {{ exchange.from_value }} {{ exchange.from_currency }} = {{ exchange.to_value }} {{ exchange.to_currency }}
+    template: `<div class="result">
+        <span @click="$emit('get', exchange)">
+            {{ exchange.from_value }} {{ exchange.from_currency }} = {{ exchange.to_value }} {{ exchange.to_currency }}
+        </span>
+        <button @click="$emit('remove', exchange)">Remove</button>
     </div>`
 })
 
 let vm = new Vue({
     el: "#app",
     data: {
-        from_currency: "EUR",
+        from_currency: "USD",
         to_currency: "EUR",
         exchange_value: "1.0",
         cached_results: [],
+        loading_text: "",
         currencies: [
             { id: "AED", name: "United Arab Emirates Dirham"},
             { id: "AFN", name: "Afghan Afghani"},
@@ -140,14 +140,57 @@ let vm = new Vue({
             { id: "PND", name: "Pitcairn Islands Dollar"},
             { id: "PRB", name: "Transnistrian Ruble"},
             { id: "PYG", name: "Paraguayan Guaraní"},
-
+            { id: "QAR", name: "Qatari Riyal"},
+            { id: "RON", name: "Romanian Leu"},
+            { id: "RSD", name: "Serbian Dinar"},
+            { id: "RUB", name: "Russian Ruble"},
+            { id: "RWF", name: "Rwandan Franc"},
+            { id: "SAR", name: "Saudi Riyal"},
+            { id: "SBD", name: "Solomon Islands Dollar"},
+            { id: "SCR", name: "Seychellois Rupee"},
+            { id: "SDG", name: "Sudanese Pound"},
+            { id: "SEK", name: "Swedish Krona"},
             { id: "SGD", name: "Singapore Dollar"},
-            { id: "USD", name: "United States Dollar"}
+            { id: "SHP", name: "Saint Helena Pound"},
+            { id: "SLL", name: "Sierra Leonean Leone"},
+            { id: "SLS", name: "Somaliland Shilling"},
+            { id: "SOS", name: "Somali Shilling"},
+            { id: "SRD", name: "Surinamese Dollar"},
+            { id: "SSP", name: "South Sudanese Pound"},
+            { id: "STN", name: "São Tomé and Príncipe Dobra"},
+            { id: "SYP", name: "Syrian Pound"},
+            { id: "SZL", name: "Swazi Lilangeni"},
+            { id: "THB", name: "Thai Baht"},
+            { id: "TJS", name: "Tajikistani Somoni"},
+            { id: "TMT", name: "Turkmenistan Manat"},
+            { id: "TND", name: "Tunisian Dinar"},
+            { id: "TOP", name: "Tongan Paʻanga"},
+            { id: "TRY", name: "Turkish Lira"},
+            { id: "TTD", name: "Trinidad and Tobago Dollar"},
+            { id: "TVD", name: "Tuvaluan Dollar"},
+            { id: "TWD", name: "New Taiwan Dollar"},
+            { id: "TZS", name: "Tanzanian Shilling"},
+            { id: "UAH", name: "Ukrainian Hryvnia"},
+            { id: "UGX", name: "Ugandan Shilling"},
+            { id: "USD", name: "United States Dollar"},
+            { id: "UYU", name: "Uruguayan Peso"},
+            { id: "UZS", name: "Uzbekistani Soʻm"},
+            { id: "VES", name: "Venezuelan Bolívar Soberano"},
+            { id: "VND", name: "Vietnamese Dồng"},
+            { id: "VUV", name: "Vanuatu Vatu"},
+            { id: "WST", name: "Samoan Tālā"},
+            { id: "XAF", name: "Central African CFA Franc"},
+            { id: "XCD", name: "Eastern Caribbean Dollar"},
+            { id: "XOF", name: "West African CFA Franc"},
+            { id: "XPF", name: "CFP Franc"},
+            { id: "YER", name: "Yemeni Rial"},
+            { id: "ZAR", name: "South African Rand"},
+            { id: "ZMW", name: "Zambian Kwacha"}
         ]
     },
     methods: {
         getRate : function() {
-            console.log(String(Number(this.exchange_value)));
+            this.loading_text = "Please Wait...";
             axios({
                 // https://rapidapi.com/fyhao/api/currency-exchange/endpoints
                 "method": "GET",
@@ -157,26 +200,55 @@ let vm = new Vue({
                     "x-rapidapi-host": "currency-exchange.p.rapidapi.com",
                     "x-rapidapi-key": "666b5b2c8fmsh20f533fe87c23ddp1ed0cajsna0d1db16b77f"
                 }, "params": {
-                "q": String(Number(this.exchange_value)),
+                "q": "1.0",
                 "from": this.from_currency,
                 "to": this.to_currency
                 }
                 })
                 .then((response)=>{
-                    console.log(response);
-                    this.cached_results.unshift({
-                        from_currency: this.from_currency,
-                        to_currency: this.to_currency,
-                        from_value: String(Number(this.exchange_value)),
-                        to_value: response.data
-                    });
-                    if(this.cached_results.length > 10){
-                        this.cached_results.pop();
+                    if(response.data !== 0){
+                        this.loading_text = "";
+                        this.cached_results.unshift({
+                            from_currency: this.from_currency,
+                            to_currency: this.to_currency,
+                            from_value: Number(this.exchange_value),
+                            to_value: response.data * Number(this.exchange_value)
+                        });
+                        if(this.cached_results.length > 16){
+                            this.cached_results.pop();
+                        }
+                    } else {
+                        this.loading_text = "Uh-oh! Couldn't convert!";
                     }
                 })
                 .catch((error)=>{
+                    this.loading_text = "Oops! Something went wrong!";
                     console.log(error);
                 })
+        },
+        sort : function() {
+            this.cached_results.sort(function(a, b) {
+                return a.to_value / a.from_value - b.to_value / b.from_value;
+            });
+        },
+        remove_all : function() {
+            this.cached_results = [];
+        },
+        get : function(exchange) {
+            this.from_currency = exchange.from_currency;
+            this.to_currency = exchange.to_currency;
+        },
+        remove : function(to_remove) {
+            let i = this.cached_results.indexOf(to_remove);
+            if(i >= 0){
+                this.cached_results.splice(i, 1);
+            }
+        },
+        reverse : function() { this.cached_results.reverse(); },
+        switch_c : function() {
+            let temp = this.from_currency;
+            this.from_currency = this.to_currency;
+            this.to_currency = temp;
         }
     }
 });
