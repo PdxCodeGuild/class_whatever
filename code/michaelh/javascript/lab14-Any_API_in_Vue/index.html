@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>title</title>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Inter:wght@300;400;600&display=swap" type="text/css">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="skeleton.css">
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <div id="app">
+            <label for="latitude">latitude</label>
+            <input id="latitude" v-model="location_latitude" type="text" name="latitude">
+            <label for="longitude">longitude</label>
+            <input id="longitude" v-model="location_longitude" type="text" name="longitude">
+            <br>
+            <button @click="getStations">search stations</button>
+            <div v-if="Object.keys(stations).length">
+                <station-item v-for="station in stations" :key="station.ID" :station="station" @load-station="getClimateNormals"/>
+            </div>
+            <div v-else>
+                <p>No nearby stations found</p>
+            </div>
+
+            <div v-show="Object.keys(normals).length">
+                <temp-item v-for="(temp, month) in normals" :temp="temp" :month="month"/>
+            </div>
+            
+
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
