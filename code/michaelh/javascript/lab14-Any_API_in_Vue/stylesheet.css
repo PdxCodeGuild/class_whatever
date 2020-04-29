@@ -1,3 +1,39 @@
 body{
     margin: 5px;
 }
+#flex_container {
+    display: flex;
+}
+#flex_container > div{
+    margin: 5px;
+}
+#station, #normal, #recentTemp{
+    max-width: 225px;
+}
+.flex-label {
+    display: flex;
+}
+input[type=radio] {
+    margin-right: 12px;
+    margin-top: 4px;
+}
+#strong{
+    font-weight: bold;
+}
+/* #radio_label{
+    display: block;
+    margin-left: 30px;
+}
+input[type=radio] {
+    float: left;
+} */
+fieldset { border: 0; }
+/* fieldset > label {
+    display: inline;
+    margin-left: 5px
+} */
+/* fieldset > input {
+  float: left;
+  clear: none;
+  margin: 2px 0 0 2px;
+} */

@@ -4,30 +4,73 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>title</title>
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Inter:wght@300;400;600&display=swap" type="text/css">
+        <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Inter:wght@300;400;600&display=swap" type="text/css"> -->
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="skeleton.css">
         <link rel="stylesheet" href="stylesheet.css">
     </head>
     <body>
         <div id="app">
-            <label for="latitude">latitude</label>
-            <input id="latitude" v-model="location_latitude" type="text" name="latitude">
-            <label for="longitude">longitude</label>
-            <input id="longitude" v-model="location_longitude" type="text" name="longitude">
-            <br>
-            <button @click="getStations">search stations</button>
-            <div v-if="Object.keys(stations).length">
-                <station-item v-for="station in stations" :key="station.ID" :station="station" @load-station="getClimateNormals"/>
-            </div>
-            <div v-else>
-                <p>No nearby stations found</p>
-            </div>
-
-            <div v-show="Object.keys(normals).length">
-                <temp-item v-for="(temp, month) in normals" :temp="temp" :month="month"/>
-            </div>
+            <h1>Historical Weather Comparison<h1>
+            <h4>Find a weather station</h4>
             
+            <fieldset>
+                <legend>choose your search method:</legend>
+                <label class="flex-label">
+                    <input type="radio" id="name" value="name" v-model="search_method">
+                    <span>station name, country or geographical specifications</span>
+                </label>
+                <label class="flex-label">
+                    <input type="radio" id="coord" value="coord" v-model="search_method">
+                    <span>geographic coordinates</span>
+                </label>
+            </fieldset>
+
+            <div v-if="search_method === 'name'">
+                <label for="name">name</label>
+                <input id="name" v-model="location_name" type="text" name="name" placeholder="e.g. New York">
+            </div>
+            <div v-else-if="search_method === 'coord'">
+                <label for="latitude">latitude</label>
+                <input id="latitude" v-model="location_latitude" type="text" name="latitude" placeholder="e.g. 40.7128">
+                <label for="longitude">longitude</label>
+                <input id="longitude" v-model="location_longitude" type="text" name="longitude" placeholder="e.g. 74.0060">
+            </div>
+            <button v-show="search_method != null" @click="getStations">search stations</button>
+
+            <br>
+            <br>
+            <h4 v-show="Object.keys(stations).length">Select station to retrieve temperature data</h4>
+            <div id="flex_container">            
+                <div v-show="search_method != null">
+                    <div v-if="Object.keys(stations).length">
+                        <station-item v-for="station in stations" :key="station.ID" :station="station" :search_method="search_method" @load-station="getClimateNormals"/>
+                    </div>
+                    <div v-else-if="Object.keys(stations).length === 0 && searched_stations">
+                        <p>No nearby stations found</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div v-if="normals != null && searched_normals">
+                        <p id="normal">Historical average temperatures for {{ display_station.name }}</p>
+                        <normal-item v-for="normal in normals" :normal="normal"/>
+                    </div>
+                    <div v-else-if="searched_normals">
+                        <p id="normal">No historical temperature data found for {{ display_station.name }}</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div v-if="Object.keys(recent_temps).length > 0 && searched_normals">
+                        <p id="recentTemp">Recent daily average temperatures for {{ display_station.name }}</p>
+                        <recent-temp-item v-for="recent_temp in recent_temps" :recent_temp="recent_temp"/>
+                    </div>
+                    <div v-else-if="searched_normals">
+                        <p id="recentTemp">No recent temperature data found for {{ display_station.name }}</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
