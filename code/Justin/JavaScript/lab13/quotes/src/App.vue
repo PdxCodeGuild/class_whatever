@@ -1,20 +1,20 @@
 // <template>
-// <div id="app">
+//   <div id="app">
 //     <img alt="Vue logo" src="./assets/logo.png">
-//      <Abacus msg="Digital Numerical Abacus!"/>
-//    </div>
-//  </template>
+//     <HelloWorld msg="Welcome to Your Vue.js App"/>
+//   </div>
+// </template>
 
-//  <script>
-//  import abacus from './components/DigitalNumericalAbacus.vue'
+// <script>
+// import HelloWorld from './components/HelloWorld.vue'
 
-//  export default {
-//    name: 'abacus',
-//    components: {
-//      abacus
-//    }
-//  }
-//  </script>
+// export default {
+//   name: 'App',
+//   components: {
+//     HelloWorld
+//   }
+// }
+// </script>
 
 // <style>
 // #app {
