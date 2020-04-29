@@ -22,7 +22,6 @@ Vue.component('active',{
         <option>relaxation</option>
         <option>music</option>
         <option>busywork</option>
-        
     </select>
     `
     ,
