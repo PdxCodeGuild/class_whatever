@@ -1,16 +1,22 @@
-function yourQuotehere(){
-    $.ajax({
-        url:'http://quotes.stormconsultancy.co.uk/random.json',
-        dataType:'jsonp',
-        data:  'method=getQuotehere&format=json&lang=en&jsonp=?'
-        success: function(response){
-            $('quotehere').html("<br id='quotehere' class='btn'>"+response.quoteText+'</br>&dash;' +response.quoteAuthor +'</br>&dash;</p>");
-        }
+const endpoint = 'http://quotes.stormconsultancy.co.uk/random.json';
+
+function grabQuote() {
+  fetch(endpoint)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      showQuote(data.message);
+    })
+    .catch(function () {
+      console.log("I AM ERROR - ERROR");
     });
 }
 
-$(function() {
-    yourquotehere();
-  });
+function showQuote(quote) {
+  const quoteHere = document.querySelector('quote-here');
+  quoteHere.textContent = quote;
+}
 
-  $('btn').click(function(){quotehere();});
+const btnButton = document.querySelector('.refresh-quote');
+btnButton.addEventListener('click, grabQuote')
