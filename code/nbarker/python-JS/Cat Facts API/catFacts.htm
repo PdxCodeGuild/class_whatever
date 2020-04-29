@@ -3,23 +3,21 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="VueComponent.css">
+    <link rel="stylesheet" href="catFacts.css">
     
         <title>COMPONENT</title>
-        <header class="headalicious">Glow Quotes!!</header>
+        <header class="headalicious">Here is your random Cat Fact of the Day!</header>
     </head>
 <body>
     <div class="container" id="container">
-        <div id="app">
-        {{ subject.author }}
-        {{ subject.quote }}
-        {{ subject.upvotes_count }}
-
+                <div id="app">
+                    <h3>Did you know?!</h3>
+            <p><i>{{ subject }}</i></p>
     </div>
 </div>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="VueComponent.js"></script>
+    <script src="catFacts.js"></script>
     
 </body>
 </html>
