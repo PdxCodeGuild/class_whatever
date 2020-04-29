@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>title</title>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Inter:wght@300;400;600&display=swap" type="text/css">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="skeleton.css">
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <div id="app">
+            <form>
+                <label for="method">search method</label>
+                <select id="method" v-model="search_method" name="method">
+                    <option>keyword</option>
+                    <option>author</option>
+                    <option>tag</option>
+                </select>
+                <label for="phrase">search phrase</label>
+                <input id="phrase" v-model="search_phrase" type="text" name="phrase" placeholder="e.g. William Shakespeare">
+            </form>
+            <button @click="loadQuote">search</button>
+            <div v-if="this.quotes[0].body != 'No quotes found'">
+                <quote-item v-for="quote in quotes" :key="quote.ID" :quote="quote"/>
+            </div>
+            <div v-else>
+                <p>No quotes found</p>
+            </div>
+            <button @click="pageChange('previous')" v-show="this.page_number != 1">previous</button>
+            <button @click="pageChange('next')" v-show="this.last_page === false && this.quotes[0].body != 'No quotes found'">next</button>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

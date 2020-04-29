@@ -1,29 +1,121 @@
-{% comment %} <DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='lab04.css'>
-    <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-</head>
-<body>
-    <h1><span class="title"> To Do</span> List</h1>
-    <div class="input">
-        <input class="input" type="text" placeholder="Organize yourself!">
-        <button class="add"> <i class="fas fa-plus"></i>
-    </div>
-    <div class="container">
-        <div class="item">
-            <input type="text" class="insert" disabled>
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-            <script type="text/javascript" src="lab04.js"></script>
-        </div>
-    </div>
-</body>
-</html>   
 
- {% endcomment %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Much To Do About Nothing</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="lab04.css" />
+
+    <script defer src="lab04.js"></script>
+  </head>
+
+  </head>
+
+<body>
+    <h1 class="title">Much To Do About Nothing</h1>
+
+    <div class="all-to-dos">
+
+      <h2 class="todo-list-title">Much To Dos</h2>
+
+      <ul class="todo-list" todo-lists></ul>
+
+<form action="" data-todo-list-form>
+
+        <input 
+
+          type="text"
+
+          class="New To Do List"
+
+          data-new-todo-list-input
+
+          placeholder="New To Do List Title"
+
+          aria-label="New To Do List Title"
+
+        />
+
+        <button class="btn incept" aria-label="incept new todo list">Add</button>
+
+      </form>
+
+    </div>
+
+<div class="New To Do">
+
+        <div class="new to do" data-tasks></div>
+
+        <div class="new-todo-inceptor">
+
+            <form action="" data-new-task-form>
+
+                <input 
+
+                  type="text"
+
+                  data-new-task-input
+
+                  class="new to do"
+
+                  placeholder="new to do name"
+
+                  aria-label="new to do name"
+
+                />
+
+                <button class="btn incept" aria-label="incept new to do">Add</button>
+
+              </form>
+
+        </div>
+
+        <div class="delete old to do">
+
+          <button class="btn delete old to do" data-clear-old-to-do-button>Clear old to dos</button>
+
+          <button class="btn delete old to do" data-delete-old-to-do-button>Delete old to dos</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    </div>
+
+    <template id="to do template">
+
+      <div class="to do">
+
+        <input type="checkbox" />
+
+        <label>
+
+          <span class="to do-checkbox"></span>
+
+        </label>
+
+      </div>
+
+    </template>
+
+  </body>
+
+</html>
+
+
+
