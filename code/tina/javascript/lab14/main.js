@@ -1,18 +1,29 @@
 Vue.component('active',{
     data () {
       return {
-        type: '',
+        selected: '',
         info: [],
+    
         
         
       }
     },
     template:
     
-    `<form class="form">
-      <input placeholder='what type of active' type='text' v-model='type'>
-      <button @click.prevent="getData">type</button>
-    </form>
+    `
+    <select id="selected" @change="getData" v-model="selected">
+        <option value="">Please select one</option>
+        <option>education</option>
+        <option value="recreational">Recreational</option>
+        <option>social</option>
+        <option>diy</option>
+        <option>charity</option>
+        <option>cooking</option>
+        <option>relaxation</option>
+        <option>music</option>
+        <option>busywork</option>
+        
+    </select>
     `
     ,
     methods:{
@@ -20,12 +31,10 @@ Vue.component('active',{
         axios({
           method:"get",
           url:"http://www.boredapi.com/api/activity",
-
-        params: {
-            // filter: this.type,
-            type: this.type,
-  
-          }
+          params: {
+              type: this.selected,
+              filter: this.selected,
+            }
           
         }).then(response =>{
           this.info = response.data;
@@ -47,6 +56,7 @@ Vue.component('active',{
       data () {
         return {
           info: [],
+          
           
         }
       },
