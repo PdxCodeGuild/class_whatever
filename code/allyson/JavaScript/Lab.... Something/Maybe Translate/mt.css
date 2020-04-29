@@ -1,0 +1,49 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.6fr 1.4fr 1.5fr 0.5fr;
+    grid-template-rows: 0.4fr 0.3fr 2.9fr 0.4fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "blank Name Name blank2""blank l1 l2 blank2""blank Input Output blank2""blank buttons buttons blank2""footer footer footer footer";
+}
+
+body {
+    background-color: bisque;
+}
+
+.Name {
+    grid-area: Name;
+    color: crimson;
+}
+
+.blank {
+    grid-area: blank;
+}
+
+.blank2 {
+    grid-area: blank2;
+}
+
+.footer {
+    grid-area: footer;
+    color: crimson;
+}
+
+.l1 {
+    grid-area: l1;
+}
+
+.l2 {
+    grid-area: l2;
+}
+
+.buttons {
+    grid-area: buttons;
+}
+
+.Input {
+    grid-area: Input;
+}
+
+.Output {
+    grid-area: Output;
+}
