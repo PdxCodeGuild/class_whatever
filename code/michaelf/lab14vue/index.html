@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
-    
   </head>
   <body>
     <div id="app">
+    <!-- HEADER SECTION -->
       <header>
         <div class="jumbotron jumbotron-fluid my-jumbotron">
           <div class="container">
@@ -18,13 +18,14 @@
           </div>
         </div>
       </header>
+    <!-- INPUT GROUP -->
       <div class="input-group input-group-lg my-input">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-lg">Keyword</span>
         </div>
         <input v-model="searchTerm" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" @keyup.enter="request"><button @click="request" type="button" class="btn btn-dark">Search</button>
       </div>
-
+    <!-- PAGINATION -->
       <nav v-show="results" aria-label="Page navigation example" class="my-pagination">
         <ul class="pagination">
           <div v-if="page!==1">
@@ -42,16 +43,15 @@
           </div>
         </ul>
       </nav>
+    <!-- RESULTS -->
       <div v-for="song in slicedResults" class="results">
         <div class="result">
-          <h4>{{song.title}}</h4>
-          <p class="artist">{{song.artist.name}}</p>
+          <h4 @click="searchSong(song.title)">{{song.title}}</h4></a>
+          <a href='#' class="my-link"><p @click="searchArtist(song.artist.name)" class="artist">{{song.artist.name}}</p>
           <a href="" class="my-link" :href=`http://www.songsterr.com/a/wa/song?id=${song.id}`><span v-show="song.chordsPresent" class="badge badge-warning">chords</span></a>
           <a href="" class="my-link" :href=`http://www.songsterr.com/a/wa/song?id=${song.id}`><span v-show="!song.chordsPresent" class="badge badge-info">tab</span></a>
         </div>
-      
       </div>
-
 
     </div>
   

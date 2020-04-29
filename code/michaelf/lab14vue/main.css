@@ -14,6 +14,10 @@ h4{
     text-align: center;
 }
 
+.my-link{
+    color:black;
+}
+
 .my-pagination{
     width:180px;
     margin:30px auto;

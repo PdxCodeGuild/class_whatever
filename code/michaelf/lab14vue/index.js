@@ -1,6 +1,7 @@
 console.log("hello")
 let app=new Vue({
     el: '#app',
+
     data: {
        results: null,
        searchTerm: 'The Beatles',
@@ -9,8 +10,6 @@ let app=new Vue({
        lastPage: false,
        a: 0,
        b: 15,
-
-
     },
 
     methods: {
@@ -31,7 +30,6 @@ let app=new Vue({
                     this.sliceResults()
                 })
         },
-
         sliceResults: function(){
             this.slicedResults=this.results.slice(this.a,this.b)
             if (this.slicedResults.length < 15){
@@ -52,11 +50,17 @@ let app=new Vue({
             this.a-=15
             this.page-=1
             this.sliceResults()
+        },
+        searchArtist:function(artist){
+            this.searchTerm=artist
+            this.request()
+        },
+        searchSong:function(song){
+            this.searchTerm=song
+            this.request()
         }
-
     },
 
-    
     mounted: function(){
         this.page=1
         this.a=0
