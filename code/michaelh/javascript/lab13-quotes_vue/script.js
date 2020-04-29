@@ -15,7 +15,7 @@ var app = new Vue({
                 url: "https://favqs.com/api/quotes",
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Token token=21e310bc4568cbca4cb081a1978ef6e7'
+                    'Authorization': 'Token token='
                 },
                 params: {
                     filter: this.search_phrase,
