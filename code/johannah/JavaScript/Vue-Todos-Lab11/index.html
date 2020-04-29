@@ -7,11 +7,29 @@
   <title>Vue To Do List</title>
 </head>
 <body>
-  <div id="app">
-    {{ message }}
-    <h5>{{ product }} are in stock.</h5>
-  </div>
+  <div id="app" v-html="html">
+    <h1>{{ message1 }}</h1>
+    <input v-model="user_input" id="user_input" type="text" placeholder="new item">
+    <button v-on:click="add_input">add</button>
+    <!-- <button @click="add_input">add</button> -->
+    <br>
 
+    <h3>{{ message2 }}</h3>
+    <div id="added" v-show="added.length">
+      <ul v-for="add in added" :key="add.id">{{ add }}
+        <button v-on:click="completed_btn">complete</button>
+        <button v-on:click="delete_btn">remove</button>
+      </ul>
+    </div>
+    <br>
+
+    <h3>{{ message3 }}</h3>
+    <div id="completed" v-show="completed.length">
+      <ul v-for="complete in completed" :key="complete.id">{{ complete }}
+        
+      </ul>
+    </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/site.js"></script>
 </body>

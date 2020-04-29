@@ -18,11 +18,12 @@ Vue.component("quote", {
 
 function getRandQuotes() { //still needs work
     let ret = [];
-    for(let i = 0; i < 5; ++i){
+    for(let i = 0; i < 10; ++i) {
         axios.get(`https://favqs.com/api/quotes/${Math.floor(Math.random()*20000)}`, { headers: { "Authorization": `Token ${token}` }})
         .then(response => {
-            console.log(response);
-            ret.push({ body: response.body, author: response.author, url: `https://favqs.com/quotes/${response.author.toLowerCase().replace(" ", "-")}/${response.id}`});
+            ret.push(response.data);
+        }).catch(error => {
+            console.log(`CATCH ${error}`)
         })
     }
     return ret;
@@ -54,7 +55,7 @@ let vm = new Vue({
             }).catch( error=> {
                 console.log(`search ERR: ${error}`);
             });
-        }, // something about specifying the page number is breaking the api; find problem and solve
+        },
         next : function() {
             axios.get(`https://favqs.com/api/quotes?filter=${this.cached_text}&type=${this.cached_type}&page=${this.current_page.page + 1}`, {
                 headers : { "Authorization": `Token ${token}` }

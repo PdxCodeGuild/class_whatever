@@ -6,15 +6,12 @@
   </head>
   <body>
     <div id="app">
-      <quotes @results="info=$event">
-      </quotes>
-      <ul>
-        <li v-for="person in info">
-          <p>{{person.body}}<br></p>
-          <b>{{person.author}}</b><br>
-        </li>
+    <ul>
+        <ul>
+            <li v-for="place in info">
+                {{info}}
+            </li>
       </ul>
-      
         
     </div>
 
