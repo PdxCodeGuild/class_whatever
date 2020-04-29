@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>lab14vue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="jumbotron jumbotron-fluid my-jumbotron">
+          <div class="container">
+            <h1 class="display-4">disChord</h1>
+            <p class="lead">a simple song chord search engine with a stupid name</p>
+          </div>
+        </div>
+      </header>
+      <div class="input-group input-group-lg my-input">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg">Keyword</span>
+        </div>
+        <input v-model="searchTerm" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" @keyup.enter="request"><button @click="request" type="button" class="btn btn-dark">Search</button>
+      </div>
+
+      <nav v-show="results" aria-label="Page navigation example" class="my-pagination">
+        <ul class="pagination">
+          <div v-if="page!==1">
+            <li @click="previousPage" class="page-item"><a class="page-link my-page-link" href="#">Previous</a></li>
+          </div>
+          <div v-if="page===1">
+            <li class="page-item disabled"><a class="page-link my-page-link" href="#">Previous</a></li>
+          </div>
+          <li class="page-item"><a class="page-link my-page-link" href="#">{{page}}</a></li>
+          <div v-if="lastPage">
+            <li class="page-item disabled"><a class="page-link my-page-link" href="#">Next</a></li>
+          </div>
+          <div v-else>
+            <li @click="nextPage" class="page-item"><a class="page-link my-page-link" href="#">Next</a></li>
+          </div>
+        </ul>
+      </nav>
+      <div v-for="song in slicedResults" class="results">
+        <div class="result">
+          <h4>{{song.title}}</h4>
+          <p class="artist">{{song.artist.name}}</p>
+          <a href="" class="my-link" :href=`http://www.songsterr.com/a/wa/song?id=${song.id}`><span v-show="song.chordsPresent" class="badge badge-warning">chords</span></a>
+          <a href="" class="my-link" :href=`http://www.songsterr.com/a/wa/song?id=${song.id}`><span v-show="!song.chordsPresent" class="badge badge-info">tab</span></a>
+        </div>
+      
+      </div>
+
+
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

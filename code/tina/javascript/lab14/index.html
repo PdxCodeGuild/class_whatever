@@ -16,10 +16,10 @@
 
             <active @results="info=$event">
             </active>
-
+              
               <ul>
-                  <li v-for="place in info">
-                      {{place}}
+                  <li v-for="(place,activity) in info">
+                     {{activity}} : {{place}}
                   </li>
               </ul>
           </div>
