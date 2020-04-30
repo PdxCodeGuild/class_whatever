@@ -1,0 +1,11 @@
+html {
+    background: linear-gradient(to left, maroon, grey);
+}
+
+body {
+    margin: 0;
+}
+
+canvas {
+    border: 1px solid black;
+}

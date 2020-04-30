@@ -7,7 +7,7 @@
   <title>Vue To Do List</title>
 </head>
 <body>
-  <div id="app" v-html="html">
+  <div id="app">
     <h1>{{ message1 }}</h1>
     <input v-model="user_input" id="user_input" type="text" placeholder="new item">
     <button v-on:click="add_input">add</button>
@@ -16,17 +16,21 @@
 
     <h3>{{ message2 }}</h3>
     <div id="added" v-show="added.length">
-      <ul v-for="add in added" :key="add.id">{{ add }}
-        <button v-on:click="completed_btn">complete</button>
-        <button v-on:click="delete_btn">remove</button>
+      <ul>
+        <li v-for="(add, index) in added" v-bind:key="add.id" v-bind:title="add.title">{{ add.title }}
+          <button v-on:click="completed_btn">complete</button>
+          <button v-on:click="delete_btn">remove</button>
+        </li>
       </ul>
     </div>
     <br>
 
     <h3>{{ message3 }}</h3>
     <div id="completed" v-show="completed.length">
-      <ul v-for="complete in completed" :key="complete.id">{{ complete }}
-        
+      <ul>
+        <li v-for="(complete in completed" v-bind:key="complete.id" v-bind:title="complete.title">{{ complete.title }}
+          
+        </li>
       </ul>
     </div>
   </div>

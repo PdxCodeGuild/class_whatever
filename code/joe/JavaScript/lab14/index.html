@@ -6,22 +6,41 @@
         <link rel="stylesheet" href="normalize.css"/>
         <link rel="stylesheet" href="skeleton.css"/>
         <style>
-
+            body {
+                text-align: center;
+            }
+            #app {
+                margin-top: 4px;
+            }
+            .result {
+                border: 1px solid lightblue;
+                padding: 8px;
+                margin: 2px auto;
+                font-size: 16pt;
+                max-width: 1100px;
+            }
         </style>
     </head>
     <body>
         <div id="app">
+            <h1>Currency Exchange</h1>
             <input type="text" v-model="exchange_value"/>
             <select  v-model="from_currency">
                 <option v-for="currency in currencies" v-bind:value="currency.id">{{ currency.id }} - {{ currency.name }}</option>
             </select>
-            →
+            <button @click="switch_c">→</button>
             <select  v-model="to_currency">
                 <option v-for="currency in currencies" v-bind:value="currency.id">{{ currency.id }} - {{ currency.name }}</option>
             </select>
             <button @click="getRate">Get Exchange Rate</button>
 
-            <history v-for="result in cached_results" v-bind:exchange="result"></history>
+            <br/>
+            <button @click="sort">Sort</button>
+            <button @click="reverse">Reverse</button>
+            <button @click="remove_all">Remove All</button>
+            <p>{{ loading_text }}</p>
+
+            <history v-for="result in cached_results" v-bind:exchange="result" @get="get" @remove="remove"></history>
         </div>
 
         <script src="https://unpkg.com/vue"></script>

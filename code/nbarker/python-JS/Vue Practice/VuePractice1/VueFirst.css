@@ -1,0 +1,26 @@
+html{
+    background: linear-gradient( to bottom, #ff8383, #ffffff, #d9b0ff);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+    margin: 20px;
+    font-size: 1.5em;
+    font-family: serif;
+    border: 4px solid rgb(187, 0, 204);
+    border-radius: 25px;
+    background-color: rgba(10, 10, 10, 0.219);
+    color: maroon;
+    box-shadow: blue;
+}

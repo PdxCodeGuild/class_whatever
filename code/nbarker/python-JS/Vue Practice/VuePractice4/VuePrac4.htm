@@ -1,0 +1,30 @@
+<!-- number 4! 
+interacting with our data! 
+the v-on is a directive
+it attaches event listeners that invoke methods on view instance
+WHAT?!
+event listener is waiting for a mouse click, this starts a method!, our view instance?  That's the thing in JS with the var app = new Vue({}) etc....
+In this case, it's the reverseMessage Method!
+it takes this.message = this.messsage.split('').reverse().join('')
+string reversal! reversal of whatever the message contains
+update the state of the app without touching the DOM, incredible! 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="VuePrac4.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input that Ass!</title>
+</head>
+<body>
+
+    <div id='app'>
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+        </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="VuePrac4.js"></script>
+</body>
+</html>

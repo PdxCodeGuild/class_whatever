@@ -1,0 +1,29 @@
+<!-- #5 is alive!
+this one is for the v-model directive
+makes it "super simple" to create 2 way bindings between form inputs and app state
+HUH?!
+add an input field, set the v-model to message, message is in our data object, v-model updates the form input whenever the state of the app changes, and vise versa!
+i.e. I type, it shows up on the screen as I type it
+so the v-model makes user synchronization not so tricky!
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="VueFive.css">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="app">
+<p>{{ message }}</p>
+<input v-model="message">
+
+</div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="VueFive.js"></script>
+</body>
+</html>
