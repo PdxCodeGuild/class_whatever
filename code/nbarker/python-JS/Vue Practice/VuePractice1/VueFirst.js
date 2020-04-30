@@ -21,8 +21,8 @@ let app = new Vue({
     fruit: "bananas",
     cigar: "joint",
     virus: "negative",
-    website: "http://www.thenetninja.co.uk",
-    websiteTag: '<a href="http://www.thenetninja.co.uk">The Net Ninja Website</a>',
+    website: "http://www.espn.com",
+    websiteTag: '<a href="http://www.espn.com">I miss you so much!</a>',
     },
     methods: {
       greet: function(time) {
