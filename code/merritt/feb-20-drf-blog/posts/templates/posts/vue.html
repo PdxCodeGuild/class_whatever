@@ -1,0 +1,63 @@
+{% csrf_token %}
+<div id="app">
+  <h1>BLOG!!!</h1>
+  <div>
+    <article v-for="post in posts" :key="post.id">
+        <h2>[[ post.title ]]</h2>
+        <h3>[[ post.author ]]</h3>
+        <h4>[[ post.created ]]</h4>
+        <p>[[ post.body ]]</p>
+    </article>
+  </div>
+  <div>
+    <input type="text" placeholder="Title" v-model="newPost.title"><br>
+    <textarea placeholder="Post" v-model="newPost.body"></textarea><br>
+    <button @click="createPost">Post</button>
+  </div>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    delimiters: ['[[',']]'],
+    data: {
+      csrf_token: "",
+      posts: [],
+      newPost: {
+            "author": 1,
+            "title": "",
+            "body": ""
+        }
+    },
+    methods: {
+      createPost: function() {
+          axios({
+              method: "post",
+              url: "/api/v1/posts/",
+              data: this.newPost,
+              headers: {
+                  "X-CSRFToken": this.csrf_token
+              }
+          }).then(response => {
+              this.getPostList()
+              this.newPost = {
+                "author": 1,
+                "title": "",
+                "body": ""
+              }
+          })
+      },
+      getPostList: function() {
+        axios({
+          method: "get",
+          url: "/api/v1/posts/"
+        }).then(response => this.posts = response.data)
+      }
+    },
+    mounted: function () {
+      this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+      this.getPostList();
+    }
+  });
+</script>
