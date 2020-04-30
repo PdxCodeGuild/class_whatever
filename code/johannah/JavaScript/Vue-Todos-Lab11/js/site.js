@@ -13,17 +13,24 @@ let vm = new Vue({
     user_input: '',
     added: [],   // array of the: todos
     completed: [],
+    addedId: 1,
   },
   methods: {
     add_input: function() {  // first button: to add input
-      this.added.push(user_input)
+      this.added.push({
+        id: this.addedId++,
+        title: this.user_input,
+      })
+      this.user_input = ''
     },
-    delete_btn: function() {  // btn to delete in added
+    delete_btn: function() {  // btn to delete in added div
       this.added.splice(this.added.indexOf(added), 1);
     },
     completed_btn: function() {  // btn to mark complete 
-      this.completed.push(added)
-      this.delete_btn(added)
+      this.completed.push({  // push to completed div
+        title: this.added,
+      })
+      this.delete_btn(added)  // remove input from added div
     },
   },
 })

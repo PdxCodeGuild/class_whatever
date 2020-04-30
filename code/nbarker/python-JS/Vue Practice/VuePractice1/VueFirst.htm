@@ -1,0 +1,38 @@
+<!--Feeling refreshed about Vue!
+On this page, we just have a basic html boilerplate with a couple differences, you'll see the script src link in the top (cdn (content delivery network! neat!) for Vue), as well as the reference to the Stylesheet 'VueFirst.css' and another script src tag that goes to my JS page -->
+
+<!--the app lives in the app div!
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="VueFirst.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>TODO THAT ASS!</title>
+</head>
+<body>
+    <div id="container">
+    <div id="app">
+        <h1> {{ greet('night') }} </h1> 
+        <ul>
+        <li>{{ secrets }}</li> </br>   <!--refers to message right HERE from JS page, mustache!-->
+        <li>{{ fruit }}</li> </br>
+        <li>{{ cigar }}</li> </br>
+        <li>{{ virus }}</li> </br>
+
+        <!-- THIS IS IMPORTANT! NONE OF THIS SHIT WORKS!-->
+        <!-- No NO NO NO NO <a href="{{website}}">The Net Ninja</a>v -->
+        <!--We need to use data binding, a directive called '<a v-bind:href="website"> the net ninja </a> -->
+        <a v-bind:href="website">SPORTS!</a>
+        <input type="text" v-bind:value="secrets"/>
+        <p v-html="websiteTag"></p>
+        <!--cool cool, now for another way to output a dynamic link using another method other than v-bind:-->
+    </ul>
+    </div>
+</div>
+    <script src="VueFirst.js"></script>
+</body>
+</html>

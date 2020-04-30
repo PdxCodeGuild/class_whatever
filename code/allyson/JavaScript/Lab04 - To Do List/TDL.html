@@ -14,21 +14,20 @@
         <div class="by"> 
             <h5>By Allyson Phillips</h5>
         </div>
-        <div class="work">
-            <input id="add" placeholder="Add To List...." type="text"><br><button> ADD </button>
+        <div id="app">
+            <input id="addtodo" type="text" placeholder="Add a thing..." maxlength="50"></input>
+            <button id="add" onclick="update"></button>
         </div>
         <div class="undone-list">
             <legend>TO DO</legend>
-            <ul id="tdl">
-                <li></li>
-            </ul>
-        </div>
-        <div class="complete-list">
-            <legend>Completed</legend>
-            <ul id="cl">
-                <li></li>
-        </div>
+                <div class="row">
+                    <div class="itemList">
+                        <ul class="werk">
+                        </ul>
+                    </div>
+                </div>
+            </div>
     </body>
-    
+    <script type="text/javascript" src="script_method3.js"></script>
     <div class='footer'>© Allyson Phillips 2020</div>
 </html>
