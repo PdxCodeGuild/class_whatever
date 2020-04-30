@@ -1,4 +1,5 @@
-html {}
+html {
+}
 
 body {
   background-color: #0d19a3;
@@ -38,7 +39,7 @@ h5 {
   text-align: center;
 }
 
-.work {
+.app {
   left: 0;
   width: 100%;
   padding: 4px;
@@ -76,7 +77,8 @@ button {
   background-color: ;
 }
 
-.complete-list {}
+.complete-list {
+}
 
 legend {
   text-align: center;

@@ -1,0 +1,37 @@
+h4{
+    margin-bottom:0px
+}
+
+.artist{
+    margin-bottom:4px;
+}
+
+.my-input{
+    width: 80%;
+    margin:auto
+}
+.my-jumbotron{
+    text-align: center;
+}
+
+.my-link{
+    color:black;
+}
+
+.my-pagination{
+    width:180px;
+    margin:30px auto;
+
+}
+.my-page-link{
+    color:black
+}
+
+.results{
+    width:80%;
+    margin:auto
+}
+
+.result{
+    margin: 30px 0px
+}
