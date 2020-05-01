@@ -3,7 +3,7 @@ button {
   border: 1px solid black;
 }
 
-#completed {
+.done {
   text-decoration: line-through;
 }
 
