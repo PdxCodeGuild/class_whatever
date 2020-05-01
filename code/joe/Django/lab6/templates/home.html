@@ -5,3 +5,93 @@
 <h1>Welcome, visitor!</h1>
 <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
 {% endif %}
+
+<div id="app">
+    {% csrf_token %}
+    <h3>New Student</h3>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" v-model="new_student.first_name" /><br/>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" v-model="new_student.last_name" /><br/>
+        <label for="cohort">Cohort:</label>
+        <input type="text" id="cohort" v-model="new_student.cohort" /><br/>
+        <label for="favorite_topic">Favorite Topic:</label>
+        <input type="text" id="favorite_topic" v-model="new_student.favorite_topic" /><br/>
+        <label for="favorite_teacher">Favorite Teacher:</label>
+        <input type="text" id="favorite_teacher" v-model="new_student.favorite_teacher" /><br/>
+        <label for="capstone">Link to Capstone:</label>
+        <input type="text" id="capstone" v-model="new_student.capstone" /><br/>
+        <button @click="addStudent">Enter new student</button>
+        <p>[[ status_message ]]</p>
+    <student v-for="student in students" v-bind:student="student"></student>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    Vue.component("student", {
+        props: ["student"],
+        delimiters: ["[[", "]]"],
+        template: `<div class="student"><hr/><h2>[[ student.last_name ]], [[ student.first_name ]]</h2>
+        <h3>[[ student.cohort ]]</h3>
+        <ul>
+            <li>Favorite Topic: [[ student.favorite_topic ]]</li>
+            <li>Favorite Teacher: [[ student.favorite_teacher ]]</li>
+            <li><a v-bind:href="student.capstone">Capstone</a></li>
+        </ul></div>`
+    });
+    let vm = new Vue({
+        el: "#app",
+        delimiters: ["[[", "]]"],
+        data: {
+            students: [],
+            new_student: {
+                first_name: "",
+                last_name: "",
+                cohort: "",
+                favorite_topic: "",
+                favorite_topic: "",
+                capstone: ""
+            },
+            status_message: ""
+        },
+        methods: {
+            getList: function() {
+                axios({
+                    url: "api/",
+                    method: "get",
+                    headers: {
+                        "X-CSRFToken": document.querySelector("input[name=csrfmiddlewaretoken]").value
+                    }
+                }).then(response => this.students = response.data);
+            },
+            addStudent: function() {
+                axios({
+                    url: "api/",
+                    method: "post",
+                    headers: {
+                        "X-CSRFToken": document.querySelector("input[name=csrfmiddlewaretoken]").value
+                    },
+                    data : this.new_student
+                }).then(response => {
+                    this.getList();
+                    this.new_student = {
+                        first_name: "",
+                        last_name: "",
+                        cohort: "",
+                        favorite_topic: "",
+                        favorite_topic: "",
+                        capstone: ""
+                    };
+                    this.status_message = "";
+                }).catch(error => {
+                    this.status_message = "Error! Make sure all fields are filled out, and that 'Link to Capstone' is a url!";
+                    console.log(error); 
+                });
+            }
+        },
+        mounted: function() {
+            this.getList();
+        }
+    });
+</script>

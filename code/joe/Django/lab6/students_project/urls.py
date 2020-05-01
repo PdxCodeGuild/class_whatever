@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('django.contrib.auth.urls')),
     path('user/', include('users.urls')),
-    path('', include('students.urls'))
-    # add api
+    path('', include('students.urls')),
+    path('api/', include('api.urls'))
 ]
