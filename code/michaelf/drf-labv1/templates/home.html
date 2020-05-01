@@ -1,7 +1,41 @@
-{% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}!</h1>
-<p><a href="{% url 'logout' %}">Logout</a><p>
-{% else %}
-<h1>Welcome, visitor!</h1>
-<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-{% endif %}
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>drflabv1</title>
+    {% comment %} CSS styles {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/main.css">
+  </head>
+  <body>
+    {%csrf_token%}
+    <div id="app">
+        <header>
+            {% if user.is_authenticated %}
+            <h1>Welcome {{ user.username }}!</h1>
+            <p><a href="{% url 'logout' %}">Logout</a><p>
+            {% else %}
+            <h1>Welcome, visitor!</h1>
+            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+        </header>
+        <div v-for="student in students" class="students">
+            [[student.first_name]]
+        </div>
+
+
+
+    </div>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="static/home.js"></script>
+  </body>
+</html>
+
+
+
