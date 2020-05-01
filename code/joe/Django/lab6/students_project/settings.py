@@ -37,15 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-
-    'rest_framework',
-
-    'api.apps.ApiConfig',
-
     'students.apps.StudentsConfig',
     'users.apps.UsersConfig',
-    
+    'rest_framework',
+    'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [
@@ -130,14 +125,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-LOGIN_REDIRECT_URL = 'students:student_list'
+LOGIN_REDIRECT_URL = 'students:home'
 LOGOUT_REDIRECT_URL = 'students:home'
 
 LOGIN_URL = 'login'
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES' : [
-        'rest_framework.permissions.AllowAny',
-    ]
-}

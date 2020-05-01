@@ -1,3 +1,7 @@
 {
-    "python.pythonPath": "C:\\Users\\soda2\\.virtualenvs\\chirp_project-RGQs37l2\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\soda2\\.virtualenvs\\chirp_project-RGQs37l2\\Scripts\\python.exe",
+    "cSpell.enableFiletypes": [
+        "vue",
+        "vue-html"
+    ]
 }
