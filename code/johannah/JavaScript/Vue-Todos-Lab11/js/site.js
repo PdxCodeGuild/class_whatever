@@ -9,21 +9,29 @@ let vm = new Vue({
   data: {
     message1: 'To Do List',
     message2: 'Need To Do:',
-    message3: 'Completed:',
+    message3: 'to mark complete check the box',
     user_input: '',
     added: [],   // array of the: todos
-    completed: [],
+    // completed: [],
+    // addedId: 1,
   },
   methods: {
     add_input: function() {  // first button: to add input
-      this.added.push(user_input)
+      this.added.push({
+        // id: this.addedId++,
+        title: this.user_input,
+        done: false
+      })
+      this.user_input = ''
     },
-    delete_btn: function() {  // btn to delete in added
-      this.added.splice(this.added.indexOf(added), 1);
+    delete_btn(add) {  // btn to delete in added div
+      this.added.splice(this.added.indexOf(add), 1);
     },
-    completed_btn: function() {  // btn to mark complete 
-      this.completed.push(added)
-      this.delete_btn(added)
-    },
+    // completed_box: function() {  // btn to mark complete 
+    //   this.completed.push({  // push to completed div
+    //     title: this.added,
+    //   })
+    //   this.delete_btn(added)  // remove input from added div
+    // },
   },
 })

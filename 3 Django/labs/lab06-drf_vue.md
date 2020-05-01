@@ -6,7 +6,7 @@ I built a Django app. It's got a basic user framework, a model, and a database f
 
 You can find the app to clone here: https://github.com/flamingveggies/drf-example
 
-Use the [DRF Quickstart](https://www.django-rest-framework.org/tutorial/quickstart/) as a reference. Build an API using the instructions. Notice how little code it takes it build a full API with Django REST Framework! Once you have the API built, use the built in API documentation website provided by DRF to explore your API and get a sense for the API calls you'll need to make from the frontend.
+Use the [WSVincent DRF tutorial](https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api) (or the [DRF Quickstart](https://www.django-rest-framework.org/tutorial/quickstart/)) as a reference. Build an API using the instructions. Notice how little code it takes it build a full API with Django REST Framework! Once you have the API built, use the built in API documentation website provided by DRF to explore your API and get a sense for the API calls you'll need to make from the frontend.
 
 ## Part 2
 
