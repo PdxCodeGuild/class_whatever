@@ -1,7 +1,9 @@
 {% csrf_token %}
 <div id="app">
+    <p><a href="{% url 'logout' %}">Logout</a><p>
     <h2>Student Record</h2>
     <div v-for="students in studentdata">
+    <button @click="removeStudent(students)">Remove Student<button>
        [[students.first_name]] 
        [[students.last_name]] <br>
        [[students.cohort]] 
@@ -19,12 +21,7 @@
     <input type="text" placeholder="Favorite Teacher" v-model="new_student.favorite_teacher"><br>
     <input type="text" placeholder="Capstone" v-model="new_student.capstone"><br>
     <button @click="newStudent">New Student<button>
-
     
-        
-
-    
-
 </div>
 
 <script src="https://unpkg.com/vue"></script>
@@ -35,16 +32,17 @@
         el: '#app',
         delimiters: ['[[',']]'],
         data: { 
-        csrf_token:"",
-        studentdata: [],    
-        new_student: {
-            "first_name": "",
-            "last_name": "",
-            "cohort": "",
-            "favorite_topic": "",
-            "favorite_teacher": "",
-            "capstone": "",
-            }
+            csrf_token:"",
+            studentdata: [],
+            new_student: {
+                "first_name": "",
+                "last_name": "",
+                "cohort": "",
+                "favorite_topic": "",
+                "favorite_teacher": "",
+                "capstone": "",
+                "id": "",
+                }
         },
     methods: {
 
@@ -65,9 +63,23 @@
                     "favorite_topic": "",
                     "favorite_teacher": "",
                     "capstone": "",
+                    "id": "",
                 }
             })
         },
+
+        removeStudent: function(students) {
+            console.log(students)
+             axios ({
+                method: "delete",
+                url: "http://127.0.0.1:8000/api/v1/" + students.id,
+                data: this.studentdata,
+                headers: {
+                    "X-CSRFTOKEN": this.csrf_token
+                }
+            }).then(response => this.getStudentList())
+      },
+
         getStudentList: function() {
         axios({
           method: "get",
