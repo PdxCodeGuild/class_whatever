@@ -1,0 +1,88 @@
+{% csrf_token %}
+<div id="app">
+    <h2>Student Record</h2>
+    <div v-for="students in studentdata">
+       [[students.first_name]] 
+       [[students.last_name]] <br>
+       [[students.cohort]] 
+       [[students.favorite_topic]] 
+       [[students.favorite_teacher]] 
+       [[students.capstone]] 
+    </div><br>
+
+
+    
+    <input type="text" placeholder="First Name" v-model="new_student.first_name"><br>
+    <input type="text" placeholder="Last Name" v-model="new_student.last_name"><br>
+    <input type="text" placeholder="cohort" v-model="new_student.cohort"><br>
+    <input type="text" placeholder="Favorite Topic" v-model="new_student.favorite_topic"><br>
+    <input type="text" placeholder="Favorite Teacher" v-model="new_student.favorite_teacher"><br>
+    <input type="text" placeholder="Capstone" v-model="new_student.capstone"><br>
+    <button @click="newStudent">New Student<button>
+
+    
+        
+
+    
+
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        delimiters: ['[[',']]'],
+        data: { 
+        csrf_token:"",
+        studentdata: [],    
+        new_student: {
+            "first_name": "",
+            "last_name": "",
+            "cohort": "",
+            "favorite_topic": "",
+            "favorite_teacher": "",
+            "capstone": "",
+            }
+        },
+    methods: {
+
+        newStudent: function() {
+            axios ({
+                method: "post",
+                url: "http://127.0.0.1:8000/api/v1/",
+                data: this.new_student,
+                headers: {
+                    "X-CSRFTOKEN": this.csrf_token
+                }
+            }).then(response => {
+                this.getStudentList()
+                this.new_student = {
+                    "first_name": "",
+                    "last_name": "",
+                    "cohort": "",
+                    "favorite_topic": "",
+                    "favorite_teacher": "",
+                    "capstone": "",
+                }
+            })
+        },
+        getStudentList: function() {
+        axios({
+          method: "get",
+          url: "http://127.0.0.1:8000/api/v1/"
+        }).then(response => this.studentdata = response.data)
+        },
+
+    },
+    mounted: function (){
+        this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+        this.getStudentList();
+    }
+
+
+
+    });
+
+</script>

@@ -6,5 +6,5 @@ from .serializers import StudentSerializer
 
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
-    serialier_class = StudentSerializer
+    serializer_class = StudentSerializer
 
