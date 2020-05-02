@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
   <title>Document</title>
 </head>
 <body>
   <div id="app">
-    <h3>{{ message }}</h3>
+    <!-- <h3>{{ message }}</h3>
     <input v-model="user_input" id="user_input" type="text">
-    <button v-on:click="quote_btn">reveal quotes!</button>
-    <ul id="reveal" v-for="add in added" :key="add.id">
-
-    </ul>
+    <button v-on:click="quote_btn">reveal quotes!</button> -->
+    <div id="reveal" v-for="rev in reveal" :key="rev.id" v-show="reveal.length">
+      <p>Quote: {{ rev.user_input }}</p>
+      <!-- {{ rev.quote }} -->
+      <p>By: {{ rev.author }}</p>
+    </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
