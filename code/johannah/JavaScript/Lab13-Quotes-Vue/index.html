@@ -11,6 +11,7 @@
     <!-- <h3>{{ message }}</h3>
     <input v-model="user_input" id="user_input" type="text">
     <button v-on:click="quote_btn">reveal quotes!</button> -->
+      <quotes @quote_btn="reveal=$event"></quotes>
     <div id="reveal" v-for="rev in reveal" :key="rev.id" v-show="reveal.length">
       <p>Quote: {{ rev.user_input }}</p>
       <!-- {{ rev.quote }} -->

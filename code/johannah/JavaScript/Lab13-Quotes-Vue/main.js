@@ -32,6 +32,10 @@ Vue.component('quotes', {
         method: 'get',
         url: 'https://favqs.com/api/qotd',
       })
+      .then(response =>{
+        this.reveal = response.data.quotes;
+        this.$emit('quote_btn',this.reveal)
+      })
       // mounted() {
       //   axios
       //   .get('https://favqs.com/api/qotd')

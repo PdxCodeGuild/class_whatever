@@ -14,9 +14,29 @@ let stopwatch = document.getElementById("stopwatch");
 
 
 // append clock to output
-getDate or setDate
-new Date()
-setInterval(Date, 1000)
+// getDate or setDate
+function currentTime() {
+  let today = new Date()
+  let hour = today.getHours();
+  let min = today.getMinutes();
+  let sec = today.getSeconds();
+  // hour = updateTime(hour);
+  // min = updateTime(min);
+  // sec = updateTime(sec);
+  clock_output.innerText = hour + ":" + min + ":" + sec;
+  let time = setTimeout(currentTime, 500);
+  // append 0
+}
+function cleanTime(i) {
+  if (i < 10) {
+    i = "0" + i
+  };  // add zero in front of numbers < 10
+  return i;
+}
+
+currentTime()
 
 
 // append stopwatch to output
+
+// setInterval(Date, 1000)
