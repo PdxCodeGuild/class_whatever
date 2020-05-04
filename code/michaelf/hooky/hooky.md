@@ -1,6 +1,6 @@
-#Hooky
+# Hooky
 
-######A place to learn from home.
+###### A place to learn from home. 
 
 
 **Project Overview**
@@ -9,7 +9,7 @@ Institutions of learning often lag behind social media and entertainment when it
 
 **Major Features**
 
-######Virtual Classroom
+###### Virtual Classroom
 
 **As an instructor**, I want video chat capabilities, so that I can see my students and communicate with them as if we were face to face.
 
@@ -21,6 +21,6 @@ Tasks:
 
 **As an instructor**, I also want a text messaging system within the system so that I can easily share information with my students, and a file upload portal so that students can submit their homework in a clear and itemized fashion. 
 
-######Homepage + Curated Content
+###### Homepage + Curated Content
 
 **As a student**, I want a simple to navigate searchable database of courses offered on hooky, as well as an account page to keep track of classrooms I am enrolled in.
