@@ -1,9 +1,19 @@
 /*oh CSS I miss you and your importance! Here is some styling, just so that you're not left out!*/
 
-html, body{
+html{
     margin: 0px;
     padding: 5px;
     color: white;
     background: linear-gradient(to right, rgba(0, 110, 255, 0.507), rgba(255, 125, 0, .5));
 
 }
+
+body{
+    background: linear-gradient(to left, rgba(0, 110, 255, 0.507), rgba(255, 125, 0, .5));
+    text-shadow: 4px 4px 4px black;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px;
+    flex-direction: column;
+    display: flex;
+    }
