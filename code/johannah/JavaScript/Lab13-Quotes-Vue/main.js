@@ -14,10 +14,30 @@ Vue.component('quotes', {
     }
   },
   template:
-    `<h3>Enter a keyword or author to find a quote:</h3>
-    <input v-model="user_input" id="user_input" type="text">
-    <button v-on:click="quote_btn">reveal quotes!</button>`
-,
+    `
+    <form>
+      <input v-model="user_input" id="user_input" type="text">
+      <button v-on:click="quote_btn">reveal quotes!</button>
+    </form>`,
+  methods: {
+    quote_btn: function() {
+      this.reveal.push()
+    }
+  }
+})
+let vm = new Vue ({
+  el:'#app',
+  data: {
+    info:[],
+    qotd:null
+  },
+  mounted() {
+    axios({
+      url:'https://favqs.com/api/qotd',
+      method: 'get',
+    }).then(response => {(this.qotd = response.data.quote.body)})
+  }
+})
 // let vm = new Vue({
 //   el: '#app',
 //   data: {
@@ -26,26 +46,13 @@ Vue.component('quotes', {
 //     author: '',
 //     reveal: [],  // array of the: quotes
 //   },
-  methods: {
-    quote_btn: function() {
-      axios({
-        method: 'get',
-        url: 'https://favqs.com/api/qotd',
-      })
-      .then(response =>{
-        this.reveal = response.data.quotes;
-        this.$emit('quote_btn',this.reveal)
-      })
-      // mounted() {
-      //   axios
-      //   .get('https://favqs.com/api/qotd')
-      //   .then(response => {
-      //     this.reveal = response.data.quote
-      //   }),
-      // },
-      // axios
-      //   .get('https://favqs.com/api/qotd')
-      //   .then(response => (this.reveal = response.data))
-    },
-  },
-})
+  // methods: {
+  //   quote_btn: function() {
+  //     axios({
+  //       method: 'get',
+  //       url: 'https://favqs.com/api/qotd',
+  //     })
+  //     .then(response =>{
+  //       this.reveal = response.data.quotes;
+  //       this.$emit('quote_btn',this.reveal)
+  //     })
