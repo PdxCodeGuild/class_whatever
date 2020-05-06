@@ -119,7 +119,10 @@ In all three presentations, you should first explain the development process and
 
 ## Odds and Ends
 An Illustrated (and Musical) Guide to Map, Reduce, and Filter Array Methods  
-https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/
+https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/  
+
+Tips for using many-to-many fields  
+https://www.revsys.com/tidbits/tips-using-djangos-manytomanyfield/  
 
 Willam Vincent's tutorials and articles  
 https://wsvincent.com/  
