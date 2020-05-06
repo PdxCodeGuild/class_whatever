@@ -17,12 +17,28 @@
             <h1>Welcome {{ user.username }}!</h1>
             <p><a href="{% url 'logout' %}">Logout</a><p>
             {% else %}
-            <h1>Welcome, visitor!</h1>
+            <h1>welcome, visitor!</h1>
             <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
             {% endif %}
         </header>
+        <form>
+            <div class="form-group my-form">
+                <h2>New Student</h2>
+                <input v-model="newStudent.first_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="First Name" required><br>
+                <input v-model="newStudent.last_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Last Name" required><br>
+                <input v-model="newStudent.cohort" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Cohort" required><br>
+                <input v-model="newStudent.favorite_topic" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Favorite Topic"><br>
+                <input v-model="newStudent.favorite_teacher" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Favorite Teacher"><br>
+                <input v-model="newStudent.capstone" type="url" class="form-control" id="exampleFormControlInput1" placeholder="https://yourcapstone.example/url"><br>
+                <button @click="createStudent" type="submit" class="btn btn-secondary">Add Student</button>
+            </div>
+        
         <div v-for="student in students" class="students">
-            [[student.first_name]]
+            <div class="student">
+            <a href='' class="my-link"><h4>[[student.first_name]] [[student.last_name]]</h4></a>
+            <p>[[student.cohort]]
+            </div>
+    
         </div>
 
 

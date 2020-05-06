@@ -4,12 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clock</title>
+  <style>
+    body {text-align: center;}
+    ol {list-style-position: inside;}
+    /* ol {display: inline-block;} */
+  </style>
 </head>
 <body>
+  <p><strong>The current time is:</strong></p>
   <p id="clock_output"></p>
-  <p id="stopwatch"></p>
-  <!-- start_btn
-  stop_btn -->
+  <br>
+  <div>
+    <p><strong>Your Stopwatch:</strong></p>
+    <!-- <div class="display">
+      <span id="minutes">00</span><span id="seconds">00</span><span id="centiseconds">00</span>
+    </div> -->
+    <p id="stopwatch">00:00:00:00</p>
+    <ol id="lap"></ol>
+    <button id="start_btn">start</button>
+    <button id="lap_btn">lap</button>
+    <button id="stop_btn">stop</button>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>

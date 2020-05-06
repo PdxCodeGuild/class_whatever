@@ -6,4 +6,5 @@ from . import views
 app_name = 'students'
 urlpatterns = [
     path('', TemplateView.as_view(template_name="home.html"), name='home'),
+    path('<int:pk>/', TemplateView.as_view(template_name="studentdetail.html"), name='detail'),
 ]
