@@ -1,0 +1,35 @@
+html {
+    background: linear-gradient(to left, rgba(128, 0, 0, 0.733), rgba(170, 138, 51, 0.719));
+    font-family: 'Franklin Gothic Medium',
+    'Arial Narrow',
+    Arial,
+    sans-serif;
+}
+
+body {
+    margin: 10px;
+    padding: 10px;
+    color: darkblue;
+}
+
+.p{
+    color: rgb(101, 84, 253);
+}
+
+.title{
+    
+    color: darkred;
+}
+
+
+
+.section{
+    border: 2px solid darkgoldenrod;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    max-width: 50vw;
+    box-shadow: 8px 10px 20px lightsteelblue;
+    font-style: italic;
+    background: linear-gradient(to right, rgba(128, 0, 0, 0.493), rgba(170, 138, 51, 0.5));
+}
