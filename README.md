@@ -27,7 +27,7 @@ Presentation Day: ???
 
 ## Capstones:
 
-Michael Himmelsbach: https://github.com/sirdeimos914/sirdeimos914.github.io/tree/master/Supermundanae
+Michael Himmelsbach: https://github.com/sirdeimos914/sirdeimos914.github.io/tree/master/Supermundanae  
 Joe Dean: https://github.com/JoeD42/BF-Joust-plus-plus
 
 ## JavaScript Labs Assigned:
