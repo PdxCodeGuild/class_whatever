@@ -29,7 +29,7 @@ Presentation Day: ???
 
 Michael Himmelsbach: https://github.com/sirdeimos914/sirdeimos914.github.io/tree/master/Supermundanae  
 Joe Dean: https://github.com/JoeD42/BF-Joust-plus-plus
-
+Michael Finn: https://github.com/mikeysight/waev
 Tina Shreves: https://github.com/TinaS241/Airsoft-Vapen
 
 ## JavaScript Labs Assigned:
