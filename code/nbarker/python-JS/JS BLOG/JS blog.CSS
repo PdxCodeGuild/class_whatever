@@ -21,14 +21,28 @@ body {
     color: darkred;
 }
 
+#book-list{
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.705);
+    margin: 10px;
+    padding: 10px;
+    max-width: 70vw;
+    text-align: center;
+}
+
+#page-banner h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:2px 2px 4px darkgray;
+}
 
 
-.section{
+
+#wrapper{
     border: 2px solid darkgoldenrod;
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
-    max-width: 50vw;
+    max-width: 70vw;
     box-shadow: 8px 10px 20px lightsteelblue;
     font-style: italic;
     background: linear-gradient(to right, rgba(128, 0, 0, 0.493), rgba(170, 138, 51, 0.5));
