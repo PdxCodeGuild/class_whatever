@@ -1,0 +1,134 @@
+{% csrf_token %}
+{% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <p><a href="{% url 'logout' %}">Logout</a><p>
+{% else %}
+    <h1>Welcome, visitor!</h1>
+    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+{% endif %}
+<div id="app">
+    <br>
+    <div v-for="student in student_items" :key="student.id">
+        <div v-if="student != updatingStudent">
+            <strong>[[ student.first_name ]] [[ student.last_name ]]</strong>
+            <p>Cohort: [[ student.cohort ]]</p>
+            <p>Favorite Topic: [[ student.favorite_topic ]]</p>
+            <p>Favorite Teacher: [[ student.favorite_teacher ]]</p>
+            <p>Capstone: [[ student.capstone ]]</p>
+            <button @click="deleteStudent(student)">delete</button>
+            <button @click="updatingStudent = student">update</button>
+        </div>
+        <div v-else>
+            <input type="text" v-model="updatingStudent.first_name" value="student.first_name"/><br>
+            <input type="text" v-model="updatingStudent.last_name" value="student.last_name"/><br>
+            <input type="text" v-model="updatingStudent.cohort" value="student.cohort"/><br>
+            <input type="text" v-model="updatingStudent.favorite_topic" value="student.favorite_topic"/><br>
+            <input type="text" v-model="updatingStudent.favorite_teacher" value="student.favorite_teacher"/><br>
+            <input type="text" v-model="updatingStudent.capstone" value="student.capstone"/><br>
+            <button @click="updatingStudent(student)">submit</button>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+    <h2>add new students</h2>
+    <input type="text" v-model="newStudent.first_name" placeholder="First Name"/><br>
+    <input type="text" v-model="newStudent.last_name" placeholder="Last Name"/><br>
+    <input type="text" v-model="newStudent.cohort" placeholder="Cohort"/><br>
+    <input type="text" v-model="newStudent.favorite_topic" placeholder="Favorite Topic"/><br>
+    <input type="text" v-model="newStudent.favorite_teacher" placeholder="Favorite Teacher"/><br>
+    <input type="text" v-model="newStudent.capstone" placeholder="Capstone URL"/><br>
+    <button @click="postStudent">add</button>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'], // This is new
+        data: {
+            csrf_token: '',
+            student_items: [],
+            updatingStudent: {
+                "first_name": "",
+                "last_name": "",
+                "cohort": "",
+                "favorite_topic": "",
+                "favorite_teacher": "",
+                "capstone": "",                
+            },
+            newStudent: {
+                "first_name": "",
+                "last_name": "",
+                "cohort": "",
+                "favorite_topic": "",
+                "favorite_teacher": "",
+                "capstone": "",
+            },
+        },
+        methods: {
+            postStudent: function (){
+                axios({
+                    method: 'post',
+                    url: 'apis/v1/',
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: this.newStudent,
+                })
+                this.newStudent = {
+                    "first_name": "",
+                    "last_name": "",
+                    "cohort": "",
+                    "favorite_topic": "",
+                    "favorite_teacher": "",
+                    "capstone": "",
+                }
+                this.getStudents()
+            },
+            getStudents: function(){
+                axios({
+                    method: 'get',
+                    url: 'apis/v1/',
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                }).then(res => this.student_items = res.data)
+            },
+            deleteStudent: function(student){
+                axios({
+                    method: 'delete',
+                    url: 'apis/v1/'+student.id+'/',
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                }).then(
+                    this.getStudents()
+                )
+            },
+            updateStudent: function(student){
+                axios({
+                    method: 'put',
+                    url: 'apis/v1/'+student.id+'/',
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },                    
+                    data: this.newStudent,
+                })
+                this.updateStudent = {
+                    "first_name": "",
+                    "last_name": "",
+                    "cohort": "",
+                    "favorite_topic": "",
+                    "favorite_teacher": "",
+                    "capstone": "",
+                };
+                this.getStudents()
+            }
+        },
+        mounted: function() {
+            this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+            this.getStudents()
+        },
+    });
+</script>
