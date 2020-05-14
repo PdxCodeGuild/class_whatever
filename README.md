@@ -25,6 +25,10 @@ Memorial Day -- May 25th, 2020
 Capstone proposal due: ???  
 Presentation Day: ???  
 
+## Capstones:
+
+
+
 ## JavaScript Labs Assigned:
 
 Lab 01-03a Pick 3 (alert/prompt)  
