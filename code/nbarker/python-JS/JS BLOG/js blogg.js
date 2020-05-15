@@ -17,6 +17,7 @@ list.addEventListener('click', function(e){
 
 
 //adding books! this is fucking HUGE
+
 const addForm = document.forms['add-book'];
 addForm.addEventListener('submit', function(e){
         e.preventDefault();
@@ -28,10 +29,14 @@ addForm.addEventListener('submit', function(e){
         const bookName = document.createElement('span');
         const deleteBtn = document.createElement('span');
 
-        //assign content
+        //add content
         deleteBtn.textContent = 'delete';
         bookName.textContent = value;
         
+        //add classes
+        bookName.classList.add('name');
+        deleteBtn.classList.add('delete');
+
         // append to document
         li.appendChild(bookName);
         li.appendChild(deleteBtn);
@@ -39,3 +44,37 @@ addForm.addEventListener('submit', function(e){
 
     });
 
+//create a constant referencing the checkbox
+//add event listener that listens for 'change'
+//if statement hidebox.checked remember {}
+//else remember {}
+const hideBox = document.querySelector("#hide")
+hideBox.addEventListener('change', function(e){
+    if (hideBox.checked){
+        list.style.display = "none";
+    } else {
+        list.style.display = "initial"
+    };
+    });
+
+//create a custom search filter!
+//create constant referencing the textbox
+//create constant referencing the titles
+//create constant referencing the input
+//something to cycle through the titles to match them
+//something to make them hide or show 'block'
+//filter books
+
+const searchBar = document.forms['search-books'].querySelector('input');
+searchBar.addEventListener('keyup', function(e){
+    const term = e.target.value.toLowerCase();
+    const books = list.getElementsByTagName('li');
+    Array.from(books).forEach(function(book){
+        const title = book.firstElementChild.textContent;
+        if(title.toLowerCase().indexOf(term)!=-1){
+            book.style.display = "block";
+        } else {
+            book.style.display = "none";
+            }
+        })
+    });
