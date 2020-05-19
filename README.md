@@ -32,6 +32,7 @@ Joe Dean: https://github.com/JoeD42/BF-Joust-plus-plus
 Michael Finn: https://github.com/mikeysight/waev   
 Tina Shreves: https://github.com/TinaS241/Airsoft-Vapen   
 JoHannah Joy: https://github.com/johannah-joy/pantry-trackr
+Nick Barker: https://github.com/SickTightRad/Call_of_Duties
 
 
 ## JavaScript Labs Assigned:
