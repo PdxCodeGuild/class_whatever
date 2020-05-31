@@ -9,6 +9,6 @@ class StudentSerializer(serializers.ModelSerializer):
             'cohort',
             'favorite_topic',
             'favorite_teacher',
-            'capstone'
+            'capstone',
         )
         model = Student

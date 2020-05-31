@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Calculator</title>
+</head>
+<body>
+  <div id="app">
+    <p id="answer"></p>
+    <button v-on:click="clear_entry">C</button>
+    <button v-on:click="negate">+/-</button>
+    <button v-on:click="divide_hundred">%</button>
+    <button v-on:click="divide">/</button>
+    <button v-on:click="append('7')">7</button>
+    <button v-on:click="append('8')">8</button>
+    <button v-on:click="append('9')">9</button>
+    <button v-on:click="multiply">*</button>
+    <button v-on:click="append('4')">4</button>
+    <button v-on:click="append('5')">5</button>
+    <button v-on:click="append('6')">6</button>
+    <button v-on:click="subtract">-</button>
+    <button v-on:click="append('1')">1</button>
+    <button v-on:click="append('2')">2</button>
+    <button v-on:click="append('3')">3</button>
+    <button v-on:click="add">+</button>
+    <button v-on:click="append('0')">0</button>
+    <button v-on:click="backspace">backspace</button>
+    <button v-on:click="decimal">.</button>
+    <button v-on:click="equals">=</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

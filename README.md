@@ -1,7 +1,7 @@
 # 20200217-Python-FullStack-Day
 Repo for the PDX Code Guild Python Full Stack day course starting 2/17/2020
 
-Class is held from **February 17th - May 22nd, 2020**
+Class is held from **February 17th - May 29nd, 2020**
 M-F 9:30 am – 4:30 pm
 
 
@@ -22,8 +22,18 @@ Memorial Day -- May 25th, 2020
 
 ## Capstone Dates:
 
-Capstone proposal due: ???  
-Presentation Day: ???  
+Capstone proposal due: 5/4  
+Presentation Day: 5/29  
+
+## Capstones:
+
+Michael Himmelsbach: https://github.com/sirdeimos914/sirdeimos914.github.io/tree/master/Supermundanae  
+Joe Dean: https://github.com/JoeD42/BF-Joust-plus-plus   
+Michael Finn: https://github.com/mikeysight/waev   
+Tina Shreves: https://github.com/TinaS241/Airsoft-Vapen   
+JoHannah Joy: https://github.com/johannah-joy/pantry-trackr
+Nick Barker: https://github.com/SickTightRad/Call_of_Duties
+
 
 ## JavaScript Labs Assigned:
 
@@ -119,7 +129,10 @@ In all three presentations, you should first explain the development process and
 
 ## Odds and Ends
 An Illustrated (and Musical) Guide to Map, Reduce, and Filter Array Methods  
-https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/
+https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/  
+
+Tips for using many-to-many fields  
+https://www.revsys.com/tidbits/tips-using-djangos-manytomanyfield/  
 
 Willam Vincent's tutorials and articles  
 https://wsvincent.com/  
