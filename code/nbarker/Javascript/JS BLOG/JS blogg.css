@@ -115,6 +115,12 @@ h2 {
     color: white;
 }
 
+#add-book button:hover{
+    background-color: white;
+    color: #9361bf;
+    transition-duration: .7s;
+}
+
 #add-book:after {
     content: '';
     display: block;
@@ -136,6 +142,12 @@ h2 {
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
+    
+}
+#tabbed-content li:hover{
+    background-color: darkmagenta;
+    color: white;
+    transition-duration: .8s;
 }
 
 #tabbed-content .panel {
@@ -143,8 +155,11 @@ h2 {
     border: 1px solid #ddd;
     padding: 0 10px;
     border-radius: 4px;
+    
 }
 
 #tabbed-content .panel.active {
     display: block;
+    color: #9361bf;
+    background-color: gold;
 }
