@@ -8,8 +8,7 @@
 Vue.component('quotes', {
   data: function () {
     return {
-      // user_input: '',
-      author: '',
+      user_input: '',
       reveal: [],  // array of the: quotes
     }
   },
@@ -17,11 +16,18 @@ Vue.component('quotes', {
     `
     <form>
       <input v-model="user_input" id="user_input" type="text">
-      <button v-on:click="quote_btn">reveal quotes!</button>
+      <button @click.prevent="quote_btn">reveal quotes!</button>
     </form>`,
   methods: {
     quote_btn: function() {
-      this.reveal.push()
+      axios({
+        url:'https://favqs.com/api/qotd',
+        method: 'get',
+        headers: {
+          // Authorization: Token token="YOUR_APP_TOKEN"
+        }
+        // params: 
+      }).then(response => {(this.qotd = response.data.quote.body)})
     }
   }
 })

@@ -13,6 +13,61 @@
 // HINT: You'll probably want root data attributes to store the current total, subtotal (screen display), and current operation. Some of your listener methods will change the total, some the subtotal, and some the operation.
 
 
+Vue.component('digit', {
+  // props: ['name'],
+  template: ``,
+  data: function(){
+    return {
+      num: '',
+    }
+  }
+});
+Vue.component('operator', {
+  // props: ['name'],
+  template: ``,
+  data: function(){
+    return {
+      // num: '',
+    }
+  }
+})
+Vue.component('clear', {
+  // props: ['name'],
+  template: ``,
+  data: function(){
+    return {
+      // num: '',
+    }
+  }
+})
+Vue.component('negate', {
+  // props: ['name'],
+  template: ``,
+  data: function(){
+    return {
+      // num: '',
+    }
+  }
+})
+Vue.component('backspace', {
+  // props: ['name'],
+  template: ``,
+  data: function(){
+    return {
+      // num: '',
+    }
+  }
+})
+Vue.component('clear', {
+  // props: ['name'],
+  template: ``,
+  data: function(){
+    return {
+      // num: '',
+    }
+  }
+})
+
 let vm = new Vue({
   el: '#app',
   data: {
