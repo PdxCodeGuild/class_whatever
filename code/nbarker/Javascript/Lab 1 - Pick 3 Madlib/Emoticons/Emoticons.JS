@@ -31,7 +31,12 @@ console.log(newEyes);
 newMouth = randomMouth(mouths);
 console.log(newMouth);
 
-console.log(newEyes + newNose + newMouth);
+new_face = newEyes + newNose + newMouth;
+console.log(new_face)
+
+// const wrap = document.querySelector('#face_display');
+// wrap.innerText = new_face
+
 
 /*
 //for (var i=1; i<101; i++) {
