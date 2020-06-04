@@ -1,38 +1,64 @@
-let vm = new Vue({
-    el: '#app',
-    data: {
-        user_input: '',
-        reveal: [],
-        qotd:null
+Vue.component('jokes', {
+    data: function(){
+        return{
+            user_chosen: '',
+            reveal: []
+        }
     },
-    methods: {
-        btn: function() {
+    template: `
+        <form>
+            <h3>Select a genre for a random Chuck Norris joke, quote, or fact.</h3>
+            <select v-model="user_chosen">
+                <option>animal</option>
+                <option>career</option>
+                <option>celebrity</option>
+                <option>dev</option>
+                <option>explicit</option>
+                <option>fashion</option>
+                <option>food</option>
+                <option>history</option>
+                <option>money</option>
+                <option>movie</option>
+                <option>music</option>
+                <option>political</option>
+                <option>religion</option>
+                <option>science</option>
+                <option>sport</option>
+                <option>travel</option>
+            </select>
+            <button @click.prevent="quote_btn">reveal jokes!</button><br><br>
+        </form>
+    `,
+    methods:{
+        quote_btn: function() {
             axios({
                 method: 'get',
-                url:"https://www.goodreads.com/search/index.xml",
-                headers:{
-                    Authorization: 'Token token="8T4Bj1ceH62SO0btgPfjTg"'
-                    // secret: 6Jn4JXPQ48QyKqCexUR5204oa7eP8WDMJl5jodRBbY
-                },
+                url:"https://api.chucknorris.io/jokes/random",
+                // headers:{
+                //     Authorization: 'Token token="b4e307531c2619699ea3df9c3f0ced40"'
+                // },
                 params: {
-                    // filter: this.user_input,
-                    // // type: 'tag',
-                    // type: this.user_input,
-                    q: 'word',
-
-                    // q: The query text to match against book title, author, and ISBN fields. Supports boolean operators and phrase searching.
-
-                    // page: Which page to return (default 1, optional)
-
-                    // key: Developer key (required).
-
-                    // search[field]: Field to search, one of 'title', 'author', or 'all' (default is 'all')
+                    filter: this.user_chosen,
+                    type: this.user_chosen,
                 }
             })
             .then(response => {(this.reveal = response.data);
-            console.log(this.reveal);
-            // this.$emit('output', this.reveal)
+            this.$emit('output', this.reveal)
+            // console.log(rev.value)
             })
         }
+    }
+});
+let vm = new Vue ({
+    el:'#app',
+    data: {
+        reveal:[],
+
     },
-})
+    // mounted() {
+    //     axios({
+    //         url:'https://favqs.com/api/qotd',
+    //         method: 'get',
+    //     }).then(response => {(this.qotd = response.data.quote.body)})
+    // }
+});
