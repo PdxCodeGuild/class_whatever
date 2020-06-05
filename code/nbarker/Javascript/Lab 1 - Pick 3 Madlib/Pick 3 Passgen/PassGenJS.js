@@ -1,49 +1,23 @@
-// let howLongString = prompt("How many characters in your password?")
-// let howLong = parseInt(howLongString, 10);
-// console.log(howLong);
-// //how long they would like their password
-
-// let stringaling = ("abcdefghijklmnopqrstuvwxyz!@#$%^&*()1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-// function makeLetters(stringaling) {
-//     let individualChars = stringaling.split('');
-// console.log(individualChars)};
-
-// makeLetters(stringaling)
-
-// function randomCharacter(individualChars) {
-//     return individualChars[Math.floor(Math.random() * howlong)];
-// };
-
-// console.log( randomCharacter() )
-
-//user can set desired password length
-let passwordLength = prompt("how many characters in your password?");
-console.log(passwordLength);
-
-//we have a characterset with upper, lower, special, and ints
-let charSet = ("abcdefghijklmnopqrstuvwxyz!@#$%^&*()1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-let new_charSet = charSet.split(''); //split it up!
-console.log(new_charSet); //beautiful!
-
-//I need random indexes, as long as passwordLength -1 
-
-
-applesauce = function randomNumber(passwordLength) {
-    return (passwordLength-1)}
-
-console.log(applesauce);
-
-function getRandomIndex(applesauce) {
-    return Math.random() * (applesauce - 0) + 0;
+function random_list_item(array){
+    let random_number = Math.floor(Math.random()*howLong);
+    return array[random_number]
 }
 
-bbq = getRandomIndex()
 
 
-text = "<ul>";
-for (i = 0; i <= passwordLength; i++) {
-    text += "<li>" + new_charSet[Math.random(bbq)] + "</li>"
-};
-text += "</ul>";
+let howLong = prompt("How many characters in your password?");
+console.log(howLong);
+//how long they would like their password
 
-document.getElementById("passgen").innerHTML = text;
+let stringaling = ("abcdefghijklmnopqrstuvwxyz!@#$%^&*()1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+
+result = '';
+for (let i=0; i<howLong; i++){
+    result += random_list_item(stringaling);
+}
+
+document.getElementById('password').innerHTML = result;
+
+document.getElementById("generate").addEventListener("click", function () {
+    document.getElementById("password").innerHTML = result;
+});
