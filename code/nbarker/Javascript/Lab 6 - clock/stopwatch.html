@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stopwatch.css">
+    <title>Document</title>
+</head>
+<body>
+<!-- How can we get the time in javascript?  we have to create a date object! Woooweeee! -->
+<!-- and we want to bind that time to the element 'data' super original, i know! -->
+
+
+<div id="buttons">
+    <button id="start" onclick="startTime()">START</button>
+
+    <button id="stop" onclick="clearTime()" >STOP</button>
+
+    <button id="lap" onclick="addLap()" >LAP</button>
+
+</div>
+
+<div id="stopwatch">
+    <h1 id="the_time">
+    <div id="stopwatch_display"></div>
+</h1>
+</div>
+<div id="lap_list_display">
+    <ul id="laps">LAP TIMES
+    </ul>
+
+</div>
+
+
+    <script src="stopwatch.js"></script>
+</body>
+</html>

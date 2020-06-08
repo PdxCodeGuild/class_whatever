@@ -104,7 +104,7 @@ body {
     flex-wrap: nowrap;
 }
 
-.input_new{
+.add_new_todo{
     border-radius: 10px;
     height: 27px;
     font-size: 20pt;
@@ -121,4 +121,9 @@ body {
     background: linear-gradient(to right, #0f97f9, #00397b);
     color: greenyellow;
     outline: none;
+}
+
+.button {
+    border-radius: 10px;
+    background-color: #ff8e1e;
 }

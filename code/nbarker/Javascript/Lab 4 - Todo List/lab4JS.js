@@ -42,23 +42,24 @@ add_button.onclick = function(){
     new_item_div.innerHTML = new_item;
 
     let complete_button = document.createElement('button');
-    complete_button.innerHTML = 'complete'; //i had inHerHTML forever, god
+    complete_button.innerHTML = 'I did it!'; //i had inHerHTML forever, god
     complete_button.onclick = function() {
         un_list.removeChild(this.parentElement); //on completetion, remove from un_list
+        alert("great job!")
         let li = document.createElement('li'); //create a new li
         li.innerHTML = new_item; 
         completed_list.appendChild(li); //add to completed list
     };
 //make the remove button, USEinnerHTML! or you'll get a little rectangle!
     let remove_button = document.createElement('button');
-    remove_button.innerHTML = 'remove';
+    remove_button.innerHTML = 'Delete';
     remove_button.onclick = function(){ //remove the child from the parent element (un_list)
         un_list.removeChild(this.parentElement);
     };
 
     //WE HAVE TO ADD THEM UUGGHHHH
 
-    li.appendChild(new_item_div); //gotta create a div! or no texgt
+    li.appendChild(new_item_div); //gotta create a div! or no text
     li.appendChild(complete_button); 
     li.appendChild(remove_button);
     un_list.appendChild(li);

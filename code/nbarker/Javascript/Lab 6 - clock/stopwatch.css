@@ -1,0 +1,119 @@
+html{
+    background-image: url("track and field.jpeg");
+    opacity: .7;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+#stopwatch_display{
+    display: flex;
+    background-color: rgb(44, 44, 44);
+    color: limegreen;
+    text-shadow: limegreen 4px 6px 12px;
+    justify-content: center;
+    border-radius: 15px;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    min-width: 200px;
+    vertical-align: middle;
+    border: 4px solid black;
+    padding: 10px;
+    font-size: 27pt;
+    transition-duration: .5s;
+}
+
+#stop {
+    background-color: red;
+    border: 4px solid white;
+    color: white;
+    font-size: 26pt;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    outline: none;
+    transition-duration: .7s;
+}
+
+#start {
+    background-color: #20d300;
+    border: 4px solid white;
+    color: white;
+    font-size: 26pt;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    outline: none;
+    transition-duration: .7s;
+    
+}
+
+#lap{
+    background-color: #a200d3;
+    border: 4px solid white;
+    color: white;
+    font-size: 26pt;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    outline: none;
+    transition-duration: .7s;
+}
+
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#stop:hover{
+    background: transparent;
+    transition-duration: .6s;
+    color: black;
+    border: 6px solid red;
+    border-radius: 15px;
+    outline: none;
+}
+#start:hover {
+    background: transparent;
+    transition-duration: .6s;
+    color: black;
+    border: 6px solid #20d300;
+    border-radius: 15px;
+    outline: none;
+}
+
+#lap:hover {
+    background: transparent;
+    transition-duration: .6s;
+    color: black;
+    border: 6px solid #a200d3;
+    border-radius: 15px;
+    outline: none;
+}
+
+#stopwatch_display:hover {
+    color: white;
+    background-color: darkgreen;
+    transition-duration: .5s;
+}
+
+#laps{
+    display: block;
+    flex-direction: row;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15pt;
+    color: rgb(0, 0, 0);
+    border: 5px solid black;
+    padding: 10px;
+    margin: 7px;
+    background-color: rgba(194, 194, 194, 0.431);
+}
