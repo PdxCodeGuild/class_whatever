@@ -1,136 +1,78 @@
-// Let's build a simple calculator in Vue. You can use a CSS framework if you wish, or you can style things yourself. Find some examples of calculators on Google.
+// Vue.component('clear', {
+//   template: `
+//     <button @click.prevent="clear_entry">C</button>
+//   `,
+//   data: function(){
+//     return {
+//       // num: '',
+//     }
+//   }
+// })
 
-// It should support the following functions at a minimum:
-
-// 0-9 and . (decimal place)
-// = (show result)
-// +/- (negate the number)
-// % (divide the number by 100)
-// + - * \ (basic arithmetic)
-// backspace
-// Each button should be a component (there should not be any <button>s in your root component). For many buttons you can use multiple instances of a common component, i.e. each digit button can use the same component and emit its value to the app root.
-
-// HINT: You'll probably want root data attributes to store the current total, subtotal (screen display), and current operation. Some of your listener methods will change the total, some the subtotal, and some the operation.
-
-
-Vue.component('digit', {
-  // props: ['name'],
-  template: ``,
-  data: function(){
-    return {
-      num: '',
-    }
-  }
-});
-Vue.component('operator', {
-  // props: ['name'],
-  template: ``,
-  data: function(){
-    return {
-      // num: '',
-    }
-  }
-})
-Vue.component('clear', {
-  // props: ['name'],
-  template: ``,
-  data: function(){
-    return {
-      // num: '',
-    }
-  }
-})
-Vue.component('negate', {
-  // props: ['name'],
-  template: ``,
-  data: function(){
-    return {
-      // num: '',
-    }
-  }
-})
-Vue.component('backspace', {
-  // props: ['name'],
-  template: ``,
-  data: function(){
-    return {
-      // num: '',
-    }
-  }
-})
-Vue.component('clear', {
-  // props: ['name'],
-  template: ``,
-  data: function(){
-    return {
-      // num: '',
-    }
-  }
-})
 
 let vm = new Vue({
   el: '#app',
   data: {
-    answer: '',  // string since 1 answer
+    answer: 0,
+    numOutput: 0,
+    op: undefined,
+    resetDisplay: false,
   },
   methods: {
+    display(number) {
+      if (this.answer == 0 || this.resetDisplay === true) {
+        this.answer = '';
+        this.resetDisplay = false;
+      }
+      this.answer += number.toString();  // string due to decimal
+    },
     clear_entry() {
-      // delete #answer
+      this.answer = 0;
+      this.numOutput = 0;
+      this.op = undefined;
     },
-    negate(
-      // make answer/output (number) negative
-    ) {},
+    negate() {
+      this.answer *= -1;
+    },
     divide_hundred() {
-      /100
-    },
-    divide() {
-      /
-    },
-    seven() {
-      7
-    },
-    eight() {
-      8
-    },
-    nine() {
-      9
-    },
-    multiply() {
-      *
-    },
-    four() {
-      4
-    },
-    five() {
-      5
-    },
-    six() {
-      6
-    },
-    subtract() {
-      -
-    },
-    one() {
-      1
-    },
-    two() {
-      2
-    },
-    three() {
-      3
-    },
-    add() {
-      +
-    },
-    zero() {
-      0
-    },
-    backspace() {
-      delete last digit
+      this.answer /= 100;
     },
     decimal() {
-      . which means for int
+      if (!this.answer.includes('.')) {
+        this.answer += '.';
+      }
     },
-    equals() {},
+    operator(op) {
+      if (this.numOutput != 0) {
+        // this.equals();
+        this.doCalculating();
+      }
+      this.numOutput = this.answer;
+      this.op = op;
+      this.resetDisplay = true;
+    },
+    equals() {
+      this.doCalculating();
+      this.numOutput = 0;
+      this.op = undefined;
+    },
+    doCalculating() {
+      let equaling = 0;
+      let numOne = parseFloat(this.numOutput);
+      let numTwo = parseFloat(this.answer);
+      if (this.op == '+') {
+        equaling = numOne + numTwo;
+      }
+      if (this.op == '-') {
+        equaling = numOne - numTwo;
+      }
+      if (this.op == '*') {
+        equaling = numOne * numTwo;
+      }
+      if (this.op == '/') {
+        equaling = numOne / numTwo;
+      }
+      this.answer = equaling.toString();  // string due to decimal
+    }
   },
 })
