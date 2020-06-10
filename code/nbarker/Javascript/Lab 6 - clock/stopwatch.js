@@ -1,3 +1,35 @@
+//I know it's kind of dumb, but I'm proud of this timer!
+
+
+let time = 0;
+let x = setInterval(function () {
+    document.getElementById("stopwatch_display").innerHTML = " " + time + " ";
+    time = time + 1;
+}, 1000);
+
+function clearTime() {
+    clearInterval(x)
+};
+
+function startTime() {
+    location.reload();
+};
+
+function addLap() {
+
+    let lap_time_capture = document.getElementById("stopwatch_display").innerText;
+    laps.innerHTML += "<li>" + lap_time_capture + "</li>";
+    // console.log(lap_time_capture);
+}
+
+
+// let lap_time_capture = document.getElementById("stopwatch_display").innerText;
+let laps = document.getElementById('laps');
+
+
+
+
+
 // /* setTimeout and setInterval */
 // //setTimeout
 
@@ -95,34 +127,4 @@
 // displayTime();
 // setInterval(displayTime, 1000);
 
-let time=0;
-let x =setInterval(function(){
-    document.getElementById("stopwatch_display").innerHTML = " "+time+" ";
-    time=time+1;
-}, 1000);
-
-function clearTime(){
-    clearInterval(x)
-};
-
-function startTime(){
-    location.reload();
-};
-
-function addLap() {
-    
-    let lap_time_capture = document.getElementById("stopwatch_display").innerText;
-    laps.innerHTML += "<li>" + lap_time_capture + "</li>";
-    console.log(lap_time_capture);
-}
-
-
-// let lap_time_capture = document.getElementById("stopwatch_display").innerText;
-let laps = document.getElementById('laps');
-
-
-
-
-///CREATE A DIV
-//CREATE AN LI withe the variable 'new_lap' in it! You're so close!
 

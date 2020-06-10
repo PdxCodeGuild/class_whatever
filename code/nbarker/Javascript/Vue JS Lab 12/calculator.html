@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="calculator.css">
+    <title>Calculatadorminator 5000!</title>
+</head>
+<body>
+    <!-- make a div, call it app, i sing this everytime -->
+    <div id='app'>
+        <div class="grid">
+            <!-- i'm more of a flexbox guy myself :-) placeholder 0, beautiful-->
+            <input type="text" v-model="result" placeholder="0">
+            <!-- click that number and it goes to the input, use char for everything -->
+            <button @click="input(num)" class="cell num" v-for="num in numbers">{{ num }}</button>
+            <!-- list the operators, link the op to the button at the same time -->
+            <button @click="input(op)" class="cell op" v-for="op in operations">{{ op }}</button>
+            
+            <button @click='backspace()' class="cell op">backspace</button>
+            <button @click='reset()' class="cell op">clear</button>
+            <button @click='calc()' class="cell op">=</button>
+            
+
+        </div>   
+    
+    </div>
+</body>
+<script src="calculator.js"></script>
+</html>
