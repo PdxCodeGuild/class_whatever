@@ -11,6 +11,9 @@ from .models import Storage
 # def submit(request, pk):
 
 
+# def redirection()
+
+
 
 
 # 2 views

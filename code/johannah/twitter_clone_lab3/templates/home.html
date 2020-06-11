@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <div>
+        {% if user.is_authenticated %}
+        <h2>Welcome, <em>{{ user.username }}</em></h2>
+
+        {% comment %} TWEETS {% endcomment %}
+
+
+        
+        {% else %}
+        <h2>Welcome</h2>
+        <p>You are not logged in. Please <strong><a href="{% url 'users:login' %}">login</a></strong> or <strong><a href="{% url 'users:signup' %}">sign up</a></strong>.</p>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}
+
+
+
+{% comment %} {% extends "base.html" %}
+
+{% block title %}
+My Pantry
+{% endblock %}
+
+{% block content %}
+<body>
+  <div class="body">
+    <h2>My Pantry</h2>
+
+    <div>
+      {% for item in data %}
+        
+        <p><strong>Pantry Item:</strong> {{ item.item_name }}</p>
+        <p><strong>Minimum Quantity:</strong> {{ item.quantity_min }}</p>
+        <label for=""><strong>Current Quantity:</strong> <input type="number" id="current" name="quantity_now"><button id="update_btn" type="submit">update current quantity</button></label>
+        <p><strong>Updated Current Quantity:</strong> <span id="output"></span></p>
+        <br><br>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+{% endblock %} {% endcomment %}
