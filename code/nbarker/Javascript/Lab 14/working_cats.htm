@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="catFacts.css">
+    
+        <title>COMPONENT</title>
+        <header class="headalicious">API TIME!</header>
+    </head>
+<body>
+    <div class="container" id="container">
+        <div id="app">
+    <ul>
+        <li v-for="post in posts.slice(0,10)">
+            <p> {{ post.title }} by {{ post.id }}</p>
+        </li>
+    </ul>
+
+<input type="text" v-model="searchPhrase" placeholder="let's find some more stuff!">
+
+<button id="searchButton" @click="getPostByTag">search</button>
+<button id='prevPage' @click="prevPage">top 10 results</button>
+<button id='nextPage' @click="nextPage">11-20</button>
+<button id='nextPage2' @click="nextPage2">21-30</button>
+
+<div v-if="searched" id="searchButton">
+    <button 
+        v-show="page != 1" @click="prevPage">prev page</button>
+    <button
+        v-show="!results.last_page" @click="nextpage">next page</button>
+    </div>
+</div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="working_cats.js"></script>
+    
+</body>
+</html>
