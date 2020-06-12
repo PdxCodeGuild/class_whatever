@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User 
 from django.contrib.auth.forms import UserCreationForm
+from .models import profile
 
 # thank you django!
 # registerForm is NOT registrationForm
@@ -12,6 +13,11 @@ class RegisterForm(UserCreationForm) :
         model = User
         # make a list, order counts for the form
         fields = ['username', 'email', 'password1', 'password2']
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = profile
+        fields = ['image', 'bio' ]
 
 
 # reusable form templates at the bottom https://docs.djangoproject.com/en/3.0/topics/forms/

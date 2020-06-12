@@ -1,14 +1,35 @@
 {% extends 'birdseed/base.html' %}
 
+<!-- limit update post to author only -->
 
 <!-- white-space: pre" is a godsend -->
 {% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Hello {{ user.username }}</h1>
+            
+    <p class="lead">
+        This is the chirpiest chirp ever!
+    </p>
+    
+    <hr class="my-4">
+        <p>
+            Click below to chrip your face off!
+        </p>
+            
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'tweetcreate' %}" role="button">Create</a>
+        </p>
+    </div>
+
 <div style="white-space: pre">
+
+    <!-- I HAD AN EXTRA E IN TWEET AND IT TOOK ME AN HOUR -->
 
 
 </div>
 <div class="container">
-    {% for tweet in tweets %}
+    {% for tweet in object_list %}
 
     <div class="card">
         <div class="card-header">
@@ -19,7 +40,14 @@
         <div class="card-body">
             <h5 class="card-title">Special title treatment</h5>
             <p class="card-text">{{ tweet.text }}</p>
-            <a href="#" class="btn btn-primary">ReFeed</a>
+
+            {% if tweet.uname == user %}
+            <a href="{% url 'tweetupdate' tweet.id %}"><button class="btn btn-outline-info">Update</button></a>
+            <a href="{% url 'tweetdelete' tweet.id %}"><button class="btn btn-outline-danger">Delete</button></a>
+
+            {% endif %}
+
+            <a href="#" class="btn btn-primary">ReChirp</a>
             <a href="#" class="btn btn-primary">Like</a>
             
         </div>
