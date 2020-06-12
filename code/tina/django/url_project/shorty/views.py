@@ -36,5 +36,5 @@ def redirect(request,newurl):
     return HttpResponseRedirect(short_url.full_url)
 
 
-def results(request,short_id):
-    return render(request,'shorty/index.html',{'shortlink':URL.objects.get(url_hash=short_id)})
+def results(request,short_url):
+    return render(request,'shorty/index.html',{'shortlink':URL.objects.get(url_hash=short_url)})

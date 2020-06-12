@@ -32,15 +32,6 @@ def opener(file):
     print(contacts)
     return contacts_list
 
-'''
-first_name,favorite_fruit,favorite_color
-matthew,melons,maroon
-ken,kiwi,key_lime
-on,rasberries,red
-'''
-
-contacts = [{'first_name': 'matthew', 'favorite_fruit': 'melons', 'favorite_color': 'maroon'}, {'first_name': 'ken', 'favorite_fruit': 'kiwi', 'favorite_color': 'key_lime'}, {'first_name': 'ron', 'favorite_fruit': 'rasberries', 'favorite_color': 'red'}]
-
 def print_contact():
     '''
     pretty prints contact
@@ -112,4 +103,19 @@ while work is True:
         work = False
         print("Goodbye!")
         break
+
+'''
+Last Version
+Write a repl loop
+i strongly recommend saving a copy before you do this!
+'''
+with open('contact-list.csv', 'w') as file:
+    save_write = []
+    save_write.append(list(contact_list[0].keys()))
+    for contact in contact_list:
+        save_write.append(list(contact.values()))
+    save_write = [','.join(x) for x in save_write]
+    save_write = '\n'.join(save_write)
+    
+    file.write(save_write)
 
