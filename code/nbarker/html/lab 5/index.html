@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="portfoliohome.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="top_container">
+        <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Web Development')">Web Development</button>
+        <button class="tablinks" onclick="openCity(event, 'Bio')">Bio</button>
+        <button class="tablinks" onclick="openCity(event, 'Photos')">Photography</button>
+      </div>
+      
+    </div>
+    
+      <div id="Web Development" class="tabcontent">
+        <h3>Web Development</h3>
+        <p>I am a web developer</p>
+        <body>
+            <div class="container">
+                <div class="item">Flex Item 1</div>
+                <div class="item">Flex Item 2</div>
+                <div class="item">Flex Item 3</div>
+                <div class="item">Flex Item 4</div>
+                <div class="item">Flex Item 5</div>
+            </div>
+        </body>
+      </div>
+      
+      <div id="Bio" class="tabcontent">
+        <h3>Bio</h3>
+        <body>
+            <div class="container">
+                <div class="item">Flex Item 1</div>
+                <div class="item">Flex Item 2</div>
+                <div class="item">Flex Item 3</div>
+                <div class="item">Flex Item 4</div>
+                <div class="item">Flex Item 5</div>
+            </div>
+        </body>
+      </div>
+
+      <div id="Photos" class="tabcontent">
+        <h3>Photos</h3>
+        <body>
+            <div class="row"> 
+                <div class="column">
+                    <img src="portfolio/bustystreet.jpeg" style="width:100%">
+                    <img src="portfolio/cambodiabandw.jpeg" style="width:100%">
+                    <img src="portfolio/coliseum.jpeg" style="width:100%">
+                    <img src="portfolio/dragons.jpeg" style="width:100%">
+                    <img src="portfolio/elephants.jpeg" style="width:100%">
+                    <img src="portfolio/holding an alligator.JPG" style="width:100%">
+                    
+                </div>
+                <div class="column">
+                    <img src="portfolio/jinweaving.jpeg" style="width:100%">
+                    <img src="portfolio/luangprabangwaterfall.jpeg" style="width:100%">
+                    <img src="portfolio/phuquocsunset.jpeg" style="width:100%">
+                    <img src="portfolio/redflowervietnam.jpeg" style="width:100%">
+                    <img src="portfolio/ricejars.jpeg" style="width:100%">
+                    <img src="portfolio/spiralstairs.jpeg" style="width:100%">
+                    <img src="portfolio/pariscelining.jpeg" style="width:100%">
+                </div>  
+                <div class="column">
+                    <img src="portfolio/vietsunset.jpeg" style="width:100%">
+                    <img src="portfolio/tablefruit.jpeg" style="width:100%">
+                    <img src="portfolio/vietstreamtree.jpeg" style="width:100%">
+                    <img src="portfolio/bandwtemple.jpeg" style="width:100%">
+                    <img src="portfolio/coffee.jpeg" style="width:100%">
+                    <img src="portfolio/icecave.jpeg" style="width:100%">
+
+                </div>
+                <div class="column">
+                    <img src="portfolio/goldenbudda.jpeg" style="width:100%">
+                    <img src="portfolio/iceicebaby.jpeg" style="width:100%">
+                    <img src="portfolio/orangerose.jpeg" style="width:100%">
+                    <img src="portfolio/panamacity.jpeg" style="width:100%">
+                    <img src="portfolio/thailanters.jpeg" style="width:100%">
+                    <img src="portfolio/panamarainbow.jpeg" style="width:100%">
+                    <img src="portfolio/redflower.jpeg" style="width:100%">
+                    <img src="portfolio/ivypole.jpeg" style="width:100%">
+                    <img src="portfolio/elbagreen.jpeg" style="width:100%">
+                  </div>
+              </div>
+            
+            <p></p>
+            </body>
+        </div>     
+      
+      <script>
+          function openCity(evt, cityName) {var i, tabcontent, tablinks; tabcontent = document.getElementsByClassName("tabcontent"); for (i = 0; i < tabcontent.length; i++) {tabcontent[i].style.display = "none";}
+            tablinks = document.getElementsByClassName("tablinks"); for (i = 0; i < tablinks.length; i++) {tablinks[i].className = tablinks[i].className.replace(" active", "");}
+            document.getElementById(cityName).style.display = "block"; evt.currentTarget.className += " active";}
+      </script>
+</body>
+</html>
