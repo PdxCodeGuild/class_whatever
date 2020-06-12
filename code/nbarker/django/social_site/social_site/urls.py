@@ -16,8 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from accounts import views as acc_views
+# give these appropriate names
+# it's not django.config nick! why do you keep doing that?!
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('birdseed.urls'))
+    path('', include('birdseed.urls')),
+    path('login/', auth_views.LoginView.as_view(template_name = 'accounts/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name = 'accounts/logout.html'), name='logout'),
+    path('register/', acc_views.register, name="register")
 ]
+
+# the name allows us to reference it in the login.html
+# login and logout are pretty much the same, remember!
+# django.contrib.auth https://docs.djangoproject.com/en/3.0/topics/auth/
+#customizing auth https://docs.djangoproject.com/en/3.0/topics/auth/customizing/
