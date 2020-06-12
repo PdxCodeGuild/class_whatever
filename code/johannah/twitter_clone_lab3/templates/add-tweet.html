@@ -5,15 +5,14 @@
 	<div class="body">
 		<h3>Add A Tweet</h3>
 		<br>
-		<form method="post" enctype="multipart/form-data" action="{% url 'posts:home' %}">
+		<form method="post" enctype="multipart/form-data" action="{% url 'posts:add-tweet' %}">
 			{% csrf_token %}
-			<div>
-				<input class="input-box" id="text" name="text" type="text" placeholder="Type chirp here...">
-				<br><br>
-				<input class="input-box" id="date_published" name="date_published" type="date" placeholder="today's date"><br><br>
-				{% comment %} <input class="input-box" id="quantity_now" name="quantity_now" type="number" placeholder="current quantity in your pantry now"><br><br> {% endcomment %}
-				<button type="submit">submit</button>
-			</div>
+			{{ form.as_p }}
+            {% comment %} <input class="input-box" id="text" name="text" type="text" placeholder="Type chirp here...">
+            <br><br>
+            <input class="input-box" id="date_published" name="date_published" type="date" placeholder="today's date"><br><br> {% endcomment %}
+            <button type="submit">submit</button>
+			
 		</form>
 	</div>
 </body>
