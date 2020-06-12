@@ -1,3 +1,4 @@
+'''NICK GET AWAY THIS IS NOT THE RIGHT ONE! to go the other URLs'''
 """social_site URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
