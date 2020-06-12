@@ -1,0 +1,31 @@
+{% extends 'birdseed/base.html' %}
+
+
+<!-- white-space: pre" is a godsend -->
+{% block content %}
+<div style="white-space: pre">
+
+
+</div>
+<div class="container">
+    {% for tweet in tweets %}
+
+    <div class="card">
+        <div class="card-header">
+            <!-- the best syntax ever! -->
+            <a href='#'>{{ tweet.name }} </a>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">{{ tweet.text }}</p>
+            <a href="#" class="btn btn-primary">ReFeed</a>
+            <a href="#" class="btn btn-primary">Like</a>
+
+        </div>
+    </div>
+
+    {% endfor %}
+    </div>
+        
+
+{% endblock content %}
