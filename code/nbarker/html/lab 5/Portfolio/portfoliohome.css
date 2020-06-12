@@ -1,0 +1,141 @@
+html { 
+  background: url(https://github.com/SickTightRad/github.io/tree/master/portfolio/icecave.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+div.top_container {
+    display: flex;
+    background-color: cyan;
+    width: 97vw;
+    flex-direction: row;
+    align-content: center;
+    border-radius: 30px;
+}
+/* Style the tab */
+.tab {
+    display: flex;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    border-radius: 25px;
+    width: 98vw;
+    margin: 2em;
+    padding: 1px;
+    align-items: flex-start;
+    align-content: center;
+    align-self: center;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+.tab button {
+    display: flex;
+    background-color: #ddd;
+    flex-wrap: nowrap;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 100%;
+    margin: 4px 2px;
+    transition: 0.8s;
+    width: 98%;
+    align-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 25px;
+    }
+  
+  /* Change background color of buttons on hover */
+.tab button:hover {
+    background: url(https://github.com/SickTightRad/github.io/tree/master/portfolio/portfolio/phuquocsunset.jpeg) no-repeat center center fixed;
+    color: white;
+    display: flex;
+  }
+  
+  /* Create an active/current "tab button" class */
+.tab button.active {
+    display: flex;
+    opacity: 0;
+  }
+  
+  /* Style the tab content */
+.tabcontent {
+    width: 97vw;
+    height: auto;    
+    display: flex;
+    padding: 2px 6px;
+    border: 1px solid #ccc;
+    display: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+div.container{
+    display: flex;
+}
+
+div.containerA{  
+    -ms-flex: 25%; /* IE10 */
+    flex: 20%;
+    max-width: 20%;
+    padding: 0 4px;
+    flex-direction: row;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+}
+.img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+      }
+
+    
