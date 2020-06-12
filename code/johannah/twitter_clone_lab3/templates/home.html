@@ -4,11 +4,15 @@
 <body>
     <div>
         {% if user.is_authenticated %}
-        <h2>Welcome, <em>{{ user.username }}</em></h2>
-
-        {% comment %} TWEETS {% endcomment %}
-
-
+        <div class="body">
+            <h2>Tweets by <em>{{ user.username }}</em></h2>
+            {% for post in object_list %}
+                <p>{{ post.text }}</p>
+                <p>{{ post.date_published }}</p>
+                <p><em>by: {{ post.author.username }}</em></p>
+                <br><br>
+            {% endfor %}
+        </div>
         
         {% else %}
         <h2>Welcome</h2>
@@ -17,30 +21,3 @@
     </div>
 </body>
 {% endblock %}
-
-
-
-{% comment %} {% extends "base.html" %}
-
-{% block title %}
-My Pantry
-{% endblock %}
-
-{% block content %}
-<body>
-  <div class="body">
-    <h2>My Pantry</h2>
-
-    <div>
-      {% for item in data %}
-        
-        <p><strong>Pantry Item:</strong> {{ item.item_name }}</p>
-        <p><strong>Minimum Quantity:</strong> {{ item.quantity_min }}</p>
-        <label for=""><strong>Current Quantity:</strong> <input type="number" id="current" name="quantity_now"><button id="update_btn" type="submit">update current quantity</button></label>
-        <p><strong>Updated Current Quantity:</strong> <span id="output"></span></p>
-        <br><br>
-      {% endfor %}
-    </div>
-  </div>
-</body>
-{% endblock %} {% endcomment %}

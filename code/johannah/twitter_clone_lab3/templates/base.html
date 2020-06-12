@@ -14,6 +14,7 @@
     <ul class="nav-top">
         <li><a href="{% url 'posts:home' %}">Home</a></li>
         {% if user.is_authenticated %}
+        {% comment %} <li><a href="{% url 'posts:my-tweets' %}">My Tweets</a></li> {% endcomment %}
         <li><a href="{% url 'posts:add-tweet' %}">Add Tweet</a></li>
         <li><a href="{% url 'users:logout' %}">Logout, <em>{{ user.username }}</em></a></li>
         {% endif %}
