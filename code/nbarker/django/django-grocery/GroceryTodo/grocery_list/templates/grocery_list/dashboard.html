@@ -1,98 +1,232 @@
 <!DOCTYPE html>
-<html>
+
 <head>
-<h1>Welcome to the Grocery list of the future</h1>
+    <title>Dr. Chekov, the List!</title>
+    
 </head>
 
-<form action="/addGroceryItem/" method="post">{% csrf_token %}
-    <input type="text" name="content"/>
-    <input type="submit" value="Add"/>
-</form>
+<body>
+<div id="wrapper">
+    <div id="main_contain">
+        <h1 id='top_title'>Honey-Do Pandemic Response List</h1>
+        <h3 id='small_title'>Mobile Plan!</h3>
 
-<h1>Items yet to be destroyed by your will!</h1>
-<ul>
-{% for grocery_item in incomplete_items %}
-<li>
-<p1> {{ grocery_item.content }} </p1>
-<p>Created on {{ grocery_item.timestamp }},</p> <p2>I have completed this task: {{grocery_item.completed}}</p2>
-<form action="/deleteGroceryItem/{{grocery_item.pk}}/"
-        style="display: inline;"
-        method="post">{% csrf_token %}
-    <input type="submit" value="I give up!"/>
-</form>
-<form action="/completeGroceryItem/{{grocery_item.pk}}/"
-        style="display: inline;"
-        method="post">{% csrf_token %}
-    <input type="submit" value="done!"/>
-</form>
-</li>
-</ul>
-{% endfor %}
-<ul2>
-<h1>Completed Items!</h1>
-{% for grocery_item in completed_items %}
-<pc>Item:</pc> <p4>{{grocery_item.content}} </p4> <pc> Completed On:</pc> <p5>  {{grocery_item.completed_date}} </p5> <p6><u>Great Job!</u></p6></br>
-</ul2>
-{% endfor %}
+        <form action="/addGroceryItem/" method="post">{% csrf_token %}
+            <input type="text" name="content" id="add_input_box"
+                placeholder="   What would you like to accomplish today?" />
+            <input type="submit" value="add to plans" id="add_button" />
+        </form>
+
+        <h3>Incomplete Goals</h3>
+        <ul id="active_ul">
+        {% for grocery_item in incomplete_items %}
+        <li id="active_li">{{ grocery_item.content }} created on {{ grocery_item.timestamp }},
+                <form action="/deleteGroceryItem/{{grocery_item.pk}}/" style="display: inline;" method="post">
+                    {% csrf_token %}
+                    <input type="submit" id="give_up_button" value="cancel" />
+                </form>
+                <form action="/completeGroceryItem/{{grocery_item.pk}}/" style="display: inline;" method="post">
+                    {% csrf_token %}
+                    <input type="submit" id="complete_button" value="Complete!" />
+                </form>
+            </li>
+        </ul>
+        {% endfor %}
+
+            <h2>Look at these accomplished goals!:</h2>
+            <ul>
+            {% for grocery_item in completed_items %}
+                <li> <b>Great Job!</b> <i>{{grocery_item.content}}</i> was completed {{grocery_item.completed_date}}!
+                    <form action="/deleteGroceryItem/{{grocery_item.pk}}/" style="display: inline;" method="post"
+                        id="give_up_button">
+                        {% csrf_token %}
+                        <input type="submit" value="delete" id="give_up_button" />
+                    </form>
+                </li>
+            {% endfor %}
+            </ul>
+    </div>
+    </div>
+    <style>
+        
+        body {
+            background: linear-gradient(to right, #f54952d5, #ae2d68, #660f56);
+        }
+
+        #wrapper{
+            text-align: center;
+        }
+
+        #main_contain {
+            margin: auto;
+            width: 75%;
+            border: 3px solid white;
+            padding: 20px;
+            display: inline-block;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #add_input_box{
+            width: 65%;
+            border-radius: 20px;
+            height: 2.2rem;
+            font-size: large;
+            text-align: center;
+            padding: 6px;
+            }
+
+        #add_input_box:hover{
+            background-color: #44368068;
+            transition-duration: .5s;
+            color: white; 
+        }
+
+        #add_button{
+            width: 25%;
+            border-radius: 20px;
+            height: 2.2rem;
+            text-align: center;
+            padding: 6px;
+            font-size: large;
+            outline: none;
+        }
+        #add_button:hover{
+            color: black;
+            background: linear-gradient( to right, #f9d1d1, #f765a3 ) ;
+            outline: none;
+        }
+        #give_up_button{
+        width: fit-content;
+        border-radius: 10px;
+        text-align: center;
+        font-size: large;
+        outline: none;
+        }
+        #give_up_button:hover{
+        color: white;
+        background-color: red;
+        transition-duration: .5s;
+        outline: none;
+
+        }
+        #complete_button{
+        width: fit-content;
+        border-radius: 10px;
+        text-align: center;
+        font-size: large;
+        outline: none;
+        }
+        #complete_button:hover{
+        color: white;
+        background-color: green;
+        transition-duration: .5s;
+        outline: none;
+
+        }
+
+        #active_ul{
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 0px;
+            margin-block-end: 0px;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 0px;
+            padding: 5px;
+            text-align: left;
+        }
+        ul{
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+        padding: 5px;
+        text-align: center;
+        }
+
+        li{
+            display: block;
+            padding: 3px;
+        }
+
+        #active_li{
+            display: block;
+            text-align: left;
+            padding: 13px;
+            border-bottom-left-radius: 15px;
+            border: 2px solid white;
+            width: fit-content;
+            font-size: large;
+        }
+
+        #small_title{
+        display: none;
+        }
 
 
-<style>
+        @media only screen and (max-width: 775px) {
+            body {
+                background: linear-gradient(to top left, #0b1354, #165BAA, #A155B9);
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                color: white;
+            }
+            #top_title{
+                display: none;
+            }
+            #small_title{
+                display: block;
+                margin: auto;
+                width: 100%;
+                text-align: center;
+                font-size: 2rem;
+            }
+            #add_input_box{
+            width: 100%;
+            border-radius: 20px;
+            height: 1.5rem;
 
-body {
-    background-color: rgba(10, 10, 10, .9);
-}
+            }
+            #main_contain {
+            margin: auto;
+            width: 75%;
+            border: 3px solid black;
+            padding: 20px;
+            display: block;
+            }
 
-pc {
-    color:yellow;
-    font-size: .65em;
-}
-p {
-    color: red;
-    font-size: .7em;
-}
-p6 {
-    color: pink;
-    font-size: .65em;
-}
+            #add_button{
+            width: 55%;
+            border-radius: 20px;
+            text-align: center;
+            padding: 6px;
+            font-size: large;
+            outline: none;
+            }
+            #give_up_button{
+            width: fit-content;
+            border-radius: 10px;
+            text-align: center;
+            font-size: small;
+            outline: none;
+            }
+            #complete_button{
+            width: fit-content;
+            border-radius: 10px;
+            text-align: center;
+            font-size: small;
+            outline: none;
+            }
+            
+        }
+    </style>
+</body>
 
-
-p1 {
-    color: lightblue;
-    font-size: 1em;
-    background-color: rgba(10, 10, 10, .11);
-    border-radius: 4px;
-    padding: 2px;
-}
-
-p2 {
-    color: darkorange;
-    font-size: .7em;
-    padding: 3px;
-}
-p4 {
-    color: purple;
-    font-size: .85em;
-    background: grey;
-    border-radius: 10px;
-    padding: 3px;
-}
-p5 {
-    color: purple;
-    font-size: .85em;
-    background: grey;
-    border-radius: 10px;
-    padding: 3px;
-}
-
-h1 {
-  font-size: 1.4em;
-  background: linear-gradient(Blue, grey);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-ul2 {
-   display:block;
-}
-</style>
 </html>
